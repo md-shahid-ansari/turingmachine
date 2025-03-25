@@ -1,0 +1,33 @@
+{
+    "name": "Binary Number Mirror Copier",
+    "description": "Copies a binary number in reverse order, using - as separator",
+    "author": "Frank Buss",
+    "date": "2025",
+    "blank": "#",
+    "initial": "start",
+    "tape": "1101",
+    "transitions": [
+        // first move to end and place separator
+        ["start", "#", "-", "L", "init"],
+        ["start", "*", "*", "R", "*"],
+
+        // if at end, halt
+        ["init", "#", "#", "R", "HALT"],
+
+        // mark current bit as in progress with x
+        ["init", "0", "x", "R", "write0"],
+        ["init", "1", "x", "R", "write1"],
+
+        // find first empty position
+        ["write0", "#", "0", "R", "back0"],
+        ["write0", "*", "*", "R", "*"],
+        ["write1", "#", "1", "R", "back1"],
+        ["write1", "*", "*", "R", "*"],
+
+        // move back to the marked bit
+        ["back0", "x", "0", "L", "init"],
+        ["back0", "*", "*", "L", "*"],
+        ["back1", "x", "1", "L", "init"],
+        ["back1", "*", "*", "L", "*"]
+    ]
+}

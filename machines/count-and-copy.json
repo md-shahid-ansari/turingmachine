@@ -1,0 +1,51 @@
+{
+    "name": "Binary Number Counter and Copier",
+    "description": "Copies a binary counter multiple times, as specified by the counter. For example for 11 it will generate 00-11-10-01. While running, the counter is decremented until 0. If it is already 0, then there is no value copied. For the initial tape 1011 the final tape is 0000-1011-1010-1001-1000-0111-0110-0101-0100-0011-0010-0001",
+    "author": "Frank Buss",
+    "date": "2025",
+    "blank": "#",
+    "initial": "test",
+    "tape": "1011",
+    "transitions": [
+        // move right until empty, set separator, and then move back
+        ["start", "#", "-", "L", "back"],
+        ["start", "*", "*", "R", "*"],
+        ["back", "#", "#", "R", "copy"],
+        ["back", "*", "*", "L", "back"],
+
+        // copy current counter value, mark bit with x
+        ["copy", "#", "-", "L", "*"],
+        ["copy", "0", "x", "R", "write0"],
+        ["copy", "1", "x", "R", "write1"],
+
+        // find first empty position
+        ["write0", "#", "0", "R", "back0"],
+        ["write0", "*", "*", "R", "*"],
+        ["write1", "#", "1", "R", "back1"],
+        ["write1", "*", "*", "R", "*"],
+
+        // move back to the marked bit
+        ["back0", "x", "0", "R", "copy"],
+        ["back0", "*", "*", "L", "*"],
+        ["back1", "x", "1", "R", "copy"],
+        ["back1", "*", "*", "L", "*"],
+
+        // start decrement when current counter value copied
+        ["copy", "-", "-", "L", "dec"],
+
+        // decrement counter
+        ["dec", "0", "1", "L", "carry"],
+        ["dec", "1", "0", "L", "test"],
+        ["dec", "#", "#", "R", "test"],
+        ["carry", "0", "1", "L", "carry"],
+        ["carry", "1", "0", "L", "test"],
+        ["carry", "#", "#", "L", "HALT"],
+
+        // test if counter is zero
+        ["test", "*", "*", "L", "*"],
+        ["test", "#", "*", "R", "test2"],
+        ["test2", "0", "*", "R", "*"],
+        ["test2", "1", "*", "R", "start"],
+        ["test2", "-", "*", "R", "HALT"]
+    ]
+}

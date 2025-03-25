@@ -1,0 +1,16 @@
+{
+  "name": "Busy Beaver, 2 states",
+  "description": "A 2-state Busy Beaver champion, halts after 6 steps on blank tape, writing four 1s.",
+  "author": "Tibor Rado",
+  "date": "1962",
+  "link": "https://ieeexplore.ieee.org/document/6769603",
+  "paper": "T. Rado (1962), \"On non-computable functions\", The Bell System Technical Journal ( Volume: 41, Issue: 3, May 1962), 877–884",
+  "blank": "0",
+  "initial": "A",
+  "transitions": [
+    ["A", "0", "1", "R", "B"],
+    ["A", "1", "1", "L", "B"],
+    ["B", "0", "1", "L", "A"],
+    ["B", "1", "1", "L", "HALT"]
+  ]
+}

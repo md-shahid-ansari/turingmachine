@@ -1,0 +1,18 @@
+{
+  "name": "Binary Increment",
+  "description": "Adds one to a binary number. Must start on the right end of the number.",
+  "author": "David Eck",
+  "link": "https://math.hws.edu/eck/js/turing-machine/TM.html",
+  "blank": "#",
+  "initial": "0",
+  "tape": "10011111",
+  "position": 7,
+  "transitions": [
+    ["0", "#", "1", "R", "1"],
+    ["0", "0", "1", "R", "1"],
+    ["0", "1", "0", "L", "0"],
+    ["1", "#", "#", "L", "HALT"],
+    ["1", "0", "0", "R", "1"],
+    ["1", "1", "1", "R", "1"]
+  ]
+}

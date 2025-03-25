@@ -1,0 +1,25 @@
+{
+  "name": "Count in Base 10",
+  "description": "When started on a base-10 number (head on the right end), this machine adds 1 and repeats forever.",
+  "author": "David Eck",
+  "link": "https://math.hws.edu/eck/js/turing-machine/TM.html",
+  "blank": "#",
+  "initial": "0",
+  "tape": "0",
+  "position": 0,
+  "transitions": [
+    ["0", "#", "1", "R", "1"],
+    ["0", "0", "1", "R", "1"],
+    ["0", "1", "2", "R", "1"],
+    ["0", "2", "3", "R", "1"],
+    ["0", "3", "4", "R", "1"],
+    ["0", "4", "5", "R", "1"],
+    ["0", "5", "6", "R", "1"],
+    ["0", "6", "7", "R", "1"],
+    ["0", "7", "8", "R", "1"],
+    ["0", "8", "9", "R", "1"],
+    ["0", "9", "0", "L", "0"],
+    ["1", "#", "#", "L", "0"],
+    ["1", "*", "*", "R", "1"]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Busy Beaver, 3 states",
+  "description": "Champion from Lin & Rado (1965); runs 21 steps on a blank tape.",
+  "author": "Shen Lin & Tibor Rado",
+  "date": "1965",
+  "link": "https://doi.org/10.1145/321264.321270",
+  "paper": "Lin, S. & Rado, T. (1965). \"Computer Studies of Turing Machine Problems.\" J. ACM 12(2), 196–212.",
+  "blank": "0",
+  "initial": "A",
+  "transitions": [
+    ["A", "0", "1", "R", "B"],
+    ["A", "1", "1", "R", "HALT"],
+    ["B", "0", "1", "L", "B"],
+    ["B", "1", "0", "R", "C"],
+    ["C", "0", "1", "L", "C"],
+    ["C", "1", "1", "L", "A"]
+  ]
+}

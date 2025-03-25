@@ -1,0 +1,20 @@
+{
+  "name": "Busy Beaver, 4 states",
+  "description": "4-state Busy Beaver champion. Runs 107 steps on blank tape.",
+  "author": "Allan H. Brady",
+  "date": "1983",
+  "link": "https://www.ams.org/journals/mcom/1983-40-162/S0025-5718-1983-0689479-6/",
+  "paper": "Brady, A. H. (1983). \"The determination of Rado's function Σ(k) for four-state Turing machines.\" Math. Comp. 40 (1983), 647-665.",
+  "blank": "0",
+  "initial": "A",
+  "transitions": [
+    ["A", "0", "1", "R", "B"],
+    ["A", "1", "1", "L", "B"],
+    ["B", "0", "1", "L", "A"],
+    ["B", "1", "0", "L", "C"],
+    ["C", "0", "0", "L", "HALT"],
+    ["C", "1", "1", "L", "D"],
+    ["D", "0", "1", "R", "D"],
+    ["D", "1", "0", "R", "A"]
+  ]
+}

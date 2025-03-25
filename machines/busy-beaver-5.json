@@ -1,0 +1,22 @@
+{
+  "name": "Busy Beaver, 5 states",
+  "description": "Discovered in 1989, published 1990. Halts after 47,176,870 steps on blank tape.",
+  "author": "Heiner Marxen & Jürgen Buntrock",
+  "date": "1990",
+  "link": "https://turbotm.de/~heiner/BB/mabu90.html",
+  "paper": "Heiner Marxen, Jürgen Buntrock, Attacking the Busy Beaver 5, Bulletin of the EATCS, Number 40, February 1990, pp. 247-251, [ISSN 0252-9742]",
+  "blank": "0",
+  "initial": "A",
+  "transitions": [
+    ["A", "0", "1", "R", "B"],
+    ["A", "1", "1", "L", "C"],
+    ["B", "0", "1", "R", "C"],
+    ["B", "1", "1", "R", "B"],
+    ["C", "0", "1", "R", "D"],
+    ["C", "1", "0", "L", "E"],
+    ["D", "0", "1", "L", "A"],
+    ["D", "1", "1", "L", "D"],
+    ["E", "0", "1", "R", "HALT"],
+    ["E", "1", "0", "L", "A"]
+  ]
+}

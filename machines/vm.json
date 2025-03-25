@@ -1,0 +1,342 @@
+{
+    "name": "VM",
+    "description": "VM test.",
+    "author": "Frank Buss",
+    "date": "2025",
+    "blank": "#",
+    "initial": "dtest",
+    "tape": "00000000-00000000-00000000-p00000000- 00101010- 00001110- 00000001- 00001011- 00000011- 00000111- 00001110- 00001000- 00001110- 00000010- 00001111",
+    "transitions": [
+        // move to next instruction
+        ["dtest", "*", "*", "R", "*"],
+        ["dtest", "p", "*", "R", "dtest2"],
+        ["dtest2", "*", "*", "R", "*"],
+        ["dtest2", "#", "*", "L", "decode"],
+        ["dtest2", "-", "*", "L", "decode"],
+
+        // start at right end of word
+        // decode 4 bit instruction
+        ["decode", "0", "*", "L", "d0"],
+        ["decode", "1", "*", "L", "d1"],
+        ["d0", "0", "*", "L", "d00"],
+        ["d1", "1", "*", "L", "d11"],
+        ["d0", "1", "*", "L", "d10"],
+        ["d1", "0", "*", "L", "d01"],
+        ["d00", "0", "*", "L", "d000"],
+        ["d01", "0", "*", "L", "d001"],
+        ["d10", "0", "*", "L", "d010"],
+        ["d11", "0", "*", "L", "d011"],
+        ["d00", "1", "*", "L", "d100"],
+        ["d01", "1", "*", "L", "d101"],
+        ["d10", "1", "*", "L", "d110"],
+        ["d11", "1", "*", "L", "d111"],
+        ["d000", "0", "*", "L", "loada"],
+        ["d001", "0", "*", "L", "a2x"],
+        ["d010", "0", "*", "L", "x2a"],
+        ["d011", "0", "*", "L", "a2p"],
+        ["d100", "0", "*", "L", "read"],
+        ["d101", "0", "*", "L", "write"],
+        ["d110", "0", "*", "L", "add"],
+        ["d111", "0", "*", "L", "lshift"],
+        ["d000", "1", "*", "L", "rshift"],
+        ["d001", "1", "*", "L", "and"],
+        ["d010", "1", "*", "L", "or"],
+        ["d011", "1", "*", "L", "not"],
+        ["d100", "1", "*", "L", "jump"],
+        ["d101", "1", "*", "L", "jumpz"],
+        ["d110", "1", "*", "L", "output"],
+        ["d111", "1", "*", "L", "halt"],
+
+        // write next thing to do at empty cell left to tape start
+        ["loada", "*", "*", "L", "*"],
+        ["loada", "#", "a", "R", "move-p+"],
+        
+        ["output", "*", "*", "L", "*"],
+        ["output", "#", "d", "R", "move-p"],
+
+        // move p to next word
+        ["move-p", "*", "*", "R", "*"],
+        ["move-p", "p", " ", "R", "move-p2"],
+        ["move-p2", "*", "*", "R", "*"],
+        ["move-p2", " ", "p", "L", "next"],
+
+        // move p to next word and mark it with +
+        ["move-p+", "*", "*", "R", "*"],
+        ["move-p+", "p", " ", "R", "move-p+2"],
+        ["move-p+2", "*", "*", "R", "*"],
+        ["move-p+2", " ", "p", "L", "move-p+3"],
+        ["move-p+3", "-", "+", "L", "next"],
+
+        // move back to next task to do
+        ["next", "*", "*", "L", "*"],
+
+        // decode o-0,i-1 L direction
+        ["decodeL", "*", "*", "L", "decodeL"],
+        ["decodeL", "o", "0", "L", "decodeL"],
+        ["decodeL", "i", "1", "L", "decodeL"],
+        ["decodeL", "#", "*", "L", "move-p"], // after decoding all in L direction, move to next instrcution
+
+        // loada microcode
+        ["next", "a", "b", "R", "copy"],  // copy word marked with + to "a" reg
+        ["next", "b", "c", "R", "move-p"],  // move p to next word
+        ["next", "c", "#", "R", "dtest"],  // next instruction
+
+        // output microcode
+        ["next", "d", "#", "R", "dtest"],  // next instruction
+
+        // if no next microcode is defined, then decode next instruction
+        ["next", "#", "#", "R", "dtest"],
+
+        // a2x microcode
+        ["a2x", "*", "*", "L", "go2start"],
+        ["go2start", "*", "*", "L", "go2start"],
+        ["go2start", "#", "*", "R", "move2a"],
+
+        ["move2a", "*", "*", "R", "move2a"],
+        ["move2a", "-", "*", "R", "copy-a"],
+
+        ["copy-a", "0", "o", "R", "move-a0"],
+        ["copy-a", "1", "i", "R", "move-a1"],
+
+        ["move-a0", "*", "*", "R", "move-a0"],
+        ["move-a0", "-", "*", "R", "paste-a0"],
+
+        ["move-a1", "*", "*", "R", "move-a1"],
+        ["move-a1", "-", "*", "R", "paste-a1"],
+
+        ["paste-a0", "o", "*", "R", "paste-a0"],
+        ["paste-a0", "i", "*", "R", "paste-a0"],
+        ["paste-a0", "*", "o", "R", "back2a"],
+
+        ["paste-a1", "o", "*", "R", "paste-a1"],
+        ["paste-a1", "i", "*", "R", "paste-a1"],
+        ["paste-a1", "*", "i", "R", "back2a"],
+
+        ["back2a", "*", "*", "L", "back2a"],
+        ["back2a", "-", "*", "L", "back2mark"],
+
+        ["back2mark", "*", "*", "L", "back2mark"],
+
+        ["back2mark", "i", "*", "R", "copy-a"],
+        ["back2mark", "o", "*", "R", "copy-a"],
+
+        ["copy-a", "-", "*", "L", "decodeL"],
+
+        // output microcode
+        ["next", "d", "#", "R", "dtest"],  // next instruction
+
+        // copy position specified at first word, to second word
+
+        // first mark the RAM start with +, and move back to end of address
+        ["start", "*", "*", "R", "*"],
+        ["start", "-", "*", "R", "start2"],
+        ["start2", "*", "*", "R", "*"],
+        ["start2", "-", "*", "R", "start3"],
+        ["start3", "*", "*", "R", "*"],
+        ["start3", "-", "+", "L", "start4"],
+        ["start4", "*", "*", "L", "*"],
+        ["start4", "-", "*", "L", "start5"],
+        ["start5", "*", "*", "L", "*"],
+        ["start5", "-", "*", "L", "test"],
+
+        // then check if counter is zero
+        ["test", "0", "*", "L", "*"],
+        ["test", "1", "*", "L", "test2"],
+        ["test", "#", "*", "R", "copy"],
+        ["test2", "*", "*", "R", "*"],
+        ["test2", "-", "*", "L", "dec"],
+
+        // if not decrement counter
+        ["dec", "0", "1", "L", "carry"],
+        ["dec", "1", "0", "L", "dec2"],
+        ["dec", "#", "*", "R", "dec2"],
+        ["carry", "0", "1", "L", "carry"],
+        ["carry", "1", "0", "L", "dec2"],
+        ["carry", "#", "#", "L", "dec2"],
+        ["dec2", "*", "*", "R", "*"],
+        ["dec2", "-", "*", "L", "move"],
+
+        // and then move + marker
+        ["move", "*", "*", "R", "*"],
+        ["move", "+", "-", "R", "move2"],
+        ["move2", "*", "*", "R", "*"],
+        ["move2", "-", "+", "L", "move3"],
+        ["move3", "*", "*", "L", "*"],
+        ["move3", "#", "*", "R", "move4"],
+        ["move4", "*", "*", "R", "*"],
+        ["move4", "-", "*", "L", "test"],
+
+        // copy word after + marker to second word, head is at tape start
+        // first mark start of second word also with +
+        ["copy", "*", "*", "R", "*"],
+        ["copy", "-", "+", "R", "copy2"],
+        // move to marked word in RAM
+        ["copy2", "*", "*", "R", "*"],
+        ["copy2", "+", "*", "R", "copy2b"],
+        ["copy2b", "p ", "*", "R", "copy3"],
+        // set bit marker
+        ["copy3", "0", "o", "L", "copy4-0"],
+        ["copy3", "1", "i", "L", "copy4-1"],
+        ["copy3", "o", "*", "R", "*"],
+        ["copy3", "i", "*", "R", "*"],
+        ["copy3", "*", "*", "L", "copy7"],
+        // move back to first +
+        ["copy4-0", "*", "*", "L", "*"],
+        ["copy4-1", "*", "*", "L", "*"],
+        ["copy4-0", "+", "*", "L", "copy5-0"],
+        ["copy4-1", "+", "*", "L", "copy5-1"],
+        ["copy5-0", "*", "*", "L", "*"],
+        ["copy5-1", "*", "*", "L", "*"],
+        ["copy5-0", "+", "*", "R", "copy6-0"],
+        ["copy5-1", "+", "*", "R", "copy6-1"],
+        // move right to first bit which was not copied so far and set new bit marker
+        ["copy6-0", "*", "*", "R", "*"],
+        ["copy6-1", "*", "*", "R", "*"],
+        ["copy6-0", "0", "o", "R", "copy2"],
+        ["copy6-1", "0", "i", "R", "copy2"],
+        ["copy6-0", "1", "o", "R", "copy2"],
+        ["copy6-1", "1", "i", "R", "copy2"],
+
+        // restore bits from markers
+        ["copy7", "*", "*", "L", "*"],
+        ["copy7", "o", "0", "L", "*"],
+        ["copy7", "i", "1", "L", "*"],
+        ["copy7", "+", "-", "L", "*"],
+        ["copy7", "#", "*", "R", "next"],
+
+        // a2p
+        ["a2p", "*", "*", "L", "a2p-go2start"],
+        ["a2p-go2start", "*", "*", "L", "a2p-go2start"],
+        ["a2p-go2start", "#", "*", "R", "a2p-move2a"],
+
+        ["a2p-move2a", "*", "*", "R", "a2p-move2a"],
+        ["a2p-move2a", "-", "*", "R", "a2p-copy-a"],
+
+        ["a2p-copy-a", "0", "o", "L", "a2p-move-a0"],
+        ["a2p-copy-a", "1", "i", "L", "a2p-move-a1"],
+
+        ["a2p-move-a0", "*", "*", "L", "a2p-move-a0"],
+        ["a2p-move-a0", "#", "*", "R", "a2p-paste-a0"],
+
+        ["a2p-move-a1", "*", "*", "L", "a2p-move-a1"],
+        ["a2p-move-a1", "#", "*", "R", "a2p-paste-a1"],
+
+        ["a2p-paste-a0", "o", "*", "R", "a2p-paste-a0"],
+        ["a2p-paste-a0", "i", "*", "R", "a2p-paste-a0"],
+        ["a2p-paste-a0", "*", "o", "R", "a2p-back2a"],
+
+        ["a2p-paste-a1", "o", "*", "R", "a2p-paste-a1"],
+        ["a2p-paste-a1", "i", "*", "R", "a2p-paste-a1"],
+        ["a2p-paste-a1", "*", "i", "R", "a2p-back2a"],
+
+        ["a2p-back2a", "*", "*", "R", "a2p-back2a"],
+        ["a2p-back2a", "-", "*", "R", "a2p-back2mark"],
+
+        ["a2p-back2mark", "*", "*", "R", "a2p-back2mark"],
+
+        ["a2p-back2mark", "1", "*", "", "a2p-copy-a"],
+        ["a2p-back2mark", "0", "*", "", "a2p-copy-a"],
+
+        ["a2p-back2mark", "-", "*", "L", "decodeL"],
+
+        // not
+        ["not", "*", "*", "L", "not-go2start"],
+        ["not-go2start", "*", "*", "L", "not-go2start"],
+        ["not-go2start", "#", "*", "R", "not-move2a"],
+
+        ["not-move2a", "*", "*", "R", "not-move2a"],
+        ["not-move2a", "-", "*", "R", "not-flip"],
+
+        ["not-flip", "0", "1", "R", "not-flip"],
+        ["not-flip", "1", "0", "R", "not-flip"],
+
+        ["not-flip", "-", "*", "R", "move-p"], // next instruction
+
+        //x2a
+        ["x2a", "*", "*", "L", "x2a-go2start"],
+        ["x2a-go2start", "*", "*", "L", "x2a-go2start"],
+        ["x2a-go2start", "#", "*", "R", "x2a-move2a"],
+
+        ["x2a-move2a", "*", "*", "R", "x2a-move2a"],
+        ["x2a-move2a", "-", "*", "R", "x2a-move2x"],
+
+        ["x2a-move2x", "*", "*", "R", "x2a-move2x"],
+        ["x2a-move2x", "-", "*", "R", "x2a-copy-x"],
+
+        ["x2a-copy-x", "0", "o", "L", "x2a-move-x0"],
+        ["x2a-copy-x", "1", "i", "L", "x2a-move-x1"],
+
+        ["x2a-move-x0", "*", "*", "L", "x2a-move-x0"],
+        ["x2a-move-x0", "-", "*", "L", "x2a-move-x02a"],
+
+        ["x2a-move-x1", "*", "*", "L", "x2a-move-x1"],
+        ["x2a-move-x1", "-", "*", "L", "x2a-move-x12a"],
+
+        ["x2a-move-x02a", "*", "*", "L", "x2a-move-x02a"],
+        ["x2a-move-x02a", "-", "*", "R", "x2a-paste-x0"],
+
+        ["x2a-move-x12a", "*", "*", "L", "x2a-move-x12a"],
+        ["x2a-move-x12a", "-", "*", "R", "x2a-paste-x1"],
+
+        ["x2a-paste-x0", "o", "*", "R", "x2a-paste-x0"],
+        ["x2a-paste-x0", "i", "*", "R", "x2a-paste-x0"],
+        ["x2a-paste-x0", "*", "o", "R", "x2a-back2x"],
+
+        ["x2a-paste-x1", "o", "*", "R", "x2a-paste-x1"],
+        ["x2a-paste-x1", "i", "*", "R", "x2a-paste-x1"],
+        ["x2a-paste-x1", "*", "i", "R", "x2a-back2x"],
+
+        ["x2a-back2x", "*", "*", "R", "x2a-back2x"],
+        ["x2a-back2x", "-", "*", "R", "x2a-back2mark"],
+
+        ["x2a-back2mark", "*", "*", "R", "x2a-back2mark"],
+
+        ["x2a-back2mark", "1", "*", "", "x2a-copy-x"],
+        ["x2a-back2mark", "0", "*", "", "x2a-copy-x"],
+
+        ["x2a-back2mark", "-", "*", "L", "decodeL"],
+
+        // lshift
+        ["lshift", "*", "*", "L", "lshift-go2start"],
+        ["lshift-go2start", "*", "*", "L", "lshift-go2start"],
+        ["lshift-go2start", "#", "*", "R", "lshift-move2a"],
+
+        ["lshift-move2a", "*", "*", "R", "lshift-move2a"],
+        ["lshift-move2a", "-", "*", "R", "lshift-1step"],
+
+        ["lshift-1step", "*", "*", "R", "lshift-shift"],
+        ["lshift-1step", "-", "*", "R", "lshift-shift0nhalt"],
+
+        ["lshift-shift", "0", "*", "L", "lshift-shift0"],
+        ["lshift-shift", "1", "*", "L", "lshift-shift1"],
+
+        ["lshift-shift0", "*", "0", "R", "lshift-1step"],
+        ["lshift-shift1", "*", "1", "R", "lshift-1step"],
+
+        ["lshift-shift0nhalt", "*", "0", "R", "move-p"], // next instruction
+        ["lshift-shift", "-", "*", "L", "lshift-shift0nhalt"],
+
+        // rshift
+        ["rshift", "*", "*", "L", "rshift-go2start"],
+        ["rshift-go2start", "*", "*", "L", "rshift-go2start"],
+        ["rshift-go2start", "#", "*", "R", "rshift-move2a"],
+
+        ["rshift-move2a", "*", "*", "R", "rshift-move2a"],
+        ["rshift-move2a", "-", "*", "R", "rshift-move2a-end"],
+
+        ["rshift-move2a-end", "*", "*", "R", "rshift-move2a-end"],
+        ["rshift-move2a-end", "-", "*", "L", "rshift-1step"],
+
+        ["rshift-1step", "*", "*", "L", "rshift-shift"],
+        ["rshift-1step", "-", "*", "R", "rshift-shift0nhalt"],
+
+        ["rshift-shift", "0", "*", "R", "rshift-shift0"],
+        ["rshift-shift", "1", "*", "R", "rshift-shift1"],
+
+        ["rshift-shift0", "*", "0", "L", "rshift-1step"],
+        ["rshift-shift1", "*", "1", "L", "rshift-1step"],
+
+        ["rshift-shift0nhalt", "*", "0", "R", "move-p"], // next instruction
+        ["rshift-shift", "-", "*", "R", "rshift-shift0nhalt"]
+    ]
+}

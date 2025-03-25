@@ -1,0 +1,36 @@
+# Compiled binary and target directory
+/target/
+**/*.rs.bk
+
+# Rust package manager files
+Cargo.lock
+Cargo/.crates.toml
+Cargo/.crates2.json
+
+# Build artifacts
+*.rmeta
+*.rlib
+*.d
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Generated documentation
+/target/doc/
+
+# Rustup and Cargo specific files
+/.cargo/
+.cargo/
