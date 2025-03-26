@@ -2,14 +2,16 @@
 ; Initial P, A and X register values at memory locations 0, 1, and 2
 .data 0, 0, 0
 
-    loada 42
-    output
-    a2x
-    not
+    loada 0
     a2p
-    lshift
+    loada 152
     output
-    rshift
+    write
+    loada 15
+    a2p
+    loada 0
     output
-    x2a
+    jumpz ; test jump also by modifying previous loada 0
+    or ; try and, add here
+    output
     halt
