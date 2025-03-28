@@ -1,17 +1,17 @@
-; Simple test program which loads a value in A, and then perform basic operations
+; Simple test program
 ; Initial P, A and X register values at memory locations 0, 1, and 2
-.data 0, 0, 0
+.data 0, 0, 120
 
-    loada 0
+    ; test write (output w)
+    loada test1
     a2p
-    loada 152
-    output
+    loada 119
     write
-    loada 15
+    loada test1
     a2p
-    loada 0
-    output
-    jumpz ; test jump also by modifying previous loada 0
-    or ; try and, add here
+    read
     output
     halt
+
+test1:
+    .data 114

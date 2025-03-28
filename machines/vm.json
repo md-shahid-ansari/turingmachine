@@ -5,7 +5,7 @@
     "date": "2025",
     "blank": "#",
     "initial": "dtest",
-    "tape": "00000000-00000000-01111000-p00000000- 00001100- 00000011- 00000000- 00000000- 00001101- 00000000- 01101010- 00001110- 00001111- 01110010",
+    "tape": "00000000-00000000-01111000-p00000000- 01101100- 00001110- 00000010- 00001110- 00000000- 01100001- 00000001- 00000000- 00000000- 00000010- 00001110- 00000000- 00011110- 00000111- 00001110- 00000000- 01111100- 00001000- 00001110- 00000000- 10010001- 00001011- 00001110- 00000000- 01001010- 00000011- 00000100- 00001110- 00000000- 00101010- 00000001- 00000000- 00111010- 00000110- 00001110- 00000000- 01000001- 00000001- 00000000- 01100100- 00001010- 00001110- 00000000- 01100110- 00000001- 00000000- 01101110- 00001001- 00001110- 00000000- 01001010- 00000011- 00000000- 01110111- 00000101- 00000000- 01001010- 00000011- 00000100- 00001110- 00000000- 01001001- 00000011- 00000000- 00000000- 00001101- 00000000- 01101010- 00001110- 00001111- 01110010",
     "transitions": [
         // move to next instruction
         ["dtest", "*", "*", "R", "*"],
@@ -349,33 +349,38 @@
         ["write-go2start", "#", "*", "R", "write-start"],
 
         // first mark the RAM start with +, and move back to end of address
-        ["write-start", "*", "*", "R", "*"],
-        ["write-start", "-", "*", "R", "write-start2"],
-        ["write-start2", "*", "*", "R", "*"],
-        ["write-start2", "-", "*", "R", "write-start3"],
-        ["write-start3", "*", "*", "R", "*"],
-        ["write-start3", "-", "+", "L", "write-start4"],
-        ["write-start4", "*", "*", "L", "*"],
-        ["write-start4", "-", "*", "L", "write-start5"],
-        ["write-start5", "*", "*", "L", "*"],
-        ["write-start5", "-", "*", "L", "write-test"],
+        ["write-start", "*", "*", "L", "*"],
+        ["write-start", "#", "+", "R", "write-go2p"],
+        ["write-go2p", "*", "*", "R", "write-go2p"],
+        ["write-go2p", "-", "*", "L", "write-test"],
+        ["write-go2p", "+", "*", "L", "write-test"],
 
         // then check if counter is zero
         ["write-test", "0", "*", "L", "*"],
         ["write-test", "1", "*", "L", "write-test2"],
         ["write-test", "#", "*", "R", "write-copy"],
+        ["write-test", "+", "*", "R", "write-copy"],
         ["write-test2", "*", "*", "R", "*"],
         ["write-test2", "-", "*", "L", "write-dec"],
+        ["write-test2", "+", "*", "L", "write-dec"],
 
         // if not decrement counter
         ["write-dec", "0", "1", "L", "write-carry"],
         ["write-dec", "1", "0", "L", "write-dec2"],
         ["write-dec", "#", "*", "R", "write-dec2"],
+        ["write-dec", "+", "*", "R", "write-dec2"],
         ["write-carry", "0", "1", "L", "write-carry"],
         ["write-carry", "1", "0", "L", "write-dec2"],
-        ["write-carry", "#", "#", "L", "write-dec2"],
-        ["write-dec2", "*", "*", "R", "*"],
-        ["write-dec2", "-", "*", "L", "write-move"],
+        ["write-carry", "#", "*", "R", "write-dec2"],
+        ["write-carry", "+", "*", "R", "write-dec2"],
+        ["write-dec2", "*", "*", "L", "*"],
+        ["write-dec2", "#", "*", "R", "write-move1"],
+
+        ["write-move1", "+", "#", "R", "write-move#"],
+        ["write-move1", "*", "*", "R", "write-move"],
+
+        ["write-move#", "*", "*", "R", "write-move#"],
+        ["write-move#", "-", "+", "L", "write-test"],
 
         // and then move + marker
         ["write-move", "*", "*", "R", "*"],
@@ -386,6 +391,7 @@
         ["write-move3", "#", "*", "R", "write-move4"],
         ["write-move4", "*", "*", "R", "*"],
         ["write-move4", "-", "*", "L", "write-test"],
+        ["write-move4", "+", "*", "L", "write-test"],
 
         //start copy and paste
         ["write-copy", "*", "*", "L", "wc-go2start"],
@@ -429,6 +435,7 @@
         ["wc-decode-word", "o", "0", "R", "wc-decode-word"],
         ["wc-decode-word", "i", "1", "R", "wc-decode-word"],
         ["wc-decode-word", "-", "*", "L", "go2s4next"],
+        ["wc-decode-word", "#", "*", "L", "go2s4next"],
 
         // read
         ["read", "*", "*", "L", "read-go2start"],
@@ -436,33 +443,38 @@
         ["read-go2start", "#", "*", "R", "read-start"],
 
         // first mark the RAM start with +, and move back to end of address
-        ["read-start", "*", "*", "R", "*"],
-        ["read-start", "-", "*", "R", "read-start2"],
-        ["read-start2", "*", "*", "R", "*"],
-        ["read-start2", "-", "*", "R", "read-start3"],
-        ["read-start3", "*", "*", "R", "*"],
-        ["read-start3", "-", "+", "L", "read-start4"],
-        ["read-start4", "*", "*", "L", "*"],
-        ["read-start4", "-", "*", "L", "read-start5"],
-        ["read-start5", "*", "*", "L", "*"],
-        ["read-start5", "-", "*", "L", "read-test"],
+        ["read-start", "*", "*", "L", "*"],
+        ["read-start", "#", "+", "R", "read-go2p"],
+        ["read-go2p", "*", "*", "R", "read-go2p"],
+        ["read-go2p", "-", "*", "L", "read-test"],
+        ["read-go2p", "+", "*", "L", "read-test"],
 
         // then check if counter is zero
         ["read-test", "0", "*", "L", "*"],
         ["read-test", "1", "*", "L", "read-test2"],
         ["read-test", "#", "*", "R", "read-copy"],
+        ["read-test", "+", "*", "R", "read-copy"],
         ["read-test2", "*", "*", "R", "*"],
         ["read-test2", "-", "*", "L", "read-dec"],
+        ["read-test2", "+", "*", "L", "read-dec"],
 
         // if not decrement counter
         ["read-dec", "0", "1", "L", "read-carry"],
         ["read-dec", "1", "0", "L", "read-dec2"],
         ["read-dec", "#", "*", "R", "read-dec2"],
+        ["read-dec", "+", "*", "R", "read-dec2"],
         ["read-carry", "0", "1", "L", "read-carry"],
         ["read-carry", "1", "0", "L", "read-dec2"],
-        ["read-carry", "#", "#", "L", "read-dec2"],
-        ["read-dec2", "*", "*", "R", "*"],
-        ["read-dec2", "-", "*", "L", "read-move"],
+        ["read-carry", "#", "*", "R", "read-dec2"],
+        ["read-carry", "+", "*", "R", "read-dec2"],
+        ["read-dec2", "*", "*", "L", "*"],
+        ["read-dec2", "#", "*", "R", "read-move1"],
+
+        ["read-move1", "+", "#", "R", "read-move#"],
+        ["read-move1", "*", "*", "R", "read-move"],
+
+        ["read-move#", "*", "*", "R", "read-move#"],
+        ["read-move#", "-", "+", "L", "read-test"],
 
         // and then move + marker
         ["read-move", "*", "*", "R", "*"],
@@ -473,6 +485,7 @@
         ["read-move3", "#", "*", "R", "read-move4"],
         ["read-move4", "*", "*", "R", "*"],
         ["read-move4", "-", "*", "L", "read-test"],
+        ["read-move4", "+", "*", "L", "read-test"],
 
         //start copy and paste
         ["read-copy", "*", "*", "R", "rc-go2+"],
@@ -480,8 +493,8 @@
         ["rc-go2+", "+", "*", "R", "rc-copy-word"],
 
         ["rc-copy-word", "*", "*", "R", "rc-copy-word"],
-        ["rc-copy-word", "0", "o", "R", "rc-move-a0"],
-        ["rc-copy-word", "1", "i", "R", "rc-move-a1"],
+        ["rc-copy-word", "0", "o", "L", "rc-move-a0"],
+        ["rc-copy-word", "1", "i", "L", "rc-move-a1"],
 
         ["rc-move-a0", "*", "*", "L", "rc-move-a0"],
         ["rc-move-a0", "#", "*", "R", "rc-move-a02a"],
@@ -502,6 +515,7 @@
         ["rc-paste-a1", "*", "i", "R", "rc-go2+"],
 
         ["rc-copy-word", "-", "*", "L", "rc-decode-word"],
+        ["rc-copy-word", "#", "*", "L", "rc-decode-word"],
 
         ["rc-decode-word", "*", "*", "L", "rc-decode-word"],
         ["rc-decode-word", "o", "0", "L", "rc-decode-word"],
@@ -526,17 +540,8 @@
 
         // first mark the RAM start with +, and move back to end of address
         ["jump-start", "*", "*", "R", "*"],
-        ["jump-start", "-", "*", "R", "jump-start2"],
-        ["jump-start2", "*", "*", "R", "*"],
-        ["jump-start2", "-", "*", "R", "jump-start3"],
-        ["jump-start3", "*", "*", "R", "*"],
-        ["jump-start3", " ", "+", "L", "jump-start4"],
-        ["jump-start4", "*", "*", "L", "*"],
-        ["jump-start4", "-", "*", "L", "jump-start5"],
-        ["jump-start5", "*", "*", "L", "*"],
-        ["jump-start5", "-", "*", "L", "jump-start6"],
-        ["jump-start6", "*", "*", "L", "*"],
-        ["jump-start6", "-", "*", "L", "jump-test"],
+        ["jump-start", "p", " ", "R", "*"],
+        ["jump-start", "-", "+", "L", "jump-test"],
 
         // then check if counter is zero
         ["jump-test", "0", "*", "L", "*"],
@@ -544,6 +549,7 @@
         ["jump-test", "#", "*", "R", "jump-perform"],
         ["jump-test2", "*", "*", "R", "*"],
         ["jump-test2", "-", "*", "L", "jump-dec"],
+        ["jump-test2", "+", "*", "L", "jump-dec"],
 
         // if not decrement counter
         ["jump-dec", "0", "1", "L", "jump-carry"],
@@ -554,23 +560,30 @@
         ["jump-carry", "#", "#", "L", "jump-dec2"],
         ["jump-dec2", "*", "*", "R", "*"],
         ["jump-dec2", "-", "*", "L", "jump-move"],
+        ["jump-dec2", "+", "*", "L", "jump-move"],
 
         // and then move + marker
         ["jump-move", "*", "*", "R", "*"],
-        ["jump-move", "+", " ", "R", "jump-move2"],
+        ["jump-move", "+", "-", "R", "jump-move2"],
         ["jump-move2", "*", "*", "R", "*"],
-        ["jump-move2", " ", "+", "L", "jump-move3"],
-        ["jump-move2", "p", "+", "L", "jump-move3"],
+        ["jump-move2", "p", " ", "L", "jump-move2"],
+        ["jump-move2", "-", "+", "L", "jump-move3"],
         ["jump-move3", "*", "*", "L", "*"],
         ["jump-move3", "#", "*", "R", "jump-move4"],
         ["jump-move4", "*", "*", "R", "*"],
         ["jump-move4", "-", "*", "L", "jump-test"],
+        ["jump-move4", "+", "*", "L", "jump-test"],
 
         //start copy and paste
         ["jump-perform", "*", "*", "R", "jump-perform"],
-        ["jump-perform", "+", "p", "R", "jump-perform"],
         ["jump-perform", "p", " ", "R", "jump-perform"],
-        ["jump-perform", "#", "*", "L", "jump-go2p"],
+        ["jump-perform", "+", "-", "R", "jump-perform1"],
+
+        ["jump-perform1", "*", "*", "R", "jump-perform1"],
+        ["jump-perform1", " ", "p", "R", "jump-perform2"],
+        ["jump-perform2", "*", "*", "R", "jump-perform2"],
+        ["jump-perform2", "p", " ", "R", "jump-perform2"],
+        ["jump-perform2", "#", "*", "L", "jump-go2p"],
 
         ["jump-go2p", "*", "*", "L", "jump-go2p"],
         ["jump-go2p", "p", "*", "L", "dtest"],
