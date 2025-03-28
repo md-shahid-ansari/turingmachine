@@ -5,7 +5,7 @@
     "date": "2025",
     "blank": "#",
     "initial": "dtest",
-    "tape": "00000000-00000000-00000000-p00000000- 00101010- 00000011- 00000000- 00101011- 00000101- 00000000- 00101010- 00000011- 00000100- 00000011- 00000100- 00000001- 00000000- 00101001- 00000011- 00000010- 00001101- 00000010- 00001110- 00000000- 00101010- 00000011- 00000100- 00000001- 00000000- 00000001- 00000110- 00000001- 00000000- 00101010- 00000011- 00000010- 00000101- 00000000- 00001001- 00000011- 00001100- 00001111- 00000000- 01001000- 01100101- 01101100- 01101100- 01101111- 00101100- 00100000- 01010111- 01101111- 01110010- 01101100- 01100100- 00100001- 00000000",
+    "tape": "00000000-00000000-01111000-p00000000- 00001100- 00000011- 00000000- 00000000- 00001101- 00000000- 01101010- 00001110- 00001111- 01110010",
     "transitions": [
         // move to next instruction
         ["dtest", "*", "*", "R", "*"],
@@ -590,330 +590,139 @@
         // add
         ["add", "*", "*", "L", "add-go2start"],
         ["add-go2start", "*", "*", "L", "add-go2start"],
-        ["add-go2start", "#", "*", "R", "add-start"],
+        ["add-go2start", "#", "*", "R", "add-move2a"],
+        
+        ["add-move2a", "*", "*", "R", "*"],
+        ["add-move2a", "-", "*", "R", "add-move2x"],
 
-        // first mark the RAM start with +, and move back to end of address
-        ["add-start", "*", "*", "R", "*"],
-        ["add-start", "-", "*", "R", "add-start2"],
-        ["add-start2", "*", "*", "R", "*"],
-        ["add-start2", "-", "*", "R", "add-start3"],
-        ["add-start3", "*", "*", "R", "*"],
-        ["add-start3", "-", "+", "L", "add-start4"],
-        ["add-start4", "*", "*", "L", "*"],
-        ["add-start4", "-", "*", "L", "add-start5"],
-        ["add-start5", "*", "*", "L", "*"],
-        ["add-start5", "-", "*", "L", "add-test"],
-
-        // then check if counter is zero
-        ["add-test", "0", "*", "L", "*"],
-        ["add-test", "1", "*", "L", "add-test2"],
-        ["add-test", "#", "*", "R", "add-copy"],
-        ["add-test2", "*", "*", "R", "*"],
-        ["add-test2", "-", "*", "L", "add-dec"],
-
-        // if not decrement counter
-        ["add-dec", "0", "1", "L", "add-carry"],
-        ["add-dec", "1", "0", "L", "add-dec2"],
-        ["add-dec", "#", "*", "R", "add-dec2"],
-        ["add-carry", "0", "1", "L", "add-carry"],
-        ["add-carry", "1", "0", "L", "add-dec2"],
-        ["add-carry", "#", "#", "L", "add-dec2"],
-        ["add-dec2", "*", "*", "R", "*"],
-        ["add-dec2", "-", "*", "L", "add-move"],
-
-        // and then move + marker
-        ["add-move", "*", "*", "R", "*"],
-        ["add-move", "+", "-", "R", "add-move2"],
-        ["add-move2", "*", "*", "R", "*"],
-        ["add-move2", "-", "+", "L", "add-move3"],
-        ["add-move3", "*", "*", "L", "*"],
-        ["add-move3", "#", "*", "R", "add-move4"],
-        ["add-move4", "*", "*", "R", "*"],
-        ["add-move4", "-", "*", "L", "add-test"],
-
-        //start adding
-        ["add-copy", "*", "*", "R", "add-go2+"],
-        ["add-go2+", "*", "*", "R", "add-go2+"],
-        ["add-go2+", "+", "*", "R", "add-copy-end"],
-
-        ["add-copy-end", "*", "*", "R", "add-copy-end"],
-        ["add-copy-end", "-", "*", "L", "add-copy-word"],
+        ["add-move2x", "*", "*", "R", "*"],
+        ["add-move2x", "-", "*", "R", "add-move2x-end"],
+        ["add-move2x-end", "*", "*", "R", "*"],
+        ["add-move2x-end", "-", "*", "L", "add-copy-word"],
 
         ["add-copy-word", "*", "*", "L", "add-copy-word"],
         ["add-copy-word", "0", "o", "L", "add-move-a0"],
         ["add-copy-word", "1", "i", "L", "add-move-a1"],
 
         ["add-move-a0", "*", "*", "L", "add-move-a0"],
-        ["add-move-a0", "#", "*", "R", "add-move-a02a"],
-        ["add-move-a02a", "*", "*", "R", "add-move-a02a"],
-        ["add-move-a02a", "-", "*", "R", "add-move-a02a-"],
-        ["add-move-a02a-", "*", "*", "R", "add-move-a02a-"],
-        ["add-move-a02a-", "-", "*", "L", "add-paste-a0"],
+        ["add-move-a0", "-", "*", "L", "add-paste-a0"],
 
         ["add-move-a1", "*", "*", "L", "add-move-a1"],
-        ["add-move-a1", "#", "*", "R", "add-move-a12a"],
-        ["add-move-a12a", "*", "*", "R", "add-move-a12a"],
-        ["add-move-a12a", "-", "*", "R", "add-move-a12a-"],
-        ["add-move-a12a-", "*", "*", "R", "add-move-a12a-"],
-        ["add-move-a12a-", "-", "*", "L", "add-paste-a1"],
+        ["add-move-a1", "-", "*", "L", "add-paste-a1"],
 
         ["add-paste-a0", "o", "*", "L", "add-paste-a0"],
         ["add-paste-a0", "i", "*", "L", "add-paste-a0"],
-        ["add-paste-a0", "0", "o", "R", "add-go2+"],
-        ["add-paste-a0", "1", "i", "R", "add-go2+"],
+        ["add-paste-a0", "0", "o", "R", "add-move2x"],
+        ["add-paste-a0", "1", "i", "R", "add-move2x"],
 
         ["add-paste-a1", "o", "*", "L", "add-paste-a1"],
         ["add-paste-a1", "i", "*", "L", "add-paste-a1"],
-        ["add-paste-a1", "0", "i", "R", "add-go2+"],
-        ["add-paste-a1", "1", "o", "R", "add-go2+carry"],
+        ["add-paste-a1", "0", "i", "R", "add-move2x"],
+        ["add-paste-a1", "1", "o", "R", "add-move2x+carry"],
 
-        ["add-go2+carry", "*", "*", "R", "add-go2+carry"],
-        ["add-go2+carry", "+", "*", "R", "add-copy-end+carry"],
-
-        ["add-copy-end+carry", "*", "*", "R", "add-copy-end+carry"],
-        ["add-copy-end+carry", "-", "*", "L", "add-copy-word+carry"],
+        ["add-move2x+carry", "*", "*", "R", "add-move2x+carry"],
+        ["add-move2x+carry", "-", "*", "R", "add-move2x-end+carry"],
+        ["add-move2x-end+carry", "*", "*", "R", "add-move2x-end+carry"],
+        ["add-move2x-end+carry", "-", "*", "L", "add-copy-word+carry"],
 
         ["add-copy-word+carry", "*", "*", "L", "add-copy-word+carry"],
         ["add-copy-word+carry", "0", "o", "L", "add-move-a0+carry"],
         ["add-copy-word+carry", "1", "i", "L", "add-move-a1+carry"],
 
         ["add-move-a0+carry", "*", "*", "L", "add-move-a0+carry"],
-        ["add-move-a0+carry", "#", "*", "R", "add-move-a02a+carry"],
-        ["add-move-a02a+carry", "*", "*", "R", "add-move-a02a+carry"],
-        ["add-move-a02a+carry", "-", "*", "R", "add-move-a02a-+carry"],
-        ["add-move-a02a-+carry", "*", "*", "R", "add-move-a02a-+carry"],
-        ["add-move-a02a-+carry", "-", "*", "L", "add-paste-a0+carry"],
+        ["add-move-a0+carry", "-", "*", "L", "add-paste-a0+carry"],
 
         ["add-move-a1+carry", "*", "*", "L", "add-move-a1+carry"],
-        ["add-move-a1+carry", "#", "*", "R", "add-move-a12a+carry"],
-        ["add-move-a12a+carry", "*", "*", "R", "add-move-a12a+carry"],
-        ["add-move-a12a+carry", "-", "*", "R", "add-move-a12a-+carry"],
-        ["add-move-a12a-+carry", "*", "*", "R", "add-move-a12a-+carry"],
-        ["add-move-a12a-+carry", "-", "*", "L", "add-paste-a1+carry"],
+        ["add-move-a1+carry", "-", "*", "L", "add-paste-a1+carry"],
 
         ["add-paste-a0+carry", "o", "*", "L", "add-paste-a0+carry"],
         ["add-paste-a0+carry", "i", "*", "L", "add-paste-a0+carry"],
-        ["add-paste-a0+carry", "0", "i", "R", "add-go2+"],
-        ["add-paste-a0+carry", "1", "o", "R", "add-go2+carry"],
+        ["add-paste-a0+carry", "0", "i", "R", "add-move2x"],
+        ["add-paste-a0+carry", "1", "o", "R", "add-move2x+carry"],
 
         ["add-paste-a1+carry", "o", "*", "L", "add-paste-a1+carry"],
         ["add-paste-a1+carry", "i", "*", "L", "add-paste-a1+carry"],
-        ["add-paste-a1+carry", "0", "o", "R", "add-go2+carry"],
-        ["add-paste-a1+carry", "1", "i", "R", "add-go2+carry"],
+        ["add-paste-a1+carry", "0", "o", "R", "add-move2x+carry"],
+        ["add-paste-a1+carry", "1", "i", "R", "add-move2x+carry"],
 
-        ["add-copy-word", "+", "-", "R", "add-decode+"],
-        ["add-copy-word+carry", "+", "-", "R", "add-decode+"],
+        ["add-copy-word", "-", "*", "R", "add-decode-xR"],
+        ["add-copy-word+carry", "-", "*", "R", "add-decode-xR"],
 
-        ["add-decode+", "*", "*", "R", "add-decode+"],
-        ["add-decode+", "o", "0", "R", "add-decode+"],
-        ["add-decode+", "i", "1", "R", "add-decode+"],
-        ["add-decode+", "-", "*", "L", "add-move2a"],
-
-        ["add-move2a", "*", "*", "L", "add-move2a"],
-        ["add-move2a", "#", "*", "R", "add-move2a-s"],
-
-        ["add-move2a-s", "*", "*", "R", "add-move2a-s"],
-        ["add-move2a-s", "-", "*", "R", "add-decode-a"],
-
-        ["add-decode-a", "*", "*", "R", "add-decode-a"],
-        ["add-decode-a", "o", "0", "R", "add-decode-a"],
-        ["add-decode-a", "i", "1", "R", "add-decode-a"],
-        ["add-decode-a", "-", "*", "L", "go2s4next"],
+        ["add-decode-xR", "*", "*", "R", "add-decode-xR"],
+        ["add-decode-xR", "o", "0", "R", "add-decode-xR"],
+        ["add-decode-xR", "i", "1", "R", "add-decode-xR"],
+        ["add-decode-xR", "-", "*", "L", "decodeL"],
 
         // and
         ["and", "*", "*", "L", "and-go2start"],
         ["and-go2start", "*", "*", "L", "and-go2start"],
-        ["and-go2start", "#", "*", "R", "and-start"],
+        ["and-go2start", "#", "*", "R", "and-go2a"],
+        
+        ["and-go2a", "*", "*", "R", "and-go2a"],
+        ["and-go2a", "-", "*", "R", "and-go2x"],
 
-        // first mark the RAM start with +, and move back to end of andress
-        ["and-start", "*", "*", "R", "*"],
-        ["and-start", "-", "*", "R", "and-start2"],
-        ["and-start2", "*", "*", "R", "*"],
-        ["and-start2", "-", "*", "R", "and-start3"],
-        ["and-start3", "*", "*", "R", "*"],
-        ["and-start3", "-", "+", "L", "and-start4"],
-        ["and-start4", "*", "*", "L", "*"],
-        ["and-start4", "-", "*", "L", "and-start5"],
-        ["and-start5", "*", "*", "L", "*"],
-        ["and-start5", "-", "*", "L", "and-test"],
+        ["and-go2x", "*", "*", "R", "and-go2x"],
+        ["and-go2x", "-", "*", "R", "and-go2x-end"],
 
-        // then check if counter is zero
-        ["and-test", "0", "*", "L", "*"],
-        ["and-test", "1", "*", "L", "and-test2"],
-        ["and-test", "#", "*", "R", "and-copy"],
-        ["and-test2", "*", "*", "R", "*"],
-        ["and-test2", "-", "*", "L", "and-dec"],
-
-        // if not decrement counter
-        ["and-dec", "0", "1", "L", "and-carry"],
-        ["and-dec", "1", "0", "L", "and-dec2"],
-        ["and-dec", "#", "*", "R", "and-dec2"],
-        ["and-carry", "0", "1", "L", "and-carry"],
-        ["and-carry", "1", "0", "L", "and-dec2"],
-        ["and-carry", "#", "#", "L", "and-dec2"],
-        ["and-dec2", "*", "*", "R", "*"],
-        ["and-dec2", "-", "*", "L", "and-move"],
-
-        // and then move + marker
-        ["and-move", "*", "*", "R", "*"],
-        ["and-move", "+", "-", "R", "and-move2"],
-        ["and-move2", "*", "*", "R", "*"],
-        ["and-move2", "-", "+", "L", "and-move3"],
-        ["and-move3", "*", "*", "L", "*"],
-        ["and-move3", "#", "*", "R", "and-move4"],
-        ["and-move4", "*", "*", "R", "*"],
-        ["and-move4", "-", "*", "L", "and-test"],
-
-        //start anding
-        ["and-copy", "*", "*", "R", "and-go2+"],
-        ["and-go2+", "*", "*", "R", "and-go2+"],
-        ["and-go2+", "+", "*", "R", "and-copy-end"],
-
-        ["and-copy-end", "*", "*", "R", "and-copy-end"],
-        ["and-copy-end", "-", "*", "L", "and-copy-word"],
+        ["and-go2x-end", "*", "*", "R", "and-go2x-end"],
+        ["and-go2x-end", "-", "*", "L", "and-copy-word"],
 
         ["and-copy-word", "*", "*", "L", "and-copy-word"],
         ["and-copy-word", "0", "o", "L", "and-move-a0"],
         ["and-copy-word", "1", "i", "L", "and-move-a1"],
 
         ["and-move-a0", "*", "*", "L", "and-move-a0"],
-        ["and-move-a0", "#", "*", "R", "and-move-a02a"],
-        ["and-move-a02a", "*", "*", "R", "and-move-a02a"],
-        ["and-move-a02a", "-", "*", "R", "and-move-a02a-"],
-        ["and-move-a02a-", "*", "*", "R", "and-move-a02a-"],
-        ["and-move-a02a-", "-", "*", "L", "and-paste-a0"],
+        ["and-move-a0", "-", "*", "L", "and-paste-a0"],
 
         ["and-move-a1", "*", "*", "L", "and-move-a1"],
-        ["and-move-a1", "#", "*", "R", "and-move-a12a"],
-        ["and-move-a12a", "*", "*", "R", "and-move-a12a"],
-        ["and-move-a12a", "-", "*", "R", "and-move-a12a-"],
-        ["and-move-a12a-", "*", "*", "R", "and-move-a12a-"],
-        ["and-move-a12a-", "-", "*", "L", "and-paste-a1"],
+        ["and-move-a1", "-", "*", "L", "and-paste-a1"],
 
         ["and-paste-a0", "o", "*", "L", "and-paste-a0"],
         ["and-paste-a0", "i", "*", "L", "and-paste-a0"],
-        ["and-paste-a0", "0", "o", "R", "and-go2+"],
-        ["and-paste-a0", "1", "o", "R", "and-go2+"],
+        ["and-paste-a0", "0", "o", "R", "and-go2x"],
+        ["and-paste-a0", "1", "o", "R", "and-go2x"],
 
         ["and-paste-a1", "o", "*", "L", "and-paste-a1"],
         ["and-paste-a1", "i", "*", "L", "and-paste-a1"],
-        ["and-paste-a1", "0", "o", "R", "and-go2+"],
-        ["and-paste-a1", "1", "i", "R", "and-go2+"],
+        ["and-paste-a1", "0", "o", "R", "and-go2x"],
+        ["and-paste-a1", "1", "i", "R", "and-go2x"],
 
-        ["and-copy-word", "+", "-", "R", "and-decode+"],
-
-        ["and-decode+", "*", "*", "R", "and-decode+"],
-        ["and-decode+", "o", "0", "R", "and-decode+"],
-        ["and-decode+", "i", "1", "R", "and-decode+"],
-        ["and-decode+", "-", "*", "L", "and-move2a"],
-
-        ["and-move2a", "*", "*", "L", "and-move2a"],
-        ["and-move2a", "#", "*", "R", "and-move2a-s"],
-
-        ["and-move2a-s", "*", "*", "R", "and-move2a-s"],
-        ["and-move2a-s", "-", "*", "R", "and-decode-a"],
-
-        ["and-decode-a", "*", "*", "R", "and-decode-a"],
-        ["and-decode-a", "o", "0", "R", "and-decode-a"],
-        ["and-decode-a", "i", "1", "R", "and-decode-a"],
-        ["and-decode-a", "-", "*", "L", "go2s4next"],
+        ["and-copy-word", "-", "*", "R", "add-decode-xR"],
 
         // or
         ["or", "*", "*", "L", "or-go2start"],
         ["or-go2start", "*", "*", "L", "or-go2start"],
-        ["or-go2start", "#", "*", "R", "or-start"],
+        ["or-go2start", "#", "*", "R", "or-go2a"],
 
-        // first mark the RAM start with +, or move back to end of orress
-        ["or-start", "*", "*", "R", "*"],
-        ["or-start", "-", "*", "R", "or-start2"],
-        ["or-start2", "*", "*", "R", "*"],
-        ["or-start2", "-", "*", "R", "or-start3"],
-        ["or-start3", "*", "*", "R", "*"],
-        ["or-start3", "-", "+", "L", "or-start4"],
-        ["or-start4", "*", "*", "L", "*"],
-        ["or-start4", "-", "*", "L", "or-start5"],
-        ["or-start5", "*", "*", "L", "*"],
-        ["or-start5", "-", "*", "L", "or-test"],
+        ["or-go2a", "*", "*", "R", "or-go2a"],
+        ["or-go2a", "-", "*", "R", "or-go2x"],
 
-        // then check if counter is zero
-        ["or-test", "0", "*", "L", "*"],
-        ["or-test", "1", "*", "L", "or-test2"],
-        ["or-test", "#", "*", "R", "or-copy"],
-        ["or-test2", "*", "*", "R", "*"],
-        ["or-test2", "-", "*", "L", "or-dec"],
+        ["or-go2x", "*", "*", "R", "or-go2x"],
+        ["or-go2x", "-", "*", "R", "or-go2x-end"],
 
-        // if not decrement counter
-        ["or-dec", "0", "1", "L", "or-carry"],
-        ["or-dec", "1", "0", "L", "or-dec2"],
-        ["or-dec", "#", "*", "R", "or-dec2"],
-        ["or-carry", "0", "1", "L", "or-carry"],
-        ["or-carry", "1", "0", "L", "or-dec2"],
-        ["or-carry", "#", "#", "L", "or-dec2"],
-        ["or-dec2", "*", "*", "R", "*"],
-        ["or-dec2", "-", "*", "L", "or-move"],
-
-        // or then move + marker
-        ["or-move", "*", "*", "R", "*"],
-        ["or-move", "+", "-", "R", "or-move2"],
-        ["or-move2", "*", "*", "R", "*"],
-        ["or-move2", "-", "+", "L", "or-move3"],
-        ["or-move3", "*", "*", "L", "*"],
-        ["or-move3", "#", "*", "R", "or-move4"],
-        ["or-move4", "*", "*", "R", "*"],
-        ["or-move4", "-", "*", "L", "or-test"],
-
-        //start oring
-        ["or-copy", "*", "*", "R", "or-go2+"],
-        ["or-go2+", "*", "*", "R", "or-go2+"],
-        ["or-go2+", "+", "*", "R", "or-copy-end"],
-
-        ["or-copy-end", "*", "*", "R", "or-copy-end"],
-        ["or-copy-end", "-", "*", "L", "or-copy-word"],
+        ["or-go2x-end", "*", "*", "R", "or-go2x-end"],
+        ["or-go2x-end", "-", "*", "L", "or-copy-word"],
 
         ["or-copy-word", "*", "*", "L", "or-copy-word"],
         ["or-copy-word", "0", "o", "L", "or-move-a0"],
         ["or-copy-word", "1", "i", "L", "or-move-a1"],
 
         ["or-move-a0", "*", "*", "L", "or-move-a0"],
-        ["or-move-a0", "#", "*", "R", "or-move-a02a"],
-        ["or-move-a02a", "*", "*", "R", "or-move-a02a"],
-        ["or-move-a02a", "-", "*", "R", "or-move-a02a-"],
-        ["or-move-a02a-", "*", "*", "R", "or-move-a02a-"],
-        ["or-move-a02a-", "-", "*", "L", "or-paste-a0"],
+        ["or-move-a0", "-", "*", "L", "or-paste-a0"],
 
         ["or-move-a1", "*", "*", "L", "or-move-a1"],
-        ["or-move-a1", "#", "*", "R", "or-move-a12a"],
-        ["or-move-a12a", "*", "*", "R", "or-move-a12a"],
-        ["or-move-a12a", "-", "*", "R", "or-move-a12a-"],
-        ["or-move-a12a-", "*", "*", "R", "or-move-a12a-"],
-        ["or-move-a12a-", "-", "*", "L", "or-paste-a1"],
+        ["or-move-a1", "-", "*", "L", "or-paste-a1"],
 
         ["or-paste-a0", "o", "*", "L", "or-paste-a0"],
         ["or-paste-a0", "i", "*", "L", "or-paste-a0"],
-        ["or-paste-a0", "0", "o", "R", "or-go2+"],
-        ["or-paste-a0", "1", "i", "R", "or-go2+"],
+        ["or-paste-a0", "0", "o", "R", "or-go2x"],
+        ["or-paste-a0", "1", "i", "R", "or-go2x"],
 
         ["or-paste-a1", "o", "*", "L", "or-paste-a1"],
         ["or-paste-a1", "i", "*", "L", "or-paste-a1"],
-        ["or-paste-a1", "0", "i", "R", "or-go2+"],
-        ["or-paste-a1", "1", "i", "R", "or-go2+"],
+        ["or-paste-a1", "0", "i", "R", "or-go2x"],
+        ["or-paste-a1", "1", "i", "R", "or-go2x"],
 
-        ["or-copy-word", "+", "-", "R", "or-decode+"],
-
-        ["or-decode+", "*", "*", "R", "or-decode+"],
-        ["or-decode+", "o", "0", "R", "or-decode+"],
-        ["or-decode+", "i", "1", "R", "or-decode+"],
-        ["or-decode+", "-", "*", "L", "or-move2a"],
-
-        ["or-move2a", "*", "*", "L", "or-move2a"],
-        ["or-move2a", "#", "*", "R", "or-move2a-s"],
-
-        ["or-move2a-s", "*", "*", "R", "or-move2a-s"],
-        ["or-move2a-s", "-", "*", "R", "or-decode-a"],
-
-        ["or-decode-a", "*", "*", "R", "or-decode-a"],
-        ["or-decode-a", "o", "0", "R", "or-decode-a"],
-        ["or-decode-a", "i", "1", "R", "or-decode-a"],
-        ["or-decode-a", "-", "*", "L", "go2s4next"]
+        ["or-copy-word", "-", "*", "R", "add-decode-xR"]
     ]
 }
