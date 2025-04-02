@@ -1,17 +1,19 @@
-; Simple test program
+; Hello World program
 ; Initial P, A and X register values at memory locations 0, 1, and 2
-.data 0, 0, 120
+.data 0, 0, 0
 
-    ; test write (output w)
-    loada test1
+    loada start
     a2p
-    loada 119
-    write
-    loada test1
-    a2p
-    read
-    output
+    loada 0
+    jumpz
+
+end:
     halt
 
-test1:
-    .data 114
+start:
+    loada 42
+    output
+    loada end
+    a2p
+    loada 0
+    jumpz
