@@ -1,0 +1,350 @@
+{
+    "initial": "start",
+    "blank": "#",
+    "tape": "CARD ARDENT ENTITY TYPE ERROR",
+    "transitions": [
+        ["start", "*", "*", "R", "go2end"],
+
+        ["go2end", "*", "*", "R", "go2end"],
+        ["go2end", "#", "*", "L", "vanish"],
+        ["go2end", " ", "*", "L", "go2vowel"],
+
+        ["go2vowel", "*", "*", "L", "go2vowel"],
+        ["go2vowel", "A", "-", "R", "vowel-a"],
+        ["go2vowel", "E", "-", "R", "vowel-e"],
+        ["go2vowel", "I", "-", "R", "vowel-i"],
+        ["go2vowel", "O", "-", "R", "vowel-o"],
+        ["go2vowel", "U", "-", "R", "vowel-u"],
+        ["go2vowel", "Y", "-", "R", "vowel-y"],
+        ["go2vowel", "W", "-", "R", "vowel-w"],
+        ["go2vowel", "#", "*", "R", "no-vowel"],
+        ["go2vowel", " ", "*", "R", "no-vowel"],
+
+        ["vowel-a", "*", "*", "R", "vowel-a"],
+        ["vowel-a", " ", "A", "R", "vowel-as"],
+        ["vowel-as", "A", " ", "L", "go2n-char"],
+        ["vowel-as", "*", "*", "L", "vanish"],
+
+        ["vowel-e", "*", "*", "R", "vowel-e"],
+        ["vowel-e", " ", "E", "R", "vowel-es"],
+        ["vowel-es", "E", " ", "L", "go2n-char"],
+        ["vowel-es", "*", "*", "L", "vanish"],
+
+        ["vowel-i", "*", "*", "R", "vowel-i"],
+        ["vowel-i", " ", "I", "R", "vowel-is"],
+        ["vowel-is", "I", " ", "L", "go2n-char"],
+        ["vowel-is", "*", "*", "L", "vanish"],
+
+        ["vowel-o", "*", "*", "R", "vowel-o"],
+        ["vowel-o", " ", "O", "R", "vowel-os"],
+        ["vowel-os", "O", " ", "L", "go2n-char"],
+        ["vowel-os", "*", "*", "L", "vanish"],
+
+        ["vowel-u", "*", "*", "R", "vowel-u"],
+        ["vowel-u", " ", "U", "R", "vowel-us"],
+        ["vowel-us", "U", " ", "L", "go2n-char"],
+        ["vowel-us", "*", "*", "L", "vanish"],
+
+        ["vowel-y", "*", "*", "R", "vowel-y"],
+        ["vowel-y", " ", "Y", "R", "vowel-ys"],
+        ["vowel-ys", "Y", " ", "L", "go2n-char"],
+        ["vowel-ys", "*", "*", "L", "vanish"],
+
+        ["vowel-w", "*", "*", "R", "vowel-w"],
+        ["vowel-w", " ", "W", "R", "vowel-ws"],
+        ["vowel-ws", "W", " ", "L", "go2n-char"],
+        ["vowel-ws", "*", "*", "L", "vanish"],
+
+        ["go2n-char","*","*","L","go2n-char"],
+        ["go2n-char","-","*","R","take-char"],
+
+        ["take-char","B","-","R","char-b"],
+        ["take-char","C","-","R","char-c"],
+        ["take-char","D","-","R","char-d"],
+        ["take-char","F","-","R","char-f"],
+        ["take-char","G","-","R","char-g"],
+        ["take-char","H","-","R","char-h"],
+        ["take-char","J","-","R","char-j"],
+        ["take-char","K","-","R","char-k"],
+        ["take-char","L","-","R","char-l"],
+        ["take-char","M","-","R","char-m"],
+        ["take-char","N","-","R","char-n"],
+        ["take-char","P","-","R","char-p"],
+        ["take-char","Q","-","R","char-q"],
+        ["take-char","R","-","R","char-r"],
+        ["take-char","S","-","R","char-s"],
+        ["take-char","T","-","R","char-t"],
+        ["take-char","V","-","R","char-v"],
+        ["take-char","X","-","R","char-x"],
+        ["take-char","Z","-","R","char-z"],
+
+        ["take-char","A","*","R","word-match"],
+        ["take-char","E","*","R","word-match"],
+        ["take-char","I","*","R","word-match"],
+        ["take-char","O","*","R","word-match"],
+        ["take-char","U","*","R","word-match"],
+        ["take-char","Y","*","R","word-match"],
+        ["take-char","W","*","R","word-match"],
+
+        ["word-match", "*", "*", "R", "word-match"],
+        ["word-match", " ", "*", "L", "shift-back"],
+
+        ["char-b","*","*","R","char-b"],
+        ["char-b"," ","B","R","char-b-check"],
+        ["char-b-check","B"," ","L","go2n-char"],
+        ["char-b-check","*","*","L","shift-nomatch"],
+
+        ["char-c","*","*","R","char-c"],
+        ["char-c"," ","C","R","char-c-check"],
+        ["char-c-check","C"," ","L","go2n-char"],
+        ["char-c-check","*","*","L","shift-nomatch"],
+
+        ["char-d","*","*","R","char-d"],
+        ["char-d"," ","D","R","char-d-check"],
+        ["char-d-check","D"," ","L","go2n-char"],
+        ["char-d-check","*","*","L","shift-nomatch"],
+
+        ["char-f","*","*","R","char-f"],
+        ["char-f"," ","F","R","char-f-check"],
+        ["char-f-check","F"," ","L","go2n-char"],
+        ["char-f-check","*","*","L","shift-nomatch"],
+
+        ["char-g","*","*","R","char-g"],
+        ["char-g"," ","G","R","char-g-check"],
+        ["char-g-check","G"," ","L","go2n-char"],
+        ["char-g-check","*","*","L","shift-nomatch"],
+
+        ["char-h", "*", "*", "R", "char-h"],
+        ["char-h", " ", "H", "R", "char-h-check"],
+        ["char-h-check", "H", " ", "L", "go2n-char"],
+        ["char-h-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-j", "*", "*", "R", "char-j"],
+        ["char-j", " ", "J", "R", "char-j-check"],
+        ["char-j-check", "J", " ", "L", "go2n-char"],
+        ["char-j-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-k", "*", "*", "R", "char-k"],
+        ["char-k", " ", "K", "R", "char-k-check"],
+        ["char-k-check", "K", " ", "L", "go2n-char"],
+        ["char-k-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-l", "*", "*", "R", "char-l"],
+        ["char-l", " ", "L", "R", "char-l-check"],
+        ["char-l-check", "L", " ", "L", "go2n-char"],
+        ["char-l-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-m", "*", "*", "R", "char-m"],
+        ["char-m", " ", "M", "R", "char-m-check"],
+        ["char-m-check", "M", " ", "L", "go2n-char"],
+        ["char-m-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-n","*","*","R","char-n"],
+        ["char-n"," ","N","R","char-n-check"],
+        ["char-n-check","N"," ","L","go2n-char"],
+        ["char-n-check","*","*","L","shift-nomatch"],
+
+        ["char-p","*","*","R","char-p"],
+        ["char-p"," ","P","R","char-p-check"],
+        ["char-p-check","P"," ","L","go2n-char"],
+        ["char-p-check","*","*","L","shift-nomatch"],
+
+        ["char-q", "*", "*", "R", "char-q"],
+        ["char-q", " ", "Q", "R", "char-q-check"],
+        ["char-q-check", "Q", " ", "L", "go2n-char"],
+        ["char-q-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-r","*","*","R","char-r"],
+        ["char-r"," ","R","R","char-r-check"],
+        ["char-r-check","R"," ","L","go2n-char"],
+        ["char-r-check","*","*","L","shift-nomatch"],
+
+        ["char-s", "*", "*", "R", "char-s"],
+        ["char-s", " ", "S", "R", "char-s-check"],
+        ["char-s-check", "S", " ", "L", "go2n-char"],
+        ["char-s-check", "*", "*", "L", "shift-nomatch"],
+
+        ["char-t" ,"*","*","R" ,"char-t" ],
+        ["char-t" ," ","T" ,"R" ,"char-t-check" ],
+        ["char-t-check" ,"T" ," ","L" ,"go2n-char" ],
+        ["char-t-check" ,"*" ,"*" ,"L" ,"shift-nomatch"],
+
+        ["char-v" ,"*","*" ,"R" ,"char-v" ],
+        ["char-v" ," ","V" ,"R" ,"char-v-check" ],
+        ["char-v-check" ,"V" ," ","L" ,"go2n-char" ],
+        ["char-v-check" ,"*" ,"*" ,"L" ,"shift-nomatch"],
+
+        ["char-x","*","*","R","char-x"],
+        ["char-x"," ","X","R","char-x-check"],
+        ["char-x-check","X"," ","L","go2n-char"],
+        ["char-x-check","*","*","L","shift-nomatch"],
+
+        ["char-z", "*", "*", "R", "char-z"],
+        ["char-z", " ", "Z", "R", "char-z-check"],
+        ["char-z-check", "Z", " ", "L", "go2n-char"],
+        ["char-z-check", "*", "*", "L", "shift-nomatch"],
+
+        ["vanish", "*", "#", "L", "vanish"],
+        ["vanish", "#", "*", "R", "halt"],
+
+        ["shift-1step", "*", "*", "L", "shift-back"],
+
+        ["shift-back", "A", " ", "R", "shift-a"],
+        ["shift-a", " ", "A", "R", "go2end"],
+
+        ["shift-back", "E", " ", "R", "shift-e"],
+        ["shift-e", " ", "E", "R", "go2end"],
+
+        ["shift-back", "I", " ", "R", "shift-i"],
+        ["shift-i", " ", "I", "R", "go2end"],
+
+        ["shift-back", "O", " ", "R", "shift-o"],
+        ["shift-o", " ", "O", "R", "go2end"],
+
+        ["shift-back", "U", " ", "R", "shift-u"],
+        ["shift-u", " ", "U", "R", "go2end"],
+
+        ["shift-back", "Y", " ", "R", "shift-y"],
+        ["shift-y", " ", "Y", "R", "go2end"],
+        
+        ["shift-back", "W", " ", "R", "shift-w"],
+        ["shift-w", " ", "W", "R", "go2end"],
+
+        ["shift-back", "B", " ", "R", "shift-b"],
+        ["shift-b", " ", "B", "L", "shift-1step"],
+
+        ["shift-back", "C", " ", "R", "shift-c"],
+        ["shift-c", " ", "C", "L", "shift-1step"],
+
+        ["shift-back", "D", " ", "R", "shift-d"],
+        ["shift-d", " ", "D", "L", "shift-1step"],
+
+        ["shift-back", "F", " ", "R", "shift-f"],
+        ["shift-f", " ", "F", "L", "shift-1step"],
+
+        ["shift-back", "G", " ", "R", "shift-g"],
+        ["shift-g", " ", "G", "L", "shift-1step"],
+
+        ["shift-back", "H", " ", "R", "shift-h"],
+        ["shift-h", " ", "H", "L", "shift-1step"],
+
+        ["shift-back", "J", " ", "R", "shift-j"],
+        ["shift-j", " ", "J", "L", "shift-1step"],
+
+        ["shift-back", "K", " ", "R", "shift-k"],
+        ["shift-k", " ", "K", "L", "shift-1step"],
+
+        ["shift-back", "L", " ", "R", "shift-l"],
+        ["shift-l", " ", "L", "L", "shift-1step"],
+
+        ["shift-back", "M", " ", "R", "shift-m"],
+        ["shift-m", " ", "M", "L", "shift-1step"],
+
+        ["shift-back", "N", " ", "R", "shift-n"],
+        ["shift-n", " ", "N", "L", "shift-1step"],
+
+        ["shift-back", "P", " ", "R", "shift-p"],
+        ["shift-p", " ", "P", "L", "shift-1step"],
+
+        ["shift-back", "Q", " ", "R", "shift-q"],
+        ["shift-q", " ", "Q", "L", "shift-1step"],
+
+        ["shift-back", "R", " ", "R", "shift-r"],
+        ["shift-r", " ", "R", "L", "shift-1step"],
+
+        ["shift-back", "S", " ", "R","shift-s"],
+        ["shift-s", " ", "S", "L","shift-1step"],
+
+        ["shift-back","T"," ","R","shift-t"],
+        ["shift-t"," ","T","L","shift-1step"],
+
+        ["shift-back","V"," ","R","shift-v"],
+        ["shift-v"," ","V","L","shift-1step"],
+
+        ["shift-back","X"," ","R","shift-x"],
+        ["shift-x"," ","X","L","shift-1step"],
+
+        ["shift-back","Z"," ","R","shift-z"],
+        ["shift-z"," ","Z","L","shift-1step"],
+
+        ["shift-nomatch", "*", "*", "L", "nomatch-shift-back"],
+
+        ["nomatch-shift-back", "A", " ", "R", "nomatch-shift-a"],
+        ["nomatch-shift-a", "*", "A", "L", "vanish"],
+
+        ["nomatch-shift-back", "E", " ", "R", "nomatch-shift-e"],
+        ["nomatch-shift-e", "*", "E", "L", "vanish"],
+
+        ["nomatch-shift-back", "I", " ", "R", "nomatch-shift-i"],
+        ["nomatch-shift-i", "*", "I", "L", "vanish"],
+
+        ["nomatch-shift-back", "O", " ", "R", "nomatch-shift-o"],
+        ["nomatch-shift-o", "*", "O", "L", "vanish"],
+
+        ["nomatch-shift-back", "U", " ", "R", "nomatch-shift-u"],
+        ["nomatch-shift-u", "*", "U", "L", "vanish"],
+
+        ["nomatch-shift-back", "Y", " ", "R", "nomatch-shift-y"],
+        ["nomatch-shift-y", "*", "Y", "L", "vanish"],
+
+        ["nomatch-shift-back", "W", " ", "R", "nomatch-shift-w"],
+        ["nomatch-shift-w", "*", "W", "L", "vanish"],
+
+        ["nomatch-shift-back", "B", " ", "R", "nomatch-shift-b"],
+        ["nomatch-shift-b", "*", "B", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "C", " ", "R", "nomatch-shift-c"],
+        ["nomatch-shift-c", "*", "C", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "D", " ", "R", "nomatch-shift-d"],
+        ["nomatch-shift-d", "*", "D", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "F", " ", "R", "nomatch-shift-f"],
+        ["nomatch-shift-f", "*", "F", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "G", " ", "R", "nomatch-shift-g"],
+        ["nomatch-shift-g", "*", "G", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "H", " ", "R", "nomatch-shift-h"],
+        ["nomatch-shift-h", "*", "H", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "J", " ", "R", "nomatch-shift-j"],
+        ["nomatch-shift-j", "*", "J", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "K", " ", "R", "nomatch-shift-k"],
+        ["nomatch-shift-k", "*", "K", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "L", " ", "R", "nomatch-shift-l"],
+        ["nomatch-shift-l", "*", "L", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "M", " ", "R", "nomatch-shift-m"],
+        ["nomatch-shift-m", "*", "M", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "N", " ", "R", "nomatch-shift-n"],
+        ["nomatch-shift-n", "*", "N", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "P", " ", "R", "nomatch-shift-p"],
+        ["nomatch-shift-p", "*", "P", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "Q", " ", "R", "nomatch-shift-q"],
+        ["nomatch-shift-q", "*", "Q", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "R", " ", "R", "nomatch-shift-r"],
+        ["nomatch-shift-r", "*", "R", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back", "S", " ", "R","snomatch-hift-s"],
+        ["nomatch-shift-s", "*", "S", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back","T"," ","R","nomatch-shift-t"],
+        ["nomatch-shift-t", "*", "T", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back","V"," ","R","nomatch-shift-v"],
+        ["nomatch-shift-v", "*", "V", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back","X"," ","R","nomatch-shift-x"],
+        ["nomatch-shift-x", "*", "X", "L", "shift-nomatch"],
+
+        ["nomatch-shift-back","Z"," ","R","nomatch-shift-z"],
+        ["nomatch-shift-z", "*", "Z", "L", "shift-nomatch"]
+    ]
+}

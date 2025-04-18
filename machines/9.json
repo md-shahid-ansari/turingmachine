@@ -1,0 +1,135 @@
+{
+    "initial": "start",
+    "blank": "#",
+    "tape": "55 31 31 55 54 31 54 54",
+    "transitions": [
+        ["start", "*", "*", "R", "start"],
+        ["start", "#", "*", "L", "move-ini"],
+
+        ["move-ini", "*", "*", "L", "move-ini"],
+        ["move-ini", " ", "-", "L", "match"],
+        ["move-ini", "#", "*", "R", "write-3"],
+
+        ["move-", "*", "*", "R", "move-"],
+        ["move-", "#", "*", "L", "move--"],
+        ["move--", "*", "*", "L", "move--"],
+        ["move--", " ", "*", "L", "move--"],
+        ["move--", "-", " ", "L", "move---"],
+        ["move--", "#", "*", "R", "write-3"],
+        ["move---", "*", "*", "L", "move---"],
+        ["move---", " ", "-", "R", "match"],
+        ["move---", "#", "*", "R", "write-3"],
+
+        ["match", "*", "*", "R", "match"],
+        ["match", "#", "*", "L", "match-"],
+
+        ["match-", "0", "*", "L", "match-0"],
+        ["match-", "1", "*", "L", "match-1"],
+        ["match-", "2", "*", "L", "match-2"],
+        ["match-", "3", "*", "L", "match-3"],
+        ["match-", "4", "*", "L", "match-4"],
+        ["match-", "5", "*", "L", "match-5"],
+
+        ["match-0", "*", "*", "L", "match-0"],
+        ["match-0", "-", "*", "L", "see-0"],
+        ["see-0", "0", "*", "L", "match2"],
+        ["see-0", "*", "*", "R", "move-"],
+
+        ["match-1", "*", "*", "L", "match-1"],
+        ["match-1", "-", "*", "L", "see-1"],
+        ["see-1", "1", "*", "L", "match2"],
+        ["see-1", "*", "*", "R", "move-"],
+
+        ["match-2", "*", "*", "L", "match-2"],
+        ["match-2", "-", "*", "L", "see-2"],
+        ["see-2", "2", "*", "L", "match2"],
+        ["see-2", "*", "*", "R", "move-"],
+
+        ["match-3", "*", "*", "L", "match-3"],
+        ["match-3", "-", "*", "L", "see-3"],
+        ["see-3", "3", "*", "L", "match2"],
+        ["see-3", "*", "*", "R", "move-"],
+
+        ["match-4", "*", "*", "L", "match-4"],
+        ["match-4", "-", "*", "L", "see-4"],
+        ["see-4", "4", "*", "L", "match2"],
+        ["see-4", "*", "*", "R", "move-"],
+
+        ["match-5", "*", "*", "L", "match-5"],
+        ["match-5", "-", "*", "L", "see-5"],
+        ["see-5", "5", "*", "L", "match2"],
+        ["see-5", "*", "*", "R", "move-"],
+
+        ["match2", "0", "*", "R", "match2-0"],
+        ["match2", "1", "*", "R", "match2-1"],
+        ["match2", "2", "*", "R", "match2-2"],
+        ["match2", "3", "*", "R", "match2-3"],
+        ["match2", "4", "*", "R", "match2-4"],
+        ["match2", "5", "*", "R", "match2-5"],
+
+        ["match2-0", "*", "*", "R", "match2-0"],
+        ["match2-0", "#", "*", "L", "see2-0"],
+        ["see2-0", "*", "*", "L", "see2-0-"],
+        ["see2-0-", "0", "*", "L", "matched"],
+        ["see2-0-", "*", "*", "R", "move-"],
+        
+        ["match2-1", "*", "*", "R", "match2-1"],
+        ["match2-1", "#", "*", "L", "see2-1"],
+        ["see2-1", "*", "*", "L", "see2-1-"],
+        ["see2-1-", "1", "*", "L", "matched"],
+        ["see2-1-", "*", "*", "R", "move-"],
+
+        ["match2-2", "*", "*", "R", "match2-2"],
+        ["match2-2", "#", "*", "L", "see2-2"],
+        ["see2-2", "*", "*", "L", "see2-2-"],
+        ["see2-2-", "2", "*", "L", "matched"],
+        ["see2-2-", "*", "*", "R", "move-"],
+        
+        ["match2-3", "*", "*", "R", "match2-3"],
+        ["match2-3", "#", "*", "L", "see2-3"],
+        ["see2-3", "*", "*", "L", "see2-3-"],
+        ["see2-3-", "3", "*", "L", "matched"],
+        ["see2-3-", "*", "*", "R", "move-"],
+        
+        ["match2-4", "*", "*", "R", "match2-4"],
+        ["match2-4", "#", "*", "L", "see2-4"],
+        ["see2-4", "*", "*", "L", "see2-4-"],
+        ["see2-4-", "4", "*", "L", "matched"],
+        ["see2-4-", "*", "*", "R", "move-"],
+        
+        ["match2-5", "*", "*", "R", "match2-5"],
+        ["match2-5", "#", "*", "L", "see2-5"],
+        ["see2-5", "*", "*", "L", "see2-5-"],
+        ["see2-5-", "5", "*", "L", "matched"],
+        ["see2-5-", "*", "*", "R", "move-"],
+
+        ["matched", "*", "*", "L", "matched"],
+        ["matched", "-", "*", "R", "matched-"],
+        ["matched-", "*", "*", "R", "predicted"],
+        
+        ["predicted", "0", "*", "R", "write-5"],
+        ["predicted", "1", "*", "R", "write-5"],
+        ["predicted", "2", "*", "R", "write-1"],
+        ["predicted", "3", "*", "R", "write-2"],
+        ["predicted", "4", "*", "R", "write-3"],
+        ["predicted", "5", "*", "R", "write-4"],
+
+        ["vanish", "*", "#", "L", "vanish"],
+        ["vanish", "#", "*", "R", "halt"],
+
+        ["write-1", "*", "*", "R", "write-1"],
+        ["write-1", "#", "1", "L", "vanish"],
+
+        ["write-2", "*", "*", "R", "write-2"],
+        ["write-2", "#", "2", "L", "vanish"],
+
+        ["write-3", "*", "*", "R", "write-3"],
+        ["write-3", "#", "3", "L", "vanish"],
+
+        ["write-4", "*", "*", "R", "write-4"],
+        ["write-4", "#", "4", "L", "vanish"],
+
+        ["write-5", "*", "*", "R", "write-5"],
+        ["write-5", "#", "5", "L", "vanish"]
+    ]
+}

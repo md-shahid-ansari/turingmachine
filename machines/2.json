@@ -1,0 +1,55 @@
+{
+    "initial": "start",
+    "blank": "#",
+    "tape": "THTHTHTHHTHTHTHTHHTHHTHTHTHTHHHTHTHTHTTHTHTHT",
+    "transitions": [
+        // first set a 0 before the bets
+        ["start", "*", "*", "L", "*"],
+        ["start", "#", "0", "R", "test"],
+
+        // stop if all bets are processed
+        ["test", "#", "#", "L", "halt"],
+
+        // otherwise move to end of last bet
+        ["test", "*", "*", "R", "test2"],
+        ["test2", "*", "*", "R", "*"],
+        ["test2", "#", "*", "L", "bet"],
+
+        // read bet outcome
+        ["bet", "H", "#", "L", "bet-h"],
+        ["bet", "T", "#", "L", "bet-t"],
+        // skip bet of player 2
+        ["bet-h", "*", "#", "L", "bet-h2"],
+        ["bet-t", "*", "#", "L", "bet-t2"],
+        // check if player 1 wins
+        ["bet-h2", "H", "#", "L", "win"],
+        ["bet-t2", "T", "#", "L", "win"],
+        // otherwise test next bet
+        ["bet-h2", "T", "#", "L", "bet"],
+        ["bet-t2", "H", "#", "L", "bet"],
+        // end if no more bets
+        ["bet-h2", "*", "*", "R", "halt"],
+        ["bet-t2", "*", "*", "R", "halt"],
+
+        // search for first digit
+        ["win", "*", "*", "L", "*"],
+
+        // increment count
+        ["win", "0", "1", "R", "test"],
+        ["win", "1", "2", "R", "test"],
+        ["win", "2", "3", "R", "test"],
+        ["win", "3", "4", "R", "test"],
+        ["win", "4", "5", "R", "test"],
+        ["win", "5", "6", "R", "test"],
+        ["win", "6", "7", "R", "test"],
+        ["win", "7", "8", "R", "test"],
+        ["win", "8", "9", "R", "test"],
+        ["win", "9", "0", "L", "carry"],
+        // number end, set 1 and then next bet
+        ["carry", "#", "1", "R", "test"],
+
+        // there is a digit, increment it
+        ["carry", "*", "*", "R", "carry2"],
+        ["carry2", "*", "*", "L", "win"],
+    ]
+}

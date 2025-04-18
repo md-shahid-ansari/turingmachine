@@ -1,0 +1,61 @@
+{
+    "initial": "start",
+    "blank": "#",
+    // "tape": "EO33",
+    // "tape": "EO34",
+    // "tape": "OE05",
+    "tape": "OE55",
+    "transitions": [
+        ["start", "*", "*", "R", "go2sum-1"],
+        ["go2sum-1", "*", "*", "R", "go2sum-2"],
+        ["go2sum-2", "0", "*", "R", "sum-e"],
+        ["go2sum-2", "1", "*", "R", "sum-o"],
+        ["go2sum-2", "2", "*", "R", "sum-e"],
+        ["go2sum-2", "3", "*", "R", "sum-o"],
+        ["go2sum-2", "4", "*", "R", "sum-e"],
+        ["go2sum-2", "5", "*", "R", "sum-o"],
+
+        ["sum-o", "0", "*", "L", "result-o"],
+        ["sum-o", "1", "*", "L", "result-e"],
+        ["sum-o", "2", "*", "L", "result-o"],
+        ["sum-o", "3", "*", "L", "result-e"],
+        ["sum-o", "4", "*", "L", "result-o"],
+        ["sum-o", "5", "*", "L", "result-e"],
+
+        ["sum-e", "0", "*", "L", "result-e"],
+        ["sum-e", "1", "*", "L", "result-o"],
+        ["sum-e", "2", "*", "L", "result-e"],
+        ["sum-e", "3", "*", "L", "result-o"],
+        ["sum-e", "4", "*", "L", "result-e"],
+        ["sum-e", "5", "*", "L", "result-o"],
+
+        ["result-o", "*", "*", "L", "go-n-check-o"],
+        ["result-e", "*", "*", "L", "go-n-check-e"],
+
+        ["go-n-check-o", "*", "*", "L", "go-n-check-o"],
+        ["go-n-check-o", "#", "*", "R", "check-1-o"],
+
+        ["check-1-o", "O", "*", "R", "win-1"],
+        ["check-1-o", "E", "*", "R", "check-2-o"],
+
+        ["check-2-o", "O", "*", "R", "win-2"],
+        ["check-2-o", "E", "*", "R", "halt"],
+
+        ["go-n-check-e", "*", "*", "L", "go-n-check-e"],
+        ["go-n-check-e", "#", "*", "R", "check-1-e"],
+
+        ["check-1-e", "E", "*", "R", "win-1"],
+        ["check-1-e", "O", "*", "R", "check-2-e"],
+
+        ["check-2-e", "E", "*", "R", "win-2"],
+        ["check-2-e", "O", "*", "R", "halt"],
+
+        //mark player 1 win
+        ["win-1", "*", "*", "R", "win-1"],
+        ["win-1", "#", "A", "L", "halt"],
+
+        //mark player 2 win
+        ["win-2", "*", "*", "R", "win-2"],
+        ["win-2", "#", "B", "L", "halt"]
+    ]
+}

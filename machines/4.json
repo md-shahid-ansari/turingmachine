@@ -1,0 +1,177 @@
+{
+    "initial": "start",
+    "blank": "#",
+    "tape": "HTHTHHTTHTHTHHHTHHHTTTHTHTHHHTHTTTHTHTHT",
+    "transitions": [
+        ["start", "*", "*", "L", "*"],
+        ["start", "#", "-", "R", "count"],
+
+        ["count", "*", "*", "R", "count"],
+        ["count", "#", "*", "L", "count-rem"],
+        ["count", "H", "h", "R", "count-H"],
+
+        ["count-H", "*", "*", "L", "count-H"],
+        ["count-H", "-", "*", "L", "H-inc"],
+
+        ["H-inc", "#", "1", "R", "H-cancel-T"],
+        ["H-inc", "0", "1", "R", "H-cancel-T"],
+        ["H-inc", "1", "0", "L", "H-inc-carry"],
+        ["H-inc-carry", "#", "1", "R", "H-cancel-T"],
+        ["H-inc-carry", "0", "1", "R", "H-cancel-T"],
+        ["H-inc-carry", "1", "0", "L", "H-inc-carry"],
+
+        ["H-cancel-T", "*", "*", "R", "H-cancel-T"],
+        ["H-cancel-T", "#", "*", "L", "revert-H"],
+        ["H-cancel-T", "T", "t", "L", "count-T"],
+
+        ["revert-H", "*", "*", "L", "revert-H"],
+        ["revert-H", "h", "x", "L", "count-rem"],
+
+        ["count-T", "*", "*", "L", "count-T"],
+        ["count-T", "-", "*", "L", "T-inc"],
+
+        ["T-inc", "#", "1", "R", "count"],
+        ["T-inc", "0", "1", "R", "count"],
+        ["T-inc", "1", "0", "L", "T-inc-carry"],
+        ["T-inc-carry", "#", "1", "R", "count"],
+        ["T-inc-carry", "0", "1", "R", "count"],
+        ["T-inc-carry", "1", "0", "L", "T-inc-carry"],
+
+        ["count-rem", "*", "*", "R", "count-rem"],
+        ["count-rem", "#", "*", "L", "rem-start"],
+
+        ["rem-start", "*", "*", "L", "rem-start"],
+        ["rem-start", "-", "*", "L", "count-diff"],
+        ["rem-start", "H", "x", "L", "rem-incr"],
+        ["rem-start", "T", "y", "L", "rem-incr"],
+
+        ["rem-incr", "*", "*", "L", "count-T"],
+        ["rem-incr", "-", "*", "L", "rem-inc"],
+
+        ["rem-inc", "#", "1", "R", "go2xy"],
+        ["rem-inc", "0", "1", "R", "go2xy"],
+        ["rem-inc", "1", "0", "L", "rem-inc-carry"],
+        ["rem-inc-carry", "#", "1", "R", "go2xy"],
+        ["rem-inc-carry", "0", "1", "R", "go2xy"],
+        ["rem-inc-carry", "1", "0", "L", "rem-inc-carry"],
+
+        ["go2xy", "*", "*", "R", "go2xy"],
+        ["go2xy", "x", "*", "L", "rem-start"],
+        ["go2xy", "y", "*", "L", "rem-start"],
+
+        ["count-diff", "*", "*", "L", "count-diff"],
+        ["count-diff", "#", "d", "R", "start-diff"],
+
+        ["start-diff", "*", "*", "R", "start-diff"],
+        ["start-diff", "x", "h", "L", "go2d"],
+        ["start-diff", "y", "t", "L", "go2d"],
+        ["start-diff", "#", "*", "L", "go2diff"],
+
+        ["go2d", "*", "*", "L", "go2d"],
+        ["go2d", "d", "*", "L", "diff-inc"],
+
+        ["diff-inc", "#", "1", "R", "start-diff"],
+        ["diff-inc", "0", "1", "R", "start-diff"],
+        ["diff-inc", "1", "0", "L", "diff-inc-carry"],
+        ["diff-inc-carry", "#", "1", "R", "start-diff"],
+        ["diff-inc-carry", "0", "1", "R", "start-diff"],
+        ["diff-inc-carry", "1", "0", "L", "diff-inc-carry"],
+
+        ["go2diff", "*", "*", "L", "go2diff"],
+        ["go2diff", "d", "*", "L", "start-shift"],
+
+        ["start-shift", "*", "*", "L", "start-shift"],
+        ["start-shift", "#", "*", "R", "lshift"],
+
+        ["lshift", "0", "0", "L", "lshift-0"],
+        ["lshift", "1", "0", "L", "lshift-1"],
+        ["lshift", "d", "*", "L", "start-ls"],
+
+        ["lshift-0", "*", "0", "R", "lshift-1step"],
+        ["lshift-1", "*", "1", "R", "lshift-1step"],
+
+        ["lshift-1step", "*", "*", "R", "lshift"],
+        ["lshift-1step", "d", "*", "L", "start-ls"],
+
+        ["start-ls", "*", "*", "L", "start-ls"],
+        ["start-ls", "#", "*", "R", "ls"],
+
+        ["ls", "0", "0", "L", "ls-0"],
+        ["ls", "1", "0", "L", "ls-1"],
+        ["ls", "d", "*", "R", "comp-bit"],
+
+        ["ls-0", "*", "0", "R", "ls-1step"],
+        ["ls-1", "*", "1", "R", "ls-1step"],
+
+        ["ls-1step", "*", "*", "R", "ls"],
+        ["ls-1step", "d", "*", "R", "comp-bit"],
+
+        ["comp-bit", "*", "*", "R", "comp-bit"],
+        ["comp-bit", "0", "o", "L", "mark-bit"],
+        ["comp-bit", "1", "i", "L", "mark-bit"],
+        ["comp-bit", "-", "*", "L", "bit-done-check"],
+
+        ["mark-bit", "*", "*", "L", "mark-bit"],
+        ["mark-bit", "d", "*", "L", "mark-bitd"],
+
+        ["mark-bitd", "*", "*", "L", "mark-bitd"],
+        ["mark-bitd", "#", "*", "R", "mark-bitd-"],
+        ["mark-bitd", "o", "*", "R", "mark-bitd-"],
+        ["mark-bitd", "i", "*", "R", "mark-bitd-"],
+
+        ["mark-bitd-", "d", "*", "L", "write-OK"],
+        ["mark-bitd-", "0", "o", "R", "marked-check"],
+        ["mark-bitd-", "1", "i", "R", "marked-check"],
+
+        ["marked-check", "*", "*", "R", "marked-check"],
+        ["marked-check", "d", "*", "R", "comp-bit"],
+
+        ["bit-done-check", "*", "*", "L", "bit-done-check"],
+        ["bit-done-check", "d", "*", "L", "bit-done-check2"],
+
+        ["bit-done-check2", "0", "*", "L", "write-KO"],
+        ["bit-done-check2", "1", "*", "L", "write-KO"],
+        ["bit-done-check2", "*", "*", "L", "bit-same"],
+
+        ["bit-same", "*", "*", "R", "bit-same"],
+        ["bit-same", "d", "*", "R", "comp-bitwise"],
+
+        ["comp-bitwise", "*", "*", "R", "comp-bitwise"],
+        ["comp-bitwise", "o", "0", "L", "bitwise-0"],
+        ["comp-bitwise", "i", "1", "L", "bitwise-1"],
+        ["comp-bitwise", "-", "*", "L", "write-KO"],
+
+        ["bitwise-0", "*", "*", "L", "bitwise-0"],
+        ["bitwise-0", "d", "*", "L", "bitwise-0-"],
+
+        ["bitwise-0-", "*", "*", "L", "bitwise-0-"],
+        ["bitwise-0-", "1", "*", "R", "bitwise-comp-0"],
+        ["bitwise-0-", "0", "*", "R", "bitwise-comp-0"],
+        ["bitwise-0-", "#", "*", "R", "bitwise-comp-0"],
+
+        ["bitwise-comp-0", "o", "0", "R", "bit-same"],
+        ["bitwise-comp-0", "i", "1", "L", "write-KO"],
+
+        ["bitwise-1", "*", "*", "L", "bitwise-1"],
+        ["bitwise-1", "d", "*", "L", "bitwise-1-"],
+
+        ["bitwise-1-", "*", "*", "L", "bitwise-1-"],
+        ["bitwise-1-", "1", "*", "R", "bitwise-comp-1"],
+        ["bitwise-1-", "0", "*", "R", "bitwise-comp-1"],
+        ["bitwise-1-", "#", "*", "R", "bitwise-comp-1"],
+
+        ["bitwise-comp-1", "o", "0", "L", "write-OK"],
+        ["bitwise-comp-1", "i", "1", "R", "bit-same"],
+
+        ["write-OK", "*", "*", "L", "write-OK"],
+        ["write-OK", "#", "O", "R", "write-OK-K"],
+        ["write-OK-K", "*", "K", "R", "vanish"],
+
+        ["write-KO", "*", "*", "L", "write-KO"],
+        ["write-KO", "#", "K", "R", "write-KO-O"],
+        ["write-KO-O", "*", "O", "R", "vanish"],
+
+        ["vanish", "*", "#", "R", "vanish"],
+        ["vanish", "#", "*", "L", "halt"]
+    ]
+}
