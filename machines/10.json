@@ -1,7 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
-    "tape": "####B######B###B##A#AABBAABBBAAABAABBBABAA",
+    "tape": "#B######A#####ABA##A#ABB##B#BBB##A#AABAABA",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -5838,7 +5838,7 @@
         ["l4-check-backA-25", "*", "*", "R", "l4-check-backA-26"],
         ["l4-check-backA-26", "*", "*", "R", "l4-check-backA-27"],
         ["l4-check-backA-27", "0", "*", "R", "write-2a"],
-        ["l4-check-backA-27", "*", "*", "L", "l4-go-back"],
+        ["l4-check-backA-27", "*", "*", "L", "l4-go-back-1"],
 
         ["l4-check-backB", "*", "*", "R", "l4-check-backB-1"],
         ["l4-check-backB-1", "*", "*", "R", "l4-check-backB-2"],
@@ -9926,7 +9926,7 @@
         ["t4-1AA", "A", "*", "L", "t4-checkA"],
         ["t4-1AA", "B", "*", "L", "next"],
         ["t4-1BB", "0", "*", "L", "next"],
-        ["t4-1BB", "A", "*", "L", "snext"],
+        ["t4-1BB", "A", "*", "L", "next"],
         ["t4-1BB", "B", "*", "L", "t4-checkB"],
 
         ["t3-checkA", "*", "*", "L", "t3-checkA1"],
@@ -12774,7 +12774,7 @@
         ["y4-1AA", "A", "*", "L", "y4-checkA"],
         ["y4-1AA", "B", "*", "L", "next"],
         ["y4-1BB", "0", "*", "L", "next"],
-        ["y4-1BB", "A", "*", "L", "snext"],
+        ["y4-1BB", "A", "*", "L", "next"],
         ["y4-1BB", "B", "*", "L", "y4-checkB"],
 
         ["y3-checkA", "*", "*", "L", "y3-checkA1"],
