@@ -1,9 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
- // "tape": "123456712345671234567123456712345671234567",
- // "tape": "#      #      #      #      #      #      ",
-    "tape": "###############################A#AA####A##",
+    "tape": "#B######B#B####A#A###AABB#A#AABB#BBABAA#BA",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -7127,7 +7125,7 @@
         ["n3-checkA2", "*", "*", "L", "n3-checkA3"],
         ["n3-checkA3", "*", "*", "L", "n3-checkA4"],
         ["n3-checkA4", "*", "*", "L", "n3-checkA5"],
-        ["n3-checkA5", "0", "*", "L", "write-7a"],
+        ["n3-checkA5", "0", "*", "R", "write-7a-7"],
         ["n3-checkA5", "*", "*", "L", "next"],
 
         ["n3-checkB", "*", "*", "L", "n3-checkB1"],
@@ -7135,7 +7133,7 @@
         ["n3-checkB2", "*", "*", "L", "n3-checkB3"],
         ["n3-checkB3", "*", "*", "L", "n3-checkB4"],
         ["n3-checkB4", "*", "*", "L", "n3-checkB5"],
-        ["n3-checkB5", "0", "*", "L", "write-7b"],
+        ["n3-checkB5", "0", "*", "R", "write-7b-7"],
         ["n3-checkB5", "*", "*", "L", "next"],
 
         ["n3-check-2A", "*", "*", "L", "n3-check1-2A"],
@@ -7143,7 +7141,7 @@
         ["n3-check2-2A", "*", "*", "L", "n3-check3-2A"],
         ["n3-check3-2A", "*", "*", "L", "n3-check4-2A"],
         ["n3-check4-2A", "*", "*", "L", "n3-check5-2A"],
-        ["n3-check5-2A", "A", "*", "L", "write-6a"],
+        ["n3-check5-2A", "A", "*", "R", "write-6a-13"],
         ["n3-check5-2A", "*", "*", "L", "next"],
 
         ["n3-check-2B", "*", "*", "L", "n3-check1-2B"],
@@ -7151,7 +7149,7 @@
         ["n3-check2-2B", "*", "*", "L", "n3-check3-2B"],
         ["n3-check3-2B", "*", "*", "L", "n3-check4-2B"],
         ["n3-check4-2B", "*", "*", "L", "n3-check5-2B"],
-        ["n3-check5-2B", "B", "*", "L", "write-6b"],
+        ["n3-check5-2B", "B", "*", "R", "write-6b-13"],
         ["n3-check5-2B", "*", "*", "L", "next"],
 
         ["n4-checkA", "*", "*", "R", "n4-checkA1"],
@@ -7217,7 +7215,7 @@
         ["n4-check16-2A", "*", "*", "R", "n4-check17-2A"],
         ["n4-check17-2A", "*", "*", "R", "n4-check18-2A"],
         ["n4-check18-2A", "*", "*", "R", "n4-check19-2A"],
-        ["n4-check19-2A", "A", "*", "R", "write-3a"],
+        ["n4-check19-2A", "A", "*", "R", "write-5a-1"],
         ["n4-check19-2A", "*", "*", "L", "next"],
 
         ["n4-check-2B", "*", "*", "R", "n4-check1-2B"],
@@ -7239,7 +7237,7 @@
         ["n4-check16-2B", "*", "*", "R", "n4-check17-2B"],
         ["n4-check17-2B", "*", "*", "R", "n4-check18-2B"],
         ["n4-check18-2B", "*", "*", "R", "n4-check19-2B"],
-        ["n4-check19-2B", "B", "*", "R", "write-3b"],
+        ["n4-check19-2B", "B", "*", "R", "write-5b-1"],
         ["n4-check19-2B", "*", "*", "L", "next"],
 
         ["start-o", "*", "*", "R", "start-o"],
@@ -7398,7 +7396,7 @@
         ["o3-checkA2", "*", "*", "L", "o3-checkA3"],
         ["o3-checkA3", "*", "*", "L", "o3-checkA4"],
         ["o3-checkA4", "*", "*", "L", "o3-checkA5"],
-        ["o3-checkA5", "0", "*", "L", "write-6a"],
+        ["o3-checkA5", "0", "*", "R", "write-6a-7"],
         ["o3-checkA5", "*", "*", "L", "next"],
 
         ["o3-checkB", "*", "*", "L", "o3-checkB1"],
@@ -7406,7 +7404,7 @@
         ["o3-checkB2", "*", "*", "L", "o3-checkB3"],
         ["o3-checkB3", "*", "*", "L", "o3-checkB4"],
         ["o3-checkB4", "*", "*", "L", "o3-checkB5"],
-        ["o3-checkB5", "0", "*", "L", "write-6b"],
+        ["o3-checkB5", "0", "*", "R", "write-6b-7"],
         ["o3-checkB5", "*", "*", "L", "next"],
 
         ["o3-check-2A", "*", "*", "L", "o3-check1-2A"],
@@ -7414,7 +7412,7 @@
         ["o3-check2-2A", "*", "*", "L", "o3-check3-2A"],
         ["o3-check3-2A", "*", "*", "L", "o3-check4-2A"],
         ["o3-check4-2A", "*", "*", "L", "o3-check5-2A"],
-        ["o3-check5-2A", "A", "*", "L", "write-5a"],
+        ["o3-check5-2A", "A", "*", "R", "write-5a-13"],
         ["o3-check5-2A", "*", "*", "L", "next"],
 
         ["o3-check-2B", "*", "*", "L", "o3-check1-2B"],
@@ -7422,7 +7420,7 @@
         ["o3-check2-2B", "*", "*", "L", "o3-check3-2B"],
         ["o3-check3-2B", "*", "*", "L", "o3-check4-2B"],
         ["o3-check4-2B", "*", "*", "L", "o3-check5-2B"],
-        ["o3-check5-2B", "B", "*", "L", "write-5b"],
+        ["o3-check5-2B", "B", "*", "R", "write-5b-13"],
         ["o3-check5-2B", "*", "*", "L", "next"],
 
         ["o4-checkA", "*", "*", "R", "o4-checkA1"],
@@ -7470,7 +7468,7 @@
         ["o4-checkA40", "*", "*", "L", "o4-checkA41"],
         ["o4-checkA41", "*", "*", "L", "o4-checkA42"],
         ["o4-checkA42", "*", "*", "L", "o4-checkA43"],
-        ["o4-checkA43", "0", "*", "L", "write-7a"],
+        ["o4-checkA43", "0", "*", "R", "write-7a-7"],
         ["o4-checkA43", "*", "*", "L", "next"],
 
         ["o4-checkB", "*", "*", "R", "o4-checkB1"],
@@ -7518,7 +7516,7 @@
         ["o4-checkB40", "*", "*", "L", "o4-checkB41"],
         ["o4-checkB41", "*", "*", "L", "o4-checkB42"],
         ["o4-checkB42", "*", "*", "L", "o4-checkB43"],
-        ["o4-checkB43", "0", "*", "L", "write-7b"],
+        ["o4-checkB43", "0", "*", "R", "write-7b-7"],
         ["o4-checkB43", "*", "*", "L", "next"],
 
         ["o4-check-2A", "*", "*", "L", "o4-check1-2A"],
@@ -7526,7 +7524,7 @@
         ["o4-check2-2A", "*", "*", "L", "o4-check3-2A"],
         ["o4-check3-2A", "*", "*", "L", "o4-check4-2A"],
         ["o4-check4-2A", "*", "*", "L", "o4-check5-2A"],
-        ["o4-check5-2A", "A", "*", "L", "write-6a"],
+        ["o4-check5-2A", "A", "*", "R", "write-6a-13"],
         ["o4-check5-2A", "*", "*", "L", "next"],
 
         ["o4-check-2B", "*", "*", "L", "o4-check1-2B"],
@@ -7534,7 +7532,7 @@
         ["o4-check2-2B", "*", "*", "L", "o4-check3-2B"],
         ["o4-check3-2B", "*", "*", "L", "o4-check4-2B"],
         ["o4-check4-2B", "*", "*", "L", "o4-check5-2B"],
-        ["o4-check5-2B", "B", "*", "L", "write-6b"],
+        ["o4-check5-2B", "B", "*", "R", "write-6b-13"],
         ["o4-check5-2B", "*", "*", "L", "next"],
 
         ["o5-checkA", "*", "*", "R", "o5-checkA1"],
@@ -7556,7 +7554,7 @@
         ["o5-checkA16", "*", "*", "R", "o5-checkA17"],
         ["o5-checkA17", "*", "*", "R", "o5-checkA18"],
         ["o5-checkA18", "*", "*", "R", "o5-checkA19"],
-        ["o5-checkA19", "0", "*", "R", "write-4a"],
+        ["o5-checkA19", "0", "*", "R", "write-4a-7"],
         ["o5-checkA19", "*", "*", "L", "next"],
 
         ["o5-checkB", "*", "*", "R", "o5-checkB1"],
@@ -7578,7 +7576,7 @@
         ["o5-checkB16", "*", "*", "R", "o5-checkB17"],
         ["o5-checkB17", "*", "*", "R", "o5-checkB18"],
         ["o5-checkB18", "*", "*", "R", "o5-checkB19"],
-        ["o5-checkB19", "0", "*", "R", "write-4b"],
+        ["o5-checkB19", "0", "*", "R", "write-4b-7"],
         ["o5-checkB19", "*", "*", "L", "next"],
 
         ["o5-check-2A", "*", "*", "R", "o5-check1-2A"],
@@ -7608,7 +7606,7 @@
         ["o5-check22-2A", "*", "*", "R", "o5-check23-2A"],
         ["o5-check23-2A", "*", "*", "R", "o5-check24-2A"],
         ["o5-check24-2A", "*", "*", "R", "o5-check25-2A"],
-        ["o5-check25-2A", "A", "*", "R", "write-4a"],
+        ["o5-check25-2A", "A", "*", "R", "write-4a-1"],
         ["o5-check25-2A", "*", "*", "R", "next"],
 
         ["o5-check-2B", "*", "*", "R", "o5-check1-2B"],
@@ -7638,7 +7636,7 @@
         ["o5-check22-2B", "*", "*", "R", "o5-check23-2B"],
         ["o5-check23-2B", "*", "*", "R", "o5-check24-2B"],
         ["o5-check24-2B", "*", "*", "R", "o5-check25-2B"],
-        ["o5-check25-2B", "B", "*", "R", "write-4b"],
+        ["o5-check25-2B", "B", "*", "R", "write-4b-1"],
         ["o5-check25-2B", "*", "*", "R", "next"],
 
         ["o5-check-2A-", "*", "*", "R", "o5-check1-2A-"],
@@ -7660,7 +7658,7 @@
         ["o5-check16-2A-", "*", "*", "R", "o5-check17-2A-"],
         ["o5-check17-2A-", "*", "*", "R", "o5-check18-2A-"],
         ["o5-check18-2A-", "*", "*", "R", "o5-check19-2A-"],
-        ["o5-check19-2A-", "A", "*", "R", "write-5a"],
+        ["o5-check19-2A-", "A", "*", "R", "write-5a-1"],
         ["o5-check19-2A-", "*", "*", "L", "next"],
 
         ["o5-check-2B-", "*", "*", "R", "o5-check1-2B-"],
@@ -7682,7 +7680,7 @@
         ["o5-check16-2B-", "*", "*", "R", "o5-check17-2B-"],
         ["o5-check17-2B-", "*", "*", "R", "o5-check18-2B-"],
         ["o5-check18-2B-", "*", "*", "R", "o5-check19-2B-"],
-        ["o5-check19-2B-", "B", "*", "R", "write-5b"],
+        ["o5-check19-2B-", "B", "*", "R", "write-5b-1"],
         ["o5-check19-2B-", "*", "*", "L", "next"],
 
         ["start-p", "*", "*", "R", "start-p"],
@@ -7879,7 +7877,7 @@
         ["p3-checkA2", "*", "*", "L", "p3-checkA3"],
         ["p3-checkA3", "*", "*", "L", "p3-checkA4"],
         ["p3-checkA4", "*", "*", "L", "p3-checkA5"],
-        ["p3-checkA5", "0", "*", "L", "write-5a"],
+        ["p3-checkA5", "0", "*", "R", "write-5a-7"],
         ["p3-checkA5", "*", "*", "L", "next"],
 
         ["p3-checkB", "*", "*", "L", "p3-checkB1"],
@@ -7887,7 +7885,7 @@
         ["p3-checkB2", "*", "*", "L", "p3-checkB3"],
         ["p3-checkB3", "*", "*", "L", "p3-checkB4"],
         ["p3-checkB4", "*", "*", "L", "p3-checkB5"],
-        ["p3-checkB5", "0", "*", "L", "write-5b"],
+        ["p3-checkB5", "0", "*", "R", "write-5b-7"],
         ["p3-checkB5", "*", "*", "L", "next"],
 
         ["p3-check-2A", "*", "*", "L", "p3-check1-2A"],
@@ -7895,7 +7893,7 @@
         ["p3-check2-2A", "*", "*", "L", "p3-check3-2A"],
         ["p3-check3-2A", "*", "*", "L", "p3-check4-2A"],
         ["p3-check4-2A", "*", "*", "L", "p3-check5-2A"],
-        ["p3-check5-2A", "A", "*", "L", "write-4a"],
+        ["p3-check5-2A", "A", "*", "R", "write-4a-13"],
         ["p3-check5-2A", "*", "*", "", "p4-1"],
 
         ["p3-check-2B", "*", "*", "L", "p3-check1-2B"],
@@ -7903,7 +7901,7 @@
         ["p3-check2-2B", "*", "*", "L", "p3-check3-2B"],
         ["p3-check3-2B", "*", "*", "L", "p3-check4-2B"],
         ["p3-check4-2B", "*", "*", "L", "p3-check5-2B"],
-        ["p3-check5-2B", "B", "*", "L", "write-4b"],
+        ["p3-check5-2B", "B", "*", "R", "write-4b-13"],
         ["p3-check5-2B", "*", "*", "", "p4-1"],
 
         ["p4-checkA", "*", "*", "R", "p4-checkA1"],
@@ -7951,7 +7949,7 @@
         ["p4-checkA40", "*", "*", "L", "p4-checkA41"],
         ["p4-checkA41", "*", "*", "L", "p4-checkA42"],
         ["p4-checkA42", "*", "*", "L", "p4-checkA43"],
-        ["p4-checkA43", "0", "*", "L", "write-6a"],
+        ["p4-checkA43", "0", "*", "R", "write-6a-7"],
         ["p4-checkA43", "*", "*", "L", "next"],
 
         ["p4-checkB", "*", "*", "R", "p4-checkB1"],
@@ -7999,7 +7997,7 @@
         ["p4-checkB40", "*", "*", "L", "p4-checkB41"],
         ["p4-checkB41", "*", "*", "L", "p4-checkB42"],
         ["p4-checkB42", "*", "*", "L", "p4-checkB43"],
-        ["p4-checkB43", "0", "*", "L", "write-6b"],
+        ["p4-checkB43", "0", "*", "R", "write-6b-7"],
         ["p4-checkB43", "*", "*", "L", "next"],
 
         ["p4-check-2A", "*", "*", "L", "p4-check1-2A"],
@@ -8007,7 +8005,7 @@
         ["p4-check2-2A", "*", "*", "L", "p4-check3-2A"],
         ["p4-check3-2A", "*", "*", "L", "p4-check4-2A"],
         ["p4-check4-2A", "*", "*", "L", "p4-check5-2A"],
-        ["p4-check5-2A", "A", "*", "L", "write-5a"],
+        ["p4-check5-2A", "A", "*", "R", "write-5a-13"],
         ["p4-check5-2A", "*", "*", "L", "next"],
 
         ["p4-check-2B", "*", "*", "L", "p4-check1-2B"],
@@ -8015,7 +8013,7 @@
         ["p4-check2-2B", "*", "*", "L", "p4-check3-2B"],
         ["p4-check3-2B", "*", "*", "L", "p4-check4-2B"],
         ["p4-check4-2B", "*", "*", "L", "p4-check5-2B"],
-        ["p4-check5-2B", "B", "*", "L", "write-5b"],
+        ["p4-check5-2B", "B", "*", "R", "write-5b-13"],
         ["p4-check5-2B", "*", "*", "L", "next"],
 
         ["p5-checkA", "*", "*", "R", "p5-checkA1"],
@@ -8037,7 +8035,7 @@
         ["p5-checkA16", "*", "*", "R", "p5-checkA17"],
         ["p5-checkA17", "*", "*", "R", "p5-checkA18"],
         ["p5-checkA18", "*", "*", "R", "p5-checkA19"],
-        ["p5-checkA19", "0", "*", "R", "write-3a"],
+        ["p5-checkA19", "0", "*", "R", "write-3a-7"],
         ["p5-checkA19", "*", "*", "L", "p5-checkA20"],
 
         ["p5-checkA20", "*", "*", "L", "p5-checkA21"],
@@ -8063,7 +8061,7 @@
         ["p5-checkA40", "*", "*", "L", "p5-checkA41"],
         ["p5-checkA41", "*", "*", "L", "p5-checkA42"],
         ["p5-checkA42", "*", "*", "L", "p5-checkA43"],
-        ["p5-checkA43", "0", "*", "L", "write-7a"],
+        ["p5-checkA43", "0", "*", "R", "write-7a-7"],
         ["p5-checkA43", "*", "*", "L", "next"],
 
         ["p5-checkB", "*", "*", "R", "p5-checkB1"],
@@ -8085,7 +8083,7 @@
         ["p5-checkB16", "*", "*", "R", "p5-checkB17"],
         ["p5-checkB17", "*", "*", "R", "p5-checkB18"],
         ["p5-checkB18", "*", "*", "R", "p5-checkB19"],
-        ["p5-checkB19", "0", "*", "R", "write-3b"],
+        ["p5-checkB19", "0", "*", "R", "write-3b-7"],
         ["p5-checkB19", "*", "*", "L", "p5-checkB20"],
 
         ["p5-checkB20", "*", "*", "L", "p5-checkB21"],
@@ -8111,7 +8109,7 @@
         ["p5-checkB40", "*", "*", "L", "p5-checkB41"],
         ["p5-checkB41", "*", "*", "L", "p5-checkB42"],
         ["p5-checkB42", "*", "*", "L", "p5-checkB43"],
-        ["p5-checkB43", "0", "*", "L", "write-7b"],
+        ["p5-checkB43", "0", "*", "R", "write-7b-7"],
         ["p5-checkB43", "*", "*", "L", "next"],
 
         ["p5-check-2A", "*", "*", "R", "p5-check1-2A"],
@@ -8141,7 +8139,7 @@
         ["p5-check22-2A", "*", "*", "R", "p5-check23-2A"],
         ["p5-check23-2A", "*", "*", "R", "p5-check24-2A"],
         ["p5-check24-2A", "*", "*", "R", "p5-check25-2A"],
-        ["p5-check25-2A", "A", "*", "R", "write-3a"],
+        ["p5-check25-2A", "A", "*", "R", "write-3a-1"],
         ["p5-check25-2A", "*", "*", "L", "p5-check26-2A"],
 
         ["p5-check26-2A", "*", "*", "L", "p5-check27-2A"],
@@ -8175,7 +8173,7 @@
         ["p5-check52-2A", "*", "*", "L", "p5-check53-2A"],
         ["p5-check53-2A", "*", "*", "L", "p5-check54-2A"],
         ["p5-check54-2A", "*", "*", "L", "p5-check55-2A"],
-        ["p5-check55-2A", "A", "*", "L", "write-6a"],
+        ["p5-check55-2A", "A", "*", "R", "write-6a-13"],
         ["p5-check55-2A", "*", "*", "L", "next"],
 
         ["p5-check-2B", "*", "*", "R", "p5-check1-2B"],
@@ -8205,7 +8203,7 @@
         ["p5-check22-2B", "*", "*", "R", "p5-check23-2B"],
         ["p5-check23-2B", "*", "*", "R", "p5-check24-2B"],
         ["p5-check24-2B", "*", "*", "R", "p5-check25-2B"],
-        ["p5-check25-2B", "B", "*", "R", "write-3b"],
+        ["p5-check25-2B", "B", "*", "R", "write-3b-1"],
         ["p5-check25-2B", "*", "*", "L", "p5-check26-2B"],
 
         ["p5-check26-2B", "*", "*", "L", "p5-check27-2B"],
@@ -8239,7 +8237,7 @@
         ["p5-check52-2B", "*", "*", "L", "p5-check53-2B"],
         ["p5-check53-2B", "*", "*", "L", "p5-check54-2B"],
         ["p5-check54-2B", "*", "*", "L", "p5-check55-2B"],
-        ["p5-check55-2B", "B", "*", "L", "write-6b"],
+        ["p5-check55-2B", "B", "*", "R", "write-6b-13"],
         ["p5-check55-2B", "*", "*", "L", "next"],
 
         ["p6-checkA", "*", "*", "R", "p6-checkA1"],
@@ -8261,7 +8259,7 @@
         ["p6-checkA16", "*", "*", "R", "p6-checkA17"],
         ["p6-checkA17", "*", "*", "R", "p6-checkA18"],
         ["p6-checkA18", "*", "*", "R", "p6-checkA19"],
-        ["p6-checkA19", "0", "*", "R", "write-4a"],
+        ["p6-checkA19", "0", "*", "R", "write-4a-7"],
         ["p6-checkA19", "*", "*", "L", "next"],
 
         ["p6-checkB", "*", "*", "R", "p6-checkB1"],
@@ -8283,7 +8281,7 @@
         ["p6-checkB16", "*", "*", "R", "p6-checkB17"],
         ["p6-checkB17", "*", "*", "R", "p6-checkB18"],
         ["p6-checkB18", "*", "*", "R", "p6-checkB19"],
-        ["p6-checkB19", "0", "*", "R", "write-4b"],
+        ["p6-checkB19", "0", "*", "R", "write-4b-7"],
         ["p6-checkB19", "*", "*", "L", "next"],
 
         ["p6-check-2A", "*", "*", "R", "p6-check1-2A"],
@@ -8313,7 +8311,7 @@
         ["p6-check22-2A", "*", "*", "R", "p6-check23-2A"],
         ["p6-check23-2A", "*", "*", "R", "p6-check24-2A"],
         ["p6-check24-2A", "*", "*", "R", "p6-check25-2A"],
-        ["p6-check25-2A", "A", "*", "R", "write-4a"],
+        ["p6-check25-2A", "A", "*", "R", "write-4a-1"],
         ["p6-check25-2A", "*", "*", "L", "next"],
 
         ["p6-check-2B", "*", "*", "R", "p6-check1-2B"],
@@ -8343,7 +8341,7 @@
         ["p6-check22-2B", "*", "*", "R", "p6-check23-2B"],
         ["p6-check23-2B", "*", "*", "R", "p6-check24-2B"],
         ["p6-check24-2B", "*", "*", "R", "p6-check25-2B"],
-        ["p6-check25-2B", "B", "*", "R", "write-4b"],
+        ["p6-check25-2B", "B", "*", "R", "write-4b-1"],
         ["p6-check25-2B", "*", "*", "L", "next"],
 
         ["p6-check-2A-", "*", "*", "R", "p6-check1-2A-"],
@@ -8367,7 +8365,7 @@
         ["p6-check16-2A-", "*", "*", "R", "p6-check17-2A-"],
         ["p6-check17-2A-", "*", "*", "R", "p6-check18-2A-"],
         ["p6-check18-2A-", "*", "*", "R", "p6-check19-2A-"],
-        ["p6-check19-2A-", "A", "*", "R", "write-5a"],
+        ["p6-check19-2A-", "A", "*", "R", "write-5a-1"],
         ["p6-check19-2A-", "*", "*", "L", "next"],
 
         ["p6-check-2B-", "*", "*", "R", "p6-check1-2B-"],
@@ -8391,7 +8389,7 @@
         ["p6-check16-2B-", "*", "*", "R", "p6-check17-2B-"],
         ["p6-check17-2B-", "*", "*", "R", "p6-check18-2B-"],
         ["p6-check18-2B-", "*", "*", "R", "p6-check19-2B-"],
-        ["p6-check19-2B-", "B", "*", "R", "write-5b"],
+        ["p6-check19-2B-", "B", "*", "R", "write-5b-1"],
         ["p6-check19-2B-", "*", "*", "L", "next"],
 
         ["start-q", "*", "*", "R", "start-q"],
@@ -8589,7 +8587,7 @@
         ["q3-checkA2", "*", "*", "L", "q3-checkA3"],
         ["q3-checkA3", "*", "*", "L", "q3-checkA4"],
         ["q3-checkA4", "*", "*", "L", "q3-checkA5"],
-        ["q3-checkA5", "0", "*", "L", "write-4a"],
+        ["q3-checkA5", "0", "*", "R", "write-4a-7"],
         ["q3-checkA5", "*", "*", "L", "next"],
 
         ["q3-checkB", "*", "*", "L", "q3-checkB1"],
@@ -8597,7 +8595,7 @@
         ["q3-checkB2", "*", "*", "L", "q3-checkB3"],
         ["q3-checkB3", "*", "*", "L", "q3-checkB4"],
         ["q3-checkB4", "*", "*", "L", "q3-checkB5"],
-        ["q3-checkB5", "0", "*", "L", "write-4b"],
+        ["q3-checkB5", "0", "*", "R", "write-4b-7"],
         ["q3-checkB5", "*", "*", "L", "next"],
 
         ["q3-check-2A", "*", "*", "L", "q3-check1-2A"],
@@ -8605,7 +8603,7 @@
         ["q3-check2-2A", "*", "*", "L", "q3-check3-2A"],
         ["q3-check3-2A", "*", "*", "L", "q3-check4-2A"],
         ["q3-check4-2A", "*", "*", "L", "q3-check5-2A"],
-        ["q3-check5-2A", "A", "*", "L", "write-3a"],
+        ["q3-check5-2A", "A", "*", "R", "write-3a-13"],
         ["q3-check5-2A", "*", "*", "", "q4-1"],
 
         ["q3-check-2B", "*", "*", "L", "q3-check1-2B"],
@@ -8613,7 +8611,7 @@
         ["q3-check2-2B", "*", "*", "L", "q3-check3-2B"],
         ["q3-check3-2B", "*", "*", "L", "q3-check4-2B"],
         ["q3-check4-2B", "*", "*", "L", "q3-check5-2B"],
-        ["q3-check5-2B", "B", "*", "L", "write-3b"],
+        ["q3-check5-2B", "B", "*", "R", "write-3b-13"],
         ["q3-check5-2B", "*", "*", "", "q4-1"],
 
         ["q4-checkA", "*", "*", "R", "q4-checkA1"],
@@ -8661,7 +8659,7 @@
         ["q4-checkA40", "*", "*", "L", "q4-checkA41"],
         ["q4-checkA41", "*", "*", "L", "q4-checkA42"],
         ["q4-checkA42", "*", "*", "L", "q4-checkA43"],
-        ["q4-checkA43", "0", "*", "L", "write-5a"],
+        ["q4-checkA43", "0", "*", "R", "write-5a-7"],
         ["q4-checkA43", "*", "*", "L", "next"],
 
         ["q4-checkB", "*", "*", "R", "q4-checkB1"],
@@ -8709,7 +8707,7 @@
         ["q4-checkB40", "*", "*", "L", "q4-checkB41"],
         ["q4-checkB41", "*", "*", "L", "q4-checkB42"],
         ["q4-checkB42", "*", "*", "L", "q4-checkB43"],
-        ["q4-checkB43", "0", "*", "L", "write-5b"],
+        ["q4-checkB43", "0", "*", "R", "write-5b-7"],
         ["q4-checkB43", "*", "*", "L", "next"],
 
         ["q4-check-2A", "*", "*", "L", "q4-check1-2A"],
@@ -8717,7 +8715,7 @@
         ["q4-check2-2A", "*", "*", "L", "q4-check3-2A"],
         ["q4-check3-2A", "*", "*", "L", "q4-check4-2A"],
         ["q4-check4-2A", "*", "*", "L", "q4-check5-2A"],
-        ["q4-check5-2A", "A", "*", "L", "write-4a"],
+        ["q4-check5-2A", "A", "*", "R", "write-4a-13"],
         ["q4-check5-2A", "*", "*", "L", "next"],
 
         ["q4-check-2B", "*", "*", "L", "q4-check1-2B"],
@@ -8725,7 +8723,7 @@
         ["q4-check2-2B", "*", "*", "L", "q4-check3-2B"],
         ["q4-check3-2B", "*", "*", "L", "q4-check4-2B"],
         ["q4-check4-2B", "*", "*", "L", "q4-check5-2B"],
-        ["q4-check5-2B", "B", "*", "L", "write-4b"],
+        ["q4-check5-2B", "B", "*", "R", "write-4b-13"],
         ["q4-check5-2B", "*", "*", "L", "next"],
 
         ["q5-checkA", "*", "*", "R", "q5-checkA1"],
@@ -8747,7 +8745,7 @@
         ["q5-checkA16", "*", "*", "R", "q5-checkA17"],
         ["q5-checkA17", "*", "*", "R", "q5-checkA18"],
         ["q5-checkA18", "*", "*", "R", "q5-checkA19"],
-        ["q5-checkA19", "0", "*", "R", "write-2a"],
+        ["q5-checkA19", "0", "*", "R", "write-2a-7"],
         ["q5-checkA19", "*", "*", "L", "q5-checkA20"],
 
         ["q5-checkA20", "*", "*", "L", "q5-checkA21"],
@@ -8773,7 +8771,7 @@
         ["q5-checkA40", "*", "*", "L", "q5-checkA41"],
         ["q5-checkA41", "*", "*", "L", "q5-checkA42"],
         ["q5-checkA42", "*", "*", "L", "q5-checkA43"],
-        ["q5-checkA43", "0", "*", "L", "write-6a"],
+        ["q5-checkA43", "0", "*", "R", "write-6a-7"],
         ["q5-checkA43", "*", "*", "L", "next"],
 
         ["q5-checkB", "*", "*", "R", "q5-checkB1"],
@@ -8795,7 +8793,7 @@
         ["q5-checkB16", "*", "*", "R", "q5-checkB17"],
         ["q5-checkB17", "*", "*", "R", "q5-checkB18"],
         ["q5-checkB18", "*", "*", "R", "q5-checkB19"],
-        ["q5-checkB19", "0", "*", "R", "write-2b"],
+        ["q5-checkB19", "0", "*", "R", "write-2b-7"],
         ["q5-checkB19", "*", "*", "L", "q5-checkB20"],
 
         ["q5-checkB20", "*", "*", "L", "q5-checkB21"],
@@ -8821,7 +8819,7 @@
         ["q5-checkB40", "*", "*", "L", "q5-checkB41"],
         ["q5-checkB41", "*", "*", "L", "q5-checkB42"],
         ["q5-checkB42", "*", "*", "L", "q5-checkB43"],
-        ["q5-checkB43", "0", "*", "L", "write-6b"],
+        ["q5-checkB43", "0", "*", "R", "write-6b-7"],
         ["q5-checkB43", "*", "*", "L", "next"],
 
         ["q5-check-2A", "*", "*", "R", "q5-check1-2A"],
@@ -8851,7 +8849,7 @@
         ["q5-check22-2A", "*", "*", "R", "q5-check23-2A"],
         ["q5-check23-2A", "*", "*", "R", "q5-check24-2A"],
         ["q5-check24-2A", "*", "*", "R", "q5-check25-2A"],
-        ["q5-check25-2A", "A", "*", "R", "write-2a"],
+        ["q5-check25-2A", "A", "*", "R", "write-2a-1"],
         ["q5-check25-2A", "*", "*", "L", "q5-check26-2A"],
 
         ["q5-check26-2A", "*", "*", "L", "q5-check27-2A"],
@@ -8885,7 +8883,7 @@
         ["q5-check52-2A", "*", "*", "L", "q5-check53-2A"],
         ["q5-check53-2A", "*", "*", "L", "q5-check54-2A"],
         ["q5-check54-2A", "*", "*", "L", "q5-check55-2A"],
-        ["q5-check55-2A", "A", "*", "L", "write-5a"],
+        ["q5-check55-2A", "A", "*", "R", "write-5a-13"],
         ["q5-check55-2A", "*", "*", "L", "next"],
 
         ["q5-check-2B", "*", "*", "R", "q5-check1-2B"],
@@ -8915,7 +8913,7 @@
         ["q5-check22-2B", "*", "*", "R", "q5-check23-2B"],
         ["q5-check23-2B", "*", "*", "R", "q5-check24-2B"],
         ["q5-check24-2B", "*", "*", "R", "q5-check25-2B"],
-        ["q5-check25-2B", "B", "*", "R", "write-2b"],
+        ["q5-check25-2B", "B", "*", "R", "write-2b-1"],
         ["q5-check25-2B", "*", "*", "L", "q5-check26-2B"],
 
         ["q5-check26-2B", "*", "*", "L", "q5-check27-2B"],
@@ -8949,7 +8947,7 @@
         ["q5-check52-2B", "*", "*", "L", "q5-check53-2B"],
         ["q5-check53-2B", "*", "*", "L", "q5-check54-2B"],
         ["q5-check54-2B", "*", "*", "L", "q5-check55-2B"],
-        ["q5-check55-2B", "B", "*", "L", "write-5b"],
+        ["q5-check55-2B", "B", "*", "R", "write-5b-13"],
         ["q5-check55-2B", "*", "*", "L", "next"],
 
         ["q6-checkA", "*", "*", "R", "q6-checkA1"],
@@ -8971,7 +8969,7 @@
         ["q6-checkA16", "*", "*", "R", "q6-checkA17"],
         ["q6-checkA17", "*", "*", "R", "q6-checkA18"],
         ["q6-checkA18", "*", "*", "R", "q6-checkA19"],
-        ["q6-checkA19", "0", "*", "R", "write-3a"],
+        ["q6-checkA19", "0", "*", "R", "write-3a-7"],
         ["q6-checkA19", "*", "*", "L", "next"],
 
         ["q6-checkB", "*", "*", "R", "q6-checkB1"],
@@ -8993,7 +8991,7 @@
         ["q6-checkB16", "*", "*", "R", "q6-checkB17"],
         ["q6-checkB17", "*", "*", "R", "q6-checkB18"],
         ["q6-checkB18", "*", "*", "R", "q6-checkB19"],
-        ["q6-checkB19", "0", "*", "R", "write-3b"],
+        ["q6-checkB19", "0", "*", "R", "write-3b-7"],
         ["q6-checkB19", "*", "*", "L", "next"],
 
         ["q6-check-2A", "*", "*", "R", "q6-check1-2A"],
@@ -9023,7 +9021,7 @@
         ["q6-check22-2A", "*", "*", "R", "q6-check23-2A"],
         ["q6-check23-2A", "*", "*", "R", "q6-check24-2A"],
         ["q6-check24-2A", "*", "*", "R", "q6-check25-2A"],
-        ["q6-check25-2A", "A", "*", "R", "write-3a"],
+        ["q6-check25-2A", "A", "*", "R", "write-3a-1"],
         ["q6-check25-2A", "*", "*", "L", "next"],
 
         ["q6-check-2B", "*", "*", "R", "q6-check1-2B"],
@@ -9053,7 +9051,7 @@
         ["q6-check22-2B", "*", "*", "R", "q6-check23-2B"],
         ["q6-check23-2B", "*", "*", "R", "q6-check24-2B"],
         ["q6-check24-2B", "*", "*", "R", "q6-check25-2B"],
-        ["q6-check25-2B", "B", "*", "R", "write-3b"],
+        ["q6-check25-2B", "B", "*", "R", "write-3b-1"],
         ["q6-check25-2B", "*", "*", "L", "next"],
 
         ["q6-check-2A-", "*", "*", "R", "q6-check1-2A-"],
@@ -9077,7 +9075,7 @@
         ["q6-check16-2A-", "*", "*", "R", "q6-check17-2A-"],
         ["q6-check17-2A-", "*", "*", "R", "q6-check18-2A-"],
         ["q6-check18-2A-", "*", "*", "R", "q6-check19-2A-"],
-        ["q6-check19-2A-", "A", "*", "R", "write-4a"],
+        ["q6-check19-2A-", "A", "*", "R", "write-4a-1"],
         ["q6-check19-2A-", "*", "*", "L", "next"],
 
         ["q6-check-2B-", "*", "*", "R", "q6-check1-2B-"],
@@ -9101,7 +9099,7 @@
         ["q6-check16-2B-", "*", "*", "R", "q6-check17-2B-"],
         ["q6-check17-2B-", "*", "*", "R", "q6-check18-2B-"],
         ["q6-check18-2B-", "*", "*", "R", "q6-check19-2B-"],
-        ["q6-check19-2B-", "B", "*", "R", "write-4b"],
+        ["q6-check19-2B-", "B", "*", "R", "write-4b-1"],
         ["q6-check19-2B-", "*", "*", "L", "next"],
 
         ["start-r", "*", "*", "R", "start-r"],
@@ -9269,7 +9267,7 @@
         ["r3-checkA2", "*", "*", "L", "r3-checkA3"],
         ["r3-checkA3", "*", "*", "L", "r3-checkA4"],
         ["r3-checkA4", "*", "*", "L", "r3-checkA5"],
-        ["r3-checkA5", "0", "*", "L", "write-4a"],
+        ["r3-checkA5", "0", "*", "R", "write-4a-7"],
         ["r3-checkA5", "*", "*", "L", "next"],
 
         ["r3-checkB", "*", "*", "L", "r3-checkB1"],
@@ -9277,7 +9275,7 @@
         ["r3-checkB2", "*", "*", "L", "r3-checkB3"],
         ["r3-checkB3", "*", "*", "L", "r3-checkB4"],
         ["r3-checkB4", "*", "*", "L", "r3-checkB5"],
-        ["r3-checkB5", "0", "*", "L", "write-4b"],
+        ["r3-checkB5", "0", "*", "R", "write-4b-7"],
         ["r3-checkB5", "*", "*", "L", "next"],
 
         ["r3-check-2A", "*", "*", "L", "r3-check1-2A"],
@@ -9285,7 +9283,7 @@
         ["r3-check2-2A", "*", "*", "L", "r3-check3-2A"],
         ["r3-check3-2A", "*", "*", "L", "r3-check4-2A"],
         ["r3-check4-2A", "*", "*", "L", "r3-check5-2A"],
-        ["r3-check5-2A", "A", "*", "L", "write-3a"],
+        ["r3-check5-2A", "A", "*", "R", "write-3a-13"],
         ["r3-check5-2A", "*", "*", "L", "next"],
 
         ["r3-check-2B", "*", "*", "L", "r3-check1-2B"],
@@ -9293,7 +9291,7 @@
         ["r3-check2-2B", "*", "*", "L", "r3-check3-2B"],
         ["r3-check3-2B", "*", "*", "L", "r3-check4-2B"],
         ["r3-check4-2B", "*", "*", "L", "r3-check5-2B"],
-        ["r3-check5-2B", "B", "*", "L", "write-3b"],
+        ["r3-check5-2B", "B", "*", "R", "write-3b-13"],
         ["r3-check5-2B", "*", "*", "L", "next"],
 
         ["r4-checkA", "*", "*", "R", "r4-checkA1"],
@@ -9315,7 +9313,7 @@
         ["r4-checkA16", "*", "*", "R", "r4-checkA17"],
         ["r4-checkA17", "*", "*", "R", "r4-checkA18"],
         ["r4-checkA18", "*", "*", "R", "r4-checkA19"],
-        ["r4-checkA19", "0", "*", "R", "write-1a"],
+        ["r4-checkA19", "0", "*", "R", "write-1a-7"],
         ["r4-checkA19", "*", "*", "L", "r4-checkA20"],
 
         ["r4-checkA20", "*", "*", "L", "r4-checkA21"],
@@ -9341,7 +9339,7 @@
         ["r4-checkA40", "*", "*", "L", "r4-checkA41"],
         ["r4-checkA41", "*", "*", "L", "r4-checkA42"],
         ["r4-checkA42", "*", "*", "L", "r4-checkA43"],
-        ["r4-checkA43", "0", "*", "L", "write-5a"],
+        ["r4-checkA43", "0", "*", "R", "write-5a-7"],
         ["r4-checkA43", "*", "*", "L", "next"],
 
         ["r4-checkB", "*", "*", "R", "r4-checkB1"],
@@ -9363,7 +9361,7 @@
         ["r4-checkB16", "*", "*", "R", "r4-checkB17"],
         ["r4-checkB17", "*", "*", "R", "r4-checkB18"],
         ["r4-checkB18", "*", "*", "R", "r4-checkB19"],
-        ["r4-checkB19", "0", "*", "R", "write-1b"],
+        ["r4-checkB19", "0", "*", "R", "write-1b-7"],
         ["r4-checkB19", "*", "*", "L", "r4-checkB20"],
 
         ["r4-checkB20", "*", "*", "L", "r4-checkB21"],
@@ -9389,7 +9387,7 @@
         ["r4-checkB40", "*", "*", "L", "r4-checkB41"],
         ["r4-checkB41", "*", "*", "L", "r4-checkB42"],
         ["r4-checkB42", "*", "*", "L", "r4-checkB43"],
-        ["r4-checkB43", "0", "*", "L", "write-5b"],
+        ["r4-checkB43", "0", "*", "R", "write-5b-7"],
         ["r4-checkB43", "*", "*", "L", "next"],
 
         ["r4-check-2A", "*", "*", "L", "r4-check1-2A"],
@@ -9397,7 +9395,7 @@
         ["r4-check2-2A", "*", "*", "L", "r4-check3-2A"],
         ["r4-check3-2A", "*", "*", "L", "r4-check4-2A"],
         ["r4-check4-2A", "*", "*", "L", "r4-check5-2A"],
-        ["r4-check5-2A", "A", "*", "L", "write-4a"],
+        ["r4-check5-2A", "A", "*", "R", "write-4a-13"],
         ["r4-check5-2A", "*", "*", "L", "next"],
 
         ["r4-check-2B", "*", "*", "L", "r4-check1-2B"],
@@ -9405,7 +9403,7 @@
         ["r4-check2-2B", "*", "*", "L", "r4-check3-2B"],
         ["r4-check3-2B", "*", "*", "L", "r4-check4-2B"],
         ["r4-check4-2B", "*", "*", "L", "r4-check5-2B"],
-        ["r4-check5-2B", "B", "*", "L", "write-4b"],
+        ["r4-check5-2B", "B", "*", "R", "write-4b-13"],
         ["r4-check5-2B", "*", "*", "L", "next"],
 
         ["r5-checkA", "*", "*", "R", "r5-checkA1"],
@@ -9427,7 +9425,7 @@
         ["r5-checkA16", "*", "*", "R", "r5-checkA17"],
         ["r5-checkA17", "*", "*", "R", "r5-checkA18"],
         ["r5-checkA18", "*", "*", "R", "r5-checkA19"],
-        ["r5-checkA19", "0", "*", "R", "write-2a"],
+        ["r5-checkA19", "0", "*", "R", "write-2a-7"],
         ["r5-checkA19", "*", "*", "L", "next"],
 
         ["r5-checkB", "*", "*", "R", "r5-checkB1"],
@@ -9449,7 +9447,7 @@
         ["r5-checkB16", "*", "*", "R", "r5-checkB17"],
         ["r5-checkB17", "*", "*", "R", "r5-checkB18"],
         ["r5-checkB18", "*", "*", "R", "r5-checkB19"],
-        ["r5-checkB19", "0", "*", "R", "write-2b"],
+        ["r5-checkB19", "0", "*", "R", "write-2b-7"],
         ["r5-checkB19", "*", "*", "L", "next"],
 
         ["r5-check-2A", "*", "*", "R", "r5-check1-2A"],
@@ -9479,7 +9477,7 @@
         ["r5-check22-2A", "*", "*", "R", "r5-check23-2A"],
         ["r5-check23-2A", "*", "*", "R", "r5-check24-2A"],
         ["r5-check24-2A", "*", "*", "R", "r5-check25-2A"],
-        ["r5-check25-2A", "A", "*", "R", "write-2a"],
+        ["r5-check25-2A", "A", "*", "R", "write-2a-1"],
         ["r5-check25-2A", "*", "*", "R", "next"],
 
         ["r5-check-2B", "*", "*", "R", "r5-check1-2B"],
@@ -9509,7 +9507,7 @@
         ["r5-check22-2B", "*", "*", "R", "r5-check23-2B"],
         ["r5-check23-2B", "*", "*", "R", "r5-check24-2B"],
         ["r5-check24-2B", "*", "*", "R", "r5-check25-2B"],
-        ["r5-check25-2B", "B", "*", "R", "write-2b"],
+        ["r5-check25-2B", "B", "*", "R", "write-2b-1"],
         ["r5-check25-2B", "*", "*", "R", "next"],
 
         ["r5-check-2A-", "*", "*", "R", "r5-check1-2A-"],
@@ -9531,7 +9529,7 @@
         ["r5-check16-2A-", "*", "*", "R", "r5-check17-2A-"],
         ["r5-check17-2A-", "*", "*", "R", "r5-check18-2A-"],
         ["r5-check18-2A-", "*", "*", "R", "r5-check19-2A-"],
-        ["r5-check19-2A-", "A", "*", "R", "write-3a"],
+        ["r5-check19-2A-", "A", "*", "R", "write-3a-1"],
         ["r5-check19-2A-", "*", "*", "L", "next"],
 
         ["r5-check-2B-", "*", "*", "R", "r5-check1-2B-"],
@@ -9553,7 +9551,7 @@
         ["r5-check16-2B-", "*", "*", "R", "r5-check17-2B-"],
         ["r5-check17-2B-", "*", "*", "R", "r5-check18-2B-"],
         ["r5-check18-2B-", "*", "*", "R", "r5-check19-2B-"],
-        ["r5-check19-2B-", "B", "*", "R", "write-3b"],
+        ["r5-check19-2B-", "B", "*", "R", "write-3b-1"],
         ["r5-check19-2B-", "*", "*", "L", "next"],
 
         ["start-s", "*", "*", "R", "start-s"],
@@ -9691,7 +9689,7 @@
         ["s3-checkB2", "*", "*", "L", "s3-checkB3"],
         ["s3-checkB3", "*", "*", "L", "s3-checkB4"],
         ["s3-checkB4", "*", "*", "L", "s3-checkB5"],
-        ["s3-checkB5", "0", "*", "L", "write-4b"],
+        ["s3-checkB5", "0", "*", "R", "write-4b-7"],
         ["s3-checkB5", "*", "*", "L", "next"],
 
         ["s3-check-2A", "*", "*", "L", "s3-check1-2A"],
@@ -9699,7 +9697,7 @@
         ["s3-check2-2A", "*", "*", "L", "s3-check3-2A"],
         ["s3-check3-2A", "*", "*", "L", "s3-check4-2A"],
         ["s3-check4-2A", "*", "*", "L", "s3-check5-2A"],
-        ["s3-check5-2A", "A", "*", "L", "write-3a"],
+        ["s3-check5-2A", "A", "*", "R", "write-3a-13"],
         ["s3-check5-2A", "*", "*", "L", "next"],
 
         ["s3-check-2B", "*", "*", "L", "s3-check1-2B"],
@@ -9707,7 +9705,7 @@
         ["s3-check2-2B", "*", "*", "L", "s3-check3-2B"],
         ["s3-check3-2B", "*", "*", "L", "s3-check4-2B"],
         ["s3-check4-2B", "*", "*", "L", "s3-check5-2B"],
-        ["s3-check5-2B", "B", "*", "L", "write-3b"],
+        ["s3-check5-2B", "B", "*", "R", "write-3b-13"],
         ["s3-check5-2B", "*", "*", "L", "next"],
 
         ["s4-checkA", "*", "*", "R", "s4-checkA1"],
@@ -9729,7 +9727,7 @@
         ["s4-checkA16", "*", "*", "R", "s4-checkA17"],
         ["s4-checkA17", "*", "*", "R", "s4-checkA18"],
         ["s4-checkA18", "*", "*", "R", "s4-checkA19"],
-        ["s4-checkA19", "0", "*", "R", "write-1a"],
+        ["s4-checkA19", "0", "*", "R", "write-1a-7"],
         ["s4-checkA19", "*", "*", "L", "next"],
 
         ["s4-checkB", "*", "*", "R", "s4-checkB1"],
@@ -9751,7 +9749,7 @@
         ["s4-checkB16", "*", "*", "R", "s4-checkB17"],
         ["s4-checkB17", "*", "*", "R", "s4-checkB18"],
         ["s4-checkB18", "*", "*", "R", "s4-checkB19"],
-        ["s4-checkB19", "0", "*", "R", "write-1b"],
+        ["s4-checkB19", "0", "*", "R", "write-1b-7"],
         ["s4-checkB19", "*", "*", "L", "next"],
 
         ["s4-check-2A", "*", "*", "R", "s4-check1-2A"],
@@ -9773,7 +9771,7 @@
         ["s4-check16-2A", "*", "*", "R", "s4-check17-2A"],
         ["s4-check17-2A", "*", "*", "R", "s4-check18-2A"],
         ["s4-check18-2A", "*", "*", "R", "s4-check19-2A"],
-        ["s4-check19-2A", "A", "*", "R", "write-2a"],
+        ["s4-check19-2A", "A", "*", "R", "write-2a-1"],
         ["s4-check19-2A", "*", "*", "L", "next"],
 
         ["s4-check-2B", "*", "*", "R", "s4-check1-2B"],
@@ -9795,7 +9793,7 @@
         ["s4-check16-2B", "*", "*", "R", "s4-check17-2B"],
         ["s4-check17-2B", "*", "*", "R", "s4-check18-2B"],
         ["s4-check18-2B", "*", "*", "R", "s4-check19-2B"],
-        ["s4-check19-2B", "B", "*", "R", "write-2b"],
+        ["s4-check19-2B", "B", "*", "R", "write-2b-1"],
         ["s4-check19-2B", "*", "*", "L", "next"],
 
         ["start-t", "*", "*", "R", "start-t"],
@@ -9938,7 +9936,7 @@
         ["t3-checkA4", "*", "*", "L", "t3-checkA5"],
         ["t3-checkA5", "*", "*", "L", "t3-checkA6"],
         ["t3-checkA6", "*", "*", "L", "t3-checkA7"],
-        ["t3-checkA7", "0", "*", "L", "write-1a"],
+        ["t3-checkA7", "0", "*", "R", "write-1a-7"],
         ["t3-checkA7", "*", "*", "L", "next"],
 
         ["t3-checkB", "*", "*", "L", "t3-checkB1"],
@@ -9948,7 +9946,7 @@
         ["t3-checkB4", "*", "*", "L", "t3-checkB5"],
         ["t3-checkB5", "*", "*", "L", "t3-checkB6"],
         ["t3-checkB6", "*", "*", "L", "t3-checkB7"],
-        ["t3-checkB7", "0", "*", "L", "write-1b"],
+        ["t3-checkB7", "0", "*", "R", "write-1b-7"],
         ["t3-checkB7", "*", "*", "L", "next"],
 
         ["t3-check-2A", "*", "*", "L", "t3-check1-2A"],
@@ -9958,7 +9956,7 @@
         ["t3-check4-2A", "*", "*", "L", "t3-check5-2A"],
         ["t3-check5-2A", "*", "*", "L", "t3-check6-2A"],
         ["t3-check6-2A", "*", "*", "L", "t3-check7-2A"],
-        ["t3-check7-2A", "A", "*", "L", "write-2a"],
+        ["t3-check7-2A", "A", "*", "R", "write-2a-15"],
         ["t3-check7-2A", "*", "*", "L", "next"],
 
         ["t3-check-2B", "*", "*", "L", "t3-check1-2B"],
@@ -9968,7 +9966,7 @@
         ["t3-check4-2B", "*", "*", "L", "t3-check5-2B"],
         ["t3-check5-2B", "*", "*", "L", "t3-check6-2B"],
         ["t3-check6-2B", "*", "*", "L", "t3-check7-2B"],
-        ["t3-check7-2B", "B", "*", "L", "write-2b"],
+        ["t3-check7-2B", "B", "*", "R", "write-2b-15"],
         ["t3-check7-2B", "*", "*", "L", "next"],
 
         ["t4-checkA", "*", "*", "R", "t4-checkA1"],
@@ -10052,7 +10050,7 @@
         ["t4-check22-2A", "*", "*", "R", "t4-check23-2A"],
         ["t4-check23-2A", "*", "*", "R", "t4-check24-2A"],
         ["t4-check24-2A", "*", "*", "R", "t4-check25-2A"],
-        ["t4-check25-2A", "A", "*", "R", "write-3a"],
+        ["t4-check25-2A", "A", "*", "L", "write-3a-1"],
         ["t4-check25-2A", "*", "*", "R", "next"],
 
         ["t4-check-2B", "*", "*", "R", "t4-check1-2B"],
@@ -10080,7 +10078,7 @@
         ["t4-check22-2B", "*", "*", "R", "t4-check23-2B"],
         ["t4-check23-2B", "*", "*", "R", "t4-check24-2B"],
         ["t4-check24-2B", "*", "*", "R", "t4-check25-2B"],
-        ["t4-check25-2B", "B", "*", "R", "write-3b"],
+        ["t4-check25-2B", "B", "*", "L", "write-3b-1"],
         ["t4-check25-2B", "*", "*", "R", "next"],
 
         ["start-u", "*", "*", "R", "start-u"],
@@ -10273,7 +10271,7 @@
         ["u3-checkA4", "*", "*", "L", "u3-checkA5"],
         ["u3-checkA5", "*", "*", "L", "u3-checkA6"],
         ["u3-checkA6", "*", "*", "L", "u3-checkA7"],
-        ["u3-checkA7", "0", "*", "L", "write-2a"],
+        ["u3-checkA7", "0", "*", "R", "write-2a-7"],
         ["u3-checkA7", "*", "*", "L", "next"],
 
         ["u3-checkB", "*", "*", "L", "u3-checkB1"],
@@ -10283,7 +10281,7 @@
         ["u3-checkB4", "*", "*", "L", "u3-checkB5"],
         ["u3-checkB5", "*", "*", "L", "u3-checkB6"],
         ["u3-checkB6", "*", "*", "L", "u3-checkB7"],
-        ["u3-checkB7", "0", "*", "L", "write-2b"],
+        ["u3-checkB7", "0", "*", "R", "write-2b-7"],
         ["u3-checkB7", "*", "*", "L", "next"],
 
         ["u3-check-2A", "*", "*", "L", "u3-check1-2A"],
@@ -10293,7 +10291,7 @@
         ["u3-check4-2A", "*", "*", "L", "u3-check5-2A"],
         ["u3-check5-2A", "*", "*", "L", "u3-check6-2A"],
         ["u3-check6-2A", "*", "*", "L", "u3-check7-2A"],
-        ["u3-check7-2A", "A", "*", "L", "write-3a"],
+        ["u3-check7-2A", "A", "*", "R", "write-3a-15"],
         ["u3-check7-2A", "*", "*", "L", "next"],
 
         ["u3-check-2B", "*", "*", "L", "u3-check1-2B"],
@@ -10303,7 +10301,7 @@
         ["u3-check4-2B", "*", "*", "L", "u3-check5-2B"],
         ["u3-check5-2B", "*", "*", "L", "u3-check6-2B"],
         ["u3-check6-2B", "*", "*", "L", "u3-check7-2B"],
-        ["u3-check7-2B", "B", "*", "L", "write-3b"],
+        ["u3-check7-2B", "B", "*", "R", "write-3b-15"],
         ["u3-check7-2B", "*", "*", "L", "next"],
 
         ["u4-checkA", "*", "*", "L", "u4-checkA1"],
@@ -10313,7 +10311,7 @@
         ["u4-checkA4", "*", "*", "L", "u4-checkA5"],
         ["u4-checkA5", "*", "*", "L", "u4-checkA6"],
         ["u4-checkA6", "*", "*", "L", "u4-checkA7"],
-        ["u4-checkA7", "0", "*", "L", "write-1a"],
+        ["u4-checkA7", "0", "*", "R", "write-1a-7"],
         ["u4-checkA7", "*", "*", "R", "u4-checkA6-"],
 
         ["u4-checkA6-", "*", "*", "R", "u4-checkA7-"],
@@ -10356,7 +10354,7 @@
         ["u4-checkB4", "*", "*", "L", "u4-checkB5"],
         ["u4-checkB5", "*", "*", "L", "u4-checkB6"],
         ["u4-checkB6", "*", "*", "L", "u4-checkB7"],
-        ["u4-checkB7", "0", "*", "L", "write-1b"],
+        ["u4-checkB7", "0", "*", "R", "write-1b-7"],
         ["u4-checkB7", "*", "*", "R", "u4-checkB6-"],
 
         ["u4-checkB6-", "*", "*", "R", "u4-checkB7-"],
@@ -10399,7 +10397,7 @@
         ["u4-check4-2A", "*", "*", "L", "u4-check5-2A"],
         ["u4-check5-2A", "*", "*", "L", "u4-check6-2A"],
         ["u4-check6-2A", "*", "*", "L", "u4-check7-2A"],
-        ["u4-check7-2A", "A", "*", "L", "write-2a"],
+        ["u4-check7-2A", "A", "*", "R", "write-2a-15"],
         ["u4-check7-2A", "*", "*", "R", "next"],
 
         ["u4-check-2B", "*", "*", "L", "u4-check1-2B"],
@@ -10409,7 +10407,7 @@
         ["u4-check4-2B", "*", "*", "L", "u4-check5-2B"],
         ["u4-check5-2B", "*", "*", "L", "u4-check6-2B"],
         ["u4-check6-2B", "*", "*", "L", "u4-check7-2B"],
-        ["u4-check7-2B", "B", "*", "L", "write-2b"],
+        ["u4-check7-2B", "B", "*", "R", "write-2b-15"],
         ["u4-check7-2B", "*", "*", "R", "next"],
 
         ["u5-checkA", "*", "*", "R", "u5-checkA1"],
@@ -10437,7 +10435,7 @@
         ["u5-checkA22", "*", "*", "R", "u5-checkA23"],
         ["u5-checkA23", "*", "*", "R", "u5-checkA24"],
         ["u5-checkA24", "*", "*", "R", "u5-checkA25"],
-        ["u5-checkA25", "0", "*", "R", "write-4a"],
+        ["u5-checkA25", "0", "*", "R", "write-4a-7"],
         ["u5-checkA25", "*", "*", "R", "next"],
 
         ["u5-checkB", "*", "*", "R", "u5-checkB1"],
@@ -10465,7 +10463,7 @@
         ["u5-checkB22", "*", "*", "R", "u5-checkB23"],
         ["u5-checkB23", "*", "*", "R", "u5-checkB24"],
         ["u5-checkB24", "*", "*", "R", "u5-checkB25"],
-        ["u5-checkB25", "0", "*", "R", "write-4b"],
+        ["u5-checkB25", "0", "*", "R", "write-4b-7"],
         ["u5-checkB25", "*", "*", "R", "next"],
 
         ["u5-check-2A-", "*", "*", "R", "u5-check1-2A-"],
@@ -10503,7 +10501,7 @@
         ["u5-check30-2A-", "*", "*", "R", "u5-check31-2A-"],
         ["u5-check31-2A-", "*", "*", "R", "u5-check32-2A-"],
         ["u5-check32-2A-", "*", "*", "R", "u5-check33-2A-"],
-        ["u5-check33-2A-", "A", "*", "R", "write-4a"],
+        ["u5-check33-2A-", "A", "*", "L", "write-4a-1"],
         ["u5-check33-2A-", "*", "*", "L", "next"],
 
         ["u5-check-2B-", "*", "*", "R", "u5-check1-2B-"],
@@ -10541,7 +10539,7 @@
         ["u5-check30-2B-", "*", "*", "R", "u5-check31-2B-"],
         ["u5-check31-2B-", "*", "*", "R", "u5-check32-2B-"],
         ["u5-check32-2B-", "*", "*", "R", "u5-check33-2B-"],
-        ["u5-check33-2B-", "B", "*", "R", "write-4b"],
+        ["u5-check33-2B-", "B", "*", "L", "write-4b-1"],
         ["u5-check33-2B-", "*", "*", "L", "next"],
 
         ["u5-check-2A", "*", "*", "R", "u5-check1-2A"],
@@ -10569,7 +10567,7 @@
         ["u5-check22-2A", "*", "*", "R", "u5-check23-2A"],
         ["u5-check23-2A", "*", "*", "R", "u5-check24-2A"],
         ["u5-check24-2A", "*", "*", "R", "u5-check25-2A"],
-        ["u5-check25-2A", "A", "*", "R", "write-3a"],
+        ["u5-check25-2A", "A", "*", "L", "write-3a-1"],
         ["u5-check25-2A", "*", "*", "R", "next"],
 
         ["u5-check-2B", "*", "*", "R", "u5-check1-2B"],
@@ -10597,7 +10595,7 @@
         ["u5-check22-2B", "*", "*", "R", "u5-check23-2B"],
         ["u5-check23-2B", "*", "*", "R", "u5-check24-2B"],
         ["u5-check24-2B", "*", "*", "R", "u5-check25-2B"],
-        ["u5-check25-2B", "B", "*", "R", "write-3b"],
+        ["u5-check25-2B", "B", "*", "L", "write-3b-1"],
         ["u5-check25-2B", "*", "*", "R", "next"],
 
         ["start-v", "*", "*", "R", "start-v"],
@@ -10834,7 +10832,7 @@
         ["v3-checkA4", "*", "*", "L", "v3-checkA5"],
         ["v3-checkA5", "*", "*", "L", "v3-checkA6"],
         ["v3-checkA6", "*", "*", "L", "v3-checkA7"],
-        ["v3-checkA7", "0", "*", "L", "write-3a"],
+        ["v3-checkA7", "0", "*", "R", "write-3a-7"],
         ["v3-checkA7", "*", "*", "L", "next"],
 
         ["v3-checkB", "*", "*", "L", "v3-checkB1"],
@@ -10844,7 +10842,7 @@
         ["v3-checkB4", "*", "*", "L", "v3-checkB5"],
         ["v3-checkB5", "*", "*", "L", "v3-checkB6"],
         ["v3-checkB6", "*", "*", "L", "v3-checkB7"],
-        ["v3-checkB7", "0", "*", "L", "write-3b"],
+        ["v3-checkB7", "0", "*", "R", "write-3b-7"],
         ["v3-checkB7", "*", "*", "L", "next"],
 
         ["v3-check-2A", "*", "*", "L", "v3-check1-2A"],
@@ -10854,7 +10852,7 @@
         ["v3-check4-2A", "*", "*", "L", "v3-check5-2A"],
         ["v3-check5-2A", "*", "*", "L", "v3-check6-2A"],
         ["v3-check6-2A", "*", "*", "L", "v3-check7-2A"],
-        ["v3-check7-2A", "A", "*", "L", "write-4a"],
+        ["v3-check7-2A", "A", "*", "R", "write-4a-15"],
         ["v3-check7-2A", "*", "*", "L", "next"],
 
         ["v3-check-2B", "*", "*", "L", "v3-check1-2B"],
@@ -10864,7 +10862,7 @@
         ["v3-check4-2B", "*", "*", "L", "v3-check5-2B"],
         ["v3-check5-2B", "*", "*", "L", "v3-check6-2B"],
         ["v3-check6-2B", "*", "*", "L", "v3-check7-2B"],
-        ["v3-check7-2B", "B", "*", "L", "write-4b"],
+        ["v3-check7-2B", "B", "*", "R", "write-4b-15"],
         ["v3-check7-2B", "*", "*", "L", "next"],
 
         ["v4-checkA", "*", "*", "L", "v4-checkA1"],
@@ -10874,7 +10872,7 @@
         ["v4-checkA4", "*", "*", "L", "v4-checkA5"],
         ["v4-checkA5", "*", "*", "L", "v4-checkA6"],
         ["v4-checkA6", "*", "*", "L", "v4-checkA7"],
-        ["v4-checkA7", "0", "*", "L", "write-2a"],
+        ["v4-checkA7", "0", "*", "R", "write-2a-7"],
         ["v4-checkA7", "*", "*", "R", "v4-checkA6-"],
 
         ["v4-checkA6-", "*", "*", "R", "v4-checkA7-"],
@@ -10918,7 +10916,7 @@
         ["v4-checkB4", "*", "*", "L", "v4-checkB5"],
         ["v4-checkB5", "*", "*", "L", "v4-checkB6"],
         ["v4-checkB6", "*", "*", "L", "v4-checkB7"],
-        ["v4-checkB7", "0", "*", "L", "write-2b"],
+        ["v4-checkB7", "0", "*", "R", "write-2b-7"],
         ["v4-checkB7", "*", "*", "R", "v4-checkB6-"],
 
         ["v4-checkB6-", "*", "*", "R", "v4-checkB7-"],
@@ -10962,7 +10960,7 @@
         ["v4-check4-2A", "*", "*", "L", "v4-check5-2A"],
         ["v4-check5-2A", "*", "*", "L", "v4-check6-2A"],
         ["v4-check6-2A", "*", "*", "L", "v4-check7-2A"],
-        ["v4-check7-2A", "A", "*", "L", "write-3a"],
+        ["v4-check7-2A", "A", "*", "R", "write-3a-15"],
         ["v4-check7-2A", "*", "*", "R", "next"],
 
         ["v4-check-2B", "*", "*", "L", "v4-check1-2B"],
@@ -10972,7 +10970,7 @@
         ["v4-check4-2B", "*", "*", "L", "v4-check5-2B"],
         ["v4-check5-2B", "*", "*", "L", "v4-check6-2B"],
         ["v4-check6-2B", "*", "*", "L", "v4-check7-2B"],
-        ["v4-check7-2B", "B", "*", "L", "write-3b"],
+        ["v4-check7-2B", "B", "*", "R", "write-3b-15"],
         ["v4-check7-2B", "*", "*", "R", "next"],
 
         ["v5-checkA", "*", "*", "L", "v5-checkA1"],
@@ -10982,7 +10980,7 @@
         ["v5-checkA4", "*", "*", "L", "v5-checkA5"],
         ["v5-checkA5", "*", "*", "L", "v5-checkA6"],
         ["v5-checkA6", "*", "*", "L", "v5-checkA7"],
-        ["v5-checkA7", "0", "*", "L", "write-1a"],
+        ["v5-checkA7", "0", "*", "R", "write-1a-15"],
         ["v5-checkA7", "*", "*", "R", "v5-checkA6-"],
 
         ["v5-checkA6-", "*", "*", "R", "v5-checkA7-"],
@@ -11016,7 +11014,7 @@
         ["v5-checkA34", "*", "*", "R", "v5-checkA35"],
         ["v5-checkA35", "*", "*", "R", "v5-checkA36"],
         ["v5-checkA36", "*", "*", "R", "v5-checkA37"],
-        ["v5-checkA37", "0", "*", "R", "write-5a"],
+        ["v5-checkA37", "0", "*", "R", "write-5a-7"],
         ["v5-checkA37", "*", "*", "R", "next"],
 
         ["v5-checkB", "*", "*", "L", "v5-checkB1"],
@@ -11026,7 +11024,7 @@
         ["v5-checkB4", "*", "*", "L", "v5-checkB5"],
         ["v5-checkB5", "*", "*", "L", "v5-checkB6"],
         ["v5-checkB6", "*", "*", "L", "v5-checkB7"],
-        ["v5-checkB7", "0", "*", "L", "write-1b"],
+        ["v5-checkB7", "0", "*", "R", "write-1b-15"],
         ["v5-checkB7", "*", "*", "R", "v5-checkB6-"],
 
         ["v5-checkB6-", "*", "*", "R", "v5-checkB7-"],
@@ -11060,7 +11058,7 @@
         ["v5-checkB34", "*", "*", "R", "v5-checkB35"],
         ["v5-checkB35", "*", "*", "R", "v5-checkB36"],
         ["v5-checkB36", "*", "*", "R", "v5-checkB37"],
-        ["v5-checkB37", "0", "*", "R", "write-5b"],
+        ["v5-checkB37", "0", "*", "R", "write-5b-7"],
         ["v5-checkB37", "*", "*", "R", "next"],
 
         ["v5-check-2A", "*", "*", "L", "v5-check1-2A"],
@@ -11070,7 +11068,7 @@
         ["v5-check4-2A", "*", "*", "L", "v5-check5-2A"],
         ["v5-check5-2A", "*", "*", "L", "v5-check6-2A"],
         ["v5-check6-2A", "*", "*", "L", "v5-check7-2A"],
-        ["v5-check7-2A", "A", "*", "L", "write-2a"],
+        ["v5-check7-2A", "A", "*", "R", "write-2a-15"],
         ["v5-check7-2A", "*", "*", "R", "v5-check6--2A"],
 
         ["v5-check6--2A", "*", "*", "R", "v5-check7--2A"],
@@ -11114,7 +11112,7 @@
         ["v5-check42-2A", "*", "*", "R", "v5-check43-2A"],
         ["v5-check43-2A", "*", "*", "R", "v5-check44-2A"],
         ["v5-check44-2A", "*", "*", "R", "v5-check45-2A"],
-        ["v5-check45-2A", "A", "*", "R", "write-5a"],
+        ["v5-check45-2A", "A", "*", "L", "write-5a-1"],
         ["v5-check45-2A", "*", "*", "R", "next"],
 
         ["v5-check-2B", "*", "*", "L", "v5-check1-2B"],
@@ -11124,7 +11122,7 @@
         ["v5-check4-2B", "*", "*", "L", "v5-check5-2B"],
         ["v5-check5-2B", "*", "*", "L", "v5-check6-2B"],
         ["v5-check6-2B", "*", "*", "L", "v5-check7-2B"],
-        ["v5-check7-2B", "B", "*", "L", "write-2b"],
+        ["v5-check7-2B", "B", "*", "R", "write-2b-15"],
         ["v5-check7-2B", "*", "*", "R", "v5-check6--2B"],
 
         ["v5-check6--2B", "*", "*", "R", "v5-check7--2B"],
@@ -11168,7 +11166,7 @@
         ["v5-check42-2B", "*", "*", "R", "v5-check43-2B"],
         ["v5-check43-2B", "*", "*", "R", "v5-check44-2B"],
         ["v5-check44-2B", "*", "*", "R", "v5-check45-2B"],
-        ["v5-check45-2B", "B", "*", "R", "write-5b"],
+        ["v5-check45-2B", "B", "*", "L", "write-5b-1"],
         ["v5-check45-2B", "*", "*", "R", "next"],
 
         ["v6-checkA", "*", "*", "R", "v6-checkA1"],
@@ -11196,7 +11194,7 @@
         ["v6-checkA22", "*", "*", "R", "v6-checkA23"],
         ["v6-checkA23", "*", "*", "R", "v6-checkA24"],
         ["v6-checkA24", "*", "*", "R", "v6-checkA25"],
-        ["v6-checkA25", "0", "*", "R", "write-4a"],
+        ["v6-checkA25", "0", "*", "R", "write-4a-7"],
         ["v6-checkA25", "*", "*", "L", "next"],
 
         ["v6-checkB", "*", "*", "R", "v6-checkB1"],
@@ -11224,7 +11222,7 @@
         ["v6-checkB22", "*", "*", "R", "v6-checkB23"],
         ["v6-checkB23", "*", "*", "R", "v6-checkB24"],
         ["v6-checkB24", "*", "*", "R", "v6-checkB25"],
-        ["v6-checkB25", "0", "*", "R", "write-4b"],
+        ["v6-checkB25", "0", "*", "R", "write-4b-7"],
         ["v6-checkB25", "*", "*", "L", "next"],
 
         ["v6-check-2A", "*", "*", "R", "v6-check1-2A"],
@@ -11252,7 +11250,7 @@
         ["v6-check22-2A", "*", "*", "R", "v6-check23-2A"],
         ["v6-check23-2A", "*", "*", "R", "v6-check24-2A"],
         ["v6-check24-2A", "*", "*", "R", "v6-check25-2A"],
-        ["v6-check25-2A", "A", "*", "R", "write-3a"],
+        ["v6-check25-2A", "A", "*", "L", "write-3a-1"],
         ["v6-check25-2A", "*", "*", "L", "next"],
 
         ["v6-check-2B", "*", "*", "R", "v6-check1-2B"],
@@ -11280,7 +11278,7 @@
         ["v6-check22-2B", "*", "*", "R", "v6-check23-2B"],
         ["v6-check23-2B", "*", "*", "R", "v6-check24-2B"],
         ["v6-check24-2B", "*", "*", "R", "v6-check25-2B"],
-        ["v6-check25-2B", "B", "*", "R", "write-3b"],
+        ["v6-check25-2B", "B", "*", "L", "write-3b-1"],
         ["v6-check25-2B", "*", "*", "L", "next"],
 
         ["v6-check-2A-", "*", "*", "R", "v6-check1-2A-"],
@@ -11317,7 +11315,7 @@
         ["v6-check29-2A-", "*", "*", "R", "v6-check30-2A-"],
         ["v6-check30-2A-", "*", "*", "R", "v6-check31-2A-"],
         ["v6-check31-2A-", "*", "*", "R", "v6-check32-2A-"],
-        ["v6-check32-2A-", "A", "*", "R", "write-4a"],
+        ["v6-check32-2A-", "A", "*", "L", "write-4a-1"],
         ["v6-check32-2A-", "*", "*", "L", "next"],
 
         ["v6-check-2B-", "*", "*", "R", "v6-check1-2B-"],
@@ -11354,7 +11352,7 @@
         ["v6-check29-2B-", "*", "*", "R", "v6-check30-2B-"],
         ["v6-check30-2B-", "*", "*", "R", "v6-check31-2B-"],
         ["v6-check31-2B-", "*", "*", "R", "v6-check32-2B-"],
-        ["v6-check32-2B-", "B", "*", "R", "write-4b"],
+        ["v6-check32-2B-", "B", "*", "L", "write-4b-1"],
         ["v6-check32-2B-", "*", "*", "L", "next"],
 
         ["start-w", "*", "*", "R", "start-w"],
@@ -11590,7 +11588,7 @@
         ["w3-checkA4", "*", "*", "L", "w3-checkA5"],
         ["w3-checkA5", "*", "*", "L", "w3-checkA6"],
         ["w3-checkA6", "*", "*", "L", "w3-checkA7"],
-        ["w3-checkA7", "0", "*", "L", "write-4a"],
+        ["w3-checkA7", "0", "*", "R", "write-4a-7"],
         ["w3-checkA7", "*", "*", "L", "next"],
 
         ["w3-checkB", "*", "*", "L", "w3-checkB1"],
@@ -11600,7 +11598,7 @@
         ["w3-checkB4", "*", "*", "L", "w3-checkB5"],
         ["w3-checkB5", "*", "*", "L", "w3-checkB6"],
         ["w3-checkB6", "*", "*", "L", "w3-checkB7"],
-        ["w3-checkB7", "0", "*", "L", "write-4b"],
+        ["w3-checkB7", "0", "*", "R", "write-4b-7"],
         ["w3-checkB7", "*", "*", "L", "next"],
 
         ["w3-check-2A", "*", "*", "L", "w3-check1-2A"],
@@ -11610,7 +11608,7 @@
         ["w3-check4-2A", "*", "*", "L", "w3-check5-2A"],
         ["w3-check5-2A", "*", "*", "L", "w3-check6-2A"],
         ["w3-check6-2A", "*", "*", "L", "w3-check7-2A"],
-        ["w3-check7-2A", "A", "*", "L", "write-5a"],
+        ["w3-check7-2A", "A", "*", "R", "write-5a-15"],
         ["w3-check7-2A", "*", "*", "L", "next"],
 
         ["w3-check-2B", "*", "*", "L", "w3-check1-2B"],
@@ -11620,7 +11618,7 @@
         ["w3-check4-2B", "*", "*", "L", "w3-check5-2B"],
         ["w3-check5-2B", "*", "*", "L", "w3-check6-2B"],
         ["w3-check6-2B", "*", "*", "L", "w3-check7-2B"],
-        ["w3-check7-2B", "B", "*", "L", "write-5b"],
+        ["w3-check7-2B", "B", "*", "R", "write-5b-15"],
         ["w3-check7-2B", "*", "*", "L", "next"],
 
         ["w4-checkA", "*", "*", "L", "w4-checkA1"],
@@ -11630,7 +11628,7 @@
         ["w4-checkA4", "*", "*", "L", "w4-checkA5"],
         ["w4-checkA5", "*", "*", "L", "w4-checkA6"],
         ["w4-checkA6", "*", "*", "L", "w4-checkA7"],
-        ["w4-checkA7", "0", "*", "L", "write-3a"],
+        ["w4-checkA7", "0", "*", "R", "write-3a-7"],
         ["w4-checkA7", "*", "*", "R", "w4-checkA6-"],
 
         ["w4-checkA6-", "*", "*", "R", "w4-checkA7-"],
@@ -11664,7 +11662,7 @@
         ["w4-checkA34", "*", "*", "R", "w4-checkA35"],
         ["w4-checkA35", "*", "*", "R", "w4-checkA36"],
         ["w4-checkA36", "*", "*", "R", "w4-checkA37"],
-        ["w4-checkA37", "0", "*", "R", "write-7a"],
+        ["w4-checkA37", "0", "*", "R", "write-7a-7"],
         ["w4-checkA37", "*", "*", "R", "next"],
 
         ["w4-checkB", "*", "*", "L", "w4-checkB1"],
@@ -11674,7 +11672,7 @@
         ["w4-checkB4", "*", "*", "L", "w4-checkB5"],
         ["w4-checkB5", "*", "*", "L", "w4-checkB6"],
         ["w4-checkB6", "*", "*", "L", "w4-checkB7"],
-        ["w4-checkB7", "0", "*", "L", "write-3b"],
+        ["w4-checkB7", "0", "*", "R", "write-3b-7"],
         ["w4-checkB7", "*", "*", "R", "w4-checkB6-"],
 
         ["w4-checkB6-", "*", "*", "R", "w4-checkB7-"],
@@ -11708,7 +11706,7 @@
         ["w4-checkB34", "*", "*", "R", "w4-checkB35"],
         ["w4-checkB35", "*", "*", "R", "w4-checkB36"],
         ["w4-checkB36", "*", "*", "R", "w4-checkB37"],
-        ["w4-checkB37", "0", "*", "R", "write-7b"],
+        ["w4-checkB37", "0", "*", "R", "write-7b-7"],
         ["w4-checkB37", "*", "*", "R", "next"],
 
         ["w4-check-2A", "*", "*", "L", "w4-check1-2A"],
@@ -11718,7 +11716,7 @@
         ["w4-check4-2A", "*", "*", "L", "w4-check5-2A"],
         ["w4-check5-2A", "*", "*", "L", "w4-check6-2A"],
         ["w4-check6-2A", "*", "*", "L", "w4-check7-2A"],
-        ["w4-check7-2A", "A", "*", "L", "write-4a"],
+        ["w4-check7-2A", "A", "*", "R", "write-4a-15"],
         ["w4-check7-2A", "*", "*", "R", "next"],
 
         ["w4-check-2B", "*", "*", "L", "w4-check1-2B"],
@@ -11728,7 +11726,7 @@
         ["w4-check4-2B", "*", "*", "L", "w4-check5-2B"],
         ["w4-check5-2B", "*", "*", "L", "w4-check6-2B"],
         ["w4-check6-2B", "*", "*", "L", "w4-check7-2B"],
-        ["w4-check7-2B", "B", "*", "L", "write-4b"],
+        ["w4-check7-2B", "B", "*", "R", "write-4b-15"],
         ["w4-check7-2B", "*", "*", "R", "next"],
 
         ["w5-checkA", "*", "*", "L", "w5-checkA1"],
@@ -11738,7 +11736,7 @@
         ["w5-checkA4", "*", "*", "L", "w5-checkA5"],
         ["w5-checkA5", "*", "*", "L", "w5-checkA6"],
         ["w5-checkA6", "*", "*", "L", "w5-checkA7"],
-        ["w5-checkA7", "0", "*", "L", "write-2a"],
+        ["w5-checkA7", "0", "*", "R", "write-2a-7"],
         ["w5-checkA7", "*", "*", "R", "w5-checkA6-"],
 
         ["w5-checkA6-", "*", "*", "R", "w5-checkA7-"],
@@ -11772,7 +11770,7 @@
         ["w5-checkA34", "*", "*", "R", "w5-checkA35"],
         ["w5-checkA35", "*", "*", "R", "w5-checkA36"],
         ["w5-checkA36", "*", "*", "R", "w5-checkA37"],
-        ["w5-checkA37", "0", "*", "R", "write-6a"],
+        ["w5-checkA37", "0", "*", "R", "write-6a-7"],
         ["w5-checkA37", "*", "*", "R", "next"],
 
         ["w5-checkB", "*", "*", "L", "w5-checkB1"],
@@ -11782,7 +11780,7 @@
         ["w5-checkB4", "*", "*", "L", "w5-checkB5"],
         ["w5-checkB5", "*", "*", "L", "w5-checkB6"],
         ["w5-checkB6", "*", "*", "L", "w5-checkB7"],
-        ["w5-checkB7", "0", "*", "L", "write-2b"],
+        ["w5-checkB7", "0", "*", "R", "write-2b-7"],
         ["w5-checkB7", "*", "*", "R", "w5-checkB6-"],
 
         ["w5-checkB6-", "*", "*", "R", "w5-checkB7-"],
@@ -11816,7 +11814,7 @@
         ["w5-checkB34", "*", "*", "R", "w5-checkB35"],
         ["w5-checkB35", "*", "*", "R", "w5-checkB36"],
         ["w5-checkB36", "*", "*", "R", "w5-checkB37"],
-        ["w5-checkB37", "0", "*", "R", "write-6b"],
+        ["w5-checkB37", "0", "*", "R", "write-6b-7"],
         ["w5-checkB37", "*", "*", "R", "next"],
 
         ["w5-check-2A", "*", "*", "L", "w5-check1-2A"],
@@ -11826,7 +11824,7 @@
         ["w5-check4-2A", "*", "*", "L", "w5-check5-2A"],
         ["w5-check5-2A", "*", "*", "L", "w5-check6-2A"],
         ["w5-check6-2A", "*", "*", "L", "w5-check7-2A"],
-        ["w5-check7-2A", "A", "*", "L", "write-3a"],
+        ["w5-check7-2A", "A", "*", "R", "write-3a-15"],
         ["w5-check7-2A", "*", "*", "R", "w5-check6--2A"],
 
         ["w5-check6--2A", "*", "*", "R", "w5-check7--2A"],
@@ -11870,7 +11868,7 @@
         ["w5-check42-2A", "*", "*", "R", "w5-check43-2A"],
         ["w5-check43-2A", "*", "*", "R", "w5-check44-2A"],
         ["w5-check44-2A", "*", "*", "R", "w5-check45-2A"],
-        ["w5-check45-2A", "A", "*", "R", "write-6a"],
+        ["w5-check45-2A", "A", "*", "L", "write-6a-1"],
         ["w5-check45-2A", "*", "*", "R", "next"],
 
         ["w5-check-2B", "*", "*", "L", "w5-check1-2B"],
@@ -11880,7 +11878,7 @@
         ["w5-check4-2B", "*", "*", "L", "w5-check5-2B"],
         ["w5-check5-2B", "*", "*", "L", "w5-check6-2B"],
         ["w5-check6-2B", "*", "*", "L", "w5-check7-2B"],
-        ["w5-check7-2B", "B", "*", "L", "write-3b"],
+        ["w5-check7-2B", "B", "*", "R", "write-3b-15"],
         ["w5-check7-2B", "*", "*", "R", "w5-check6--2B"],
 
         ["w5-check6--2B", "*", "*", "R", "w5-check7--2B"],
@@ -11924,7 +11922,7 @@
         ["w5-check42-2B", "*", "*", "R", "w5-check43-2B"],
         ["w5-check43-2B", "*", "*", "R", "w5-check44-2B"],
         ["w5-check44-2B", "*", "*", "R", "w5-check45-2B"],
-        ["w5-check45-2B", "B", "*", "R", "write-6b"],
+        ["w5-check45-2B", "B", "*", "L", "write-6b-1"],
         ["w5-check45-2B", "*", "*", "R", "next"],
 
         ["w6-checkA", "*", "*", "R", "w6-checkA1"],
@@ -11952,7 +11950,7 @@
         ["w6-checkA22", "*", "*", "R", "w6-checkA23"],
         ["w6-checkA23", "*", "*", "R", "w6-checkA24"],
         ["w6-checkA24", "*", "*", "R", "w6-checkA25"],
-        ["w6-checkA25", "0", "*", "R", "write-5a"],
+        ["w6-checkA25", "0", "*", "R", "write-5a-7"],
         ["w6-checkA25", "*", "*", "L", "next"],
 
         ["w6-checkB", "*", "*", "R", "w6-checkB1"],
@@ -11980,7 +11978,7 @@
         ["w6-checkB22", "*", "*", "R", "w6-checkB23"],
         ["w6-checkB23", "*", "*", "R", "w6-checkB24"],
         ["w6-checkB24", "*", "*", "R", "w6-checkB25"],
-        ["w6-checkB25", "0", "*", "R", "write-5b"],
+        ["w6-checkB25", "0", "*", "R", "write-5b-7"],
         ["w6-checkB25", "*", "*", "L", "next"],
 
         ["w6-check-2A", "*", "*", "R", "w6-check1-2A"],
@@ -12008,7 +12006,7 @@
         ["w6-check22-2A", "*", "*", "R", "w6-check23-2A"],
         ["w6-check23-2A", "*", "*", "R", "w6-check24-2A"],
         ["w6-check24-2A", "*", "*", "R", "w6-check25-2A"],
-        ["w6-check25-2A", "A", "*", "R", "write-4a"],
+        ["w6-check25-2A", "A", "*", "L", "write-4a-1"],
         ["w6-check25-2A", "*", "*", "L", "next"],
 
         ["w6-check-2B", "*", "*", "R", "w6-check1-2B"],
@@ -12036,7 +12034,7 @@
         ["w6-check22-2B", "*", "*", "R", "w6-check23-2B"],
         ["w6-check23-2B", "*", "*", "R", "w6-check24-2B"],
         ["w6-check24-2B", "*", "*", "R", "w6-check25-2B"],
-        ["w6-check25-2B", "B", "*", "R", "write-4b"],
+        ["w6-check25-2B", "B", "*", "L", "write-4b-1"],
         ["w6-check25-2B", "*", "*", "L", "next"],
 
         ["w6-check-2A-", "*", "*", "R", "w6-check1-2A-"],
@@ -12073,7 +12071,7 @@
         ["w6-check29-2A-", "*", "*", "R", "w6-check30-2A-"],
         ["w6-check30-2A-", "*", "*", "R", "w6-check31-2A-"],
         ["w6-check31-2A-", "*", "*", "R", "w6-check32-2A-"],
-        ["w6-check32-2A-", "A", "*", "R", "write-5a"],
+        ["w6-check32-2A-", "A", "*", "L", "write-5a-1"],
         ["w6-check32-2A-", "*", "*", "L", "next"],
 
         ["w6-check-2B-", "*", "*", "R", "w6-check1-2B-"],
@@ -12110,7 +12108,7 @@
         ["w6-check29-2B-", "*", "*", "R", "w6-check30-2B-"],
         ["w6-check30-2B-", "*", "*", "R", "w6-check31-2B-"],
         ["w6-check31-2B-", "*", "*", "R", "w6-check32-2B-"],
-        ["w6-check32-2B-", "B", "*", "R", "write-5b"],
+        ["w6-check32-2B-", "B", "*", "L", "write-5b-1"],
         ["w6-check32-2B-", "*", "*", "L", "next"],
 
         ["start-x", "*", "*", "R", "start-x"],
@@ -12308,7 +12306,7 @@
         ["x3-checkA4", "*", "*", "L", "x3-checkA5"],
         ["x3-checkA5", "*", "*", "L", "x3-checkA6"],
         ["x3-checkA6", "*", "*", "L", "x3-checkA7"],
-        ["x3-checkA7", "0", "*", "L", "write-4a"],
+        ["x3-checkA7", "0", "*", "R", "write-4a-7"],
         ["x3-checkA7", "*", "*", "L", "next"],
 
         ["x3-checkB", "*", "*", "L", "x3-checkB1"],
@@ -12318,7 +12316,7 @@
         ["x3-checkB4", "*", "*", "L", "x3-checkB5"],
         ["x3-checkB5", "*", "*", "L", "x3-checkB6"],
         ["x3-checkB6", "*", "*", "L", "x3-checkB7"],
-        ["x3-checkB7", "0", "*", "L", "write-4b"],
+        ["x3-checkB7", "0", "*", "R", "write-4b-7"],
         ["x3-checkB7", "*", "*", "L", "next"],
 
         ["x3-check-2A", "*", "*", "L", "x3-check1-2A"],
@@ -12328,7 +12326,7 @@
         ["x3-check4-2A", "*", "*", "L", "x3-check5-2A"],
         ["x3-check5-2A", "*", "*", "L", "x3-check6-2A"],
         ["x3-check6-2A", "*", "*", "L", "x3-check7-2A"],
-        ["x3-check7-2A", "A", "*", "L", "write-5a"],
+        ["x3-check7-2A", "A", "*", "R", "write-5a-15"],
         ["x3-check7-2A", "*", "*", "L", "next"],
 
         ["x3-check-2B", "*", "*", "L", "x3-check1-2B"],
@@ -12338,7 +12336,7 @@
         ["x3-check4-2B", "*", "*", "L", "x3-check5-2B"],
         ["x3-check5-2B", "*", "*", "L", "x3-check6-2B"],
         ["x3-check6-2B", "*", "*", "L", "x3-check7-2B"],
-        ["x3-check7-2B", "B", "*", "L", "write-5b"],
+        ["x3-check7-2B", "B", "*", "R", "write-5b-15"],
         ["x3-check7-2B", "*", "*", "L", "next"],
 
         ["x4-checkA", "*", "*", "L", "x4-checkA1"],
@@ -12348,7 +12346,7 @@
         ["x4-checkA4", "*", "*", "L", "x4-checkA5"],
         ["x4-checkA5", "*", "*", "L", "x4-checkA6"],
         ["x4-checkA6", "*", "*", "L", "x4-checkA7"],
-        ["x4-checkA7", "0", "*", "L", "write-3a"],
+        ["x4-checkA7", "0", "*", "R", "write-3a-7"],
         ["x4-checkA7", "*", "*", "R", "x4-checkA6-"],
 
         ["x4-checkA6-", "*", "*", "R", "x4-checkA7-"],
@@ -12381,7 +12379,7 @@
         ["x4-checkA33", "*", "*", "R", "x4-checkA34"],
         ["x4-checkA34", "*", "*", "R", "x4-checkA35"],
         ["x4-checkA35", "*", "*", "R", "x4-checkA36"],
-        ["x4-checkA36", "0", "*", "R", "write-7a"],
+        ["x4-checkA36", "0", "*", "R", "write-7a-7"],
         ["x4-checkA36", "*", "*", "R", "next"],
 
         ["x4-checkB", "*", "*", "L", "x4-checkB1"],
@@ -12391,7 +12389,7 @@
         ["x4-checkB4", "*", "*", "L", "x4-checkB5"],
         ["x4-checkB5", "*", "*", "L", "x4-checkB6"],
         ["x4-checkB6", "*", "*", "L", "x4-checkB7"],
-        ["x4-checkB7", "0", "*", "L", "write-3b"],
+        ["x4-checkB7", "0", "*", "R", "write-3b-7"],
         ["x4-checkB7", "*", "*", "R", "x4-checkB6-"],
 
         ["x4-checkB6-", "*", "*", "R", "x4-checkB7-"],
@@ -12424,7 +12422,7 @@
         ["x4-checkB33", "*", "*", "R", "x4-checkB34"],
         ["x4-checkB34", "*", "*", "R", "x4-checkB35"],
         ["x4-checkB35", "*", "*", "R", "x4-checkB36"],
-        ["x4-checkB36", "0", "*", "R", "write-7b"],
+        ["x4-checkB36", "0", "*", "R", "write-7b-7"],
         ["x4-checkB36", "*", "*", "R", "next"],
 
         ["x4-check-2A", "*", "*", "L", "x4-check1-2A"],
@@ -12434,7 +12432,7 @@
         ["x4-check4-2A", "*", "*", "L", "x4-check5-2A"],
         ["x4-check5-2A", "*", "*", "L", "x4-check6-2A"],
         ["x4-check6-2A", "*", "*", "L", "x4-check7-2A"],
-        ["x4-check7-2A", "A", "*", "L", "write-4a"],
+        ["x4-check7-2A", "A", "*", "R", "write-4a-15"],
         ["x4-check7-2A", "*", "*", "R", "next"],
 
         ["x4-check-2B", "*", "*", "L", "x4-check1-2B"],
@@ -12444,7 +12442,7 @@
         ["x4-check4-2B", "*", "*", "L", "x4-check5-2B"],
         ["x4-check5-2B", "*", "*", "L", "x4-check6-2B"],
         ["x4-check6-2B", "*", "*", "L", "x4-check7-2B"],
-        ["x4-check7-2B", "B", "*", "L", "write-4b"],
+        ["x4-check7-2B", "B", "*", "R", "write-4b-15"],
         ["x4-check7-2B", "*", "*", "R", "next"],
 
         ["x5-checkA", "*", "*", "R", "x5-checkA1"],
@@ -12472,7 +12470,7 @@
         ["x5-checkA22", "*", "*", "R", "x5-checkA23"],
         ["x5-checkA23", "*", "*", "R", "x5-checkA24"],
         ["x5-checkA24", "*", "*", "R", "x5-checkA25"],
-        ["x5-checkA25", "0", "*", "R", "write-6a"],
+        ["x5-checkA25", "0", "*", "R", "write-6a-7"],
         ["x5-checkA25", "*", "*", "R", "next"],
 
         ["x5-checkB", "*", "*", "R", "x5-checkB1"],
@@ -12500,7 +12498,7 @@
         ["x5-checkB22", "*", "*", "R", "x5-checkB23"],
         ["x5-checkB23", "*", "*", "R", "x5-checkB24"],
         ["x5-checkB24", "*", "*", "R", "x5-checkB25"],
-        ["x5-checkB25", "0", "*", "R", "write-6b"],
+        ["x5-checkB25", "0", "*", "R", "write-6b-7"],
         ["x5-checkB25", "*", "*", "R", "next"],
 
         ["x5-check-2A-", "*", "*", "R", "x5-check1-2A-"],
@@ -12538,7 +12536,7 @@
         ["x5-check30-2A-", "*", "*", "R", "x5-check31-2A-"],
         ["x5-check31-2A-", "*", "*", "R", "x5-check32-2A-"],
         ["x5-check32-2A-", "*", "*", "R", "x5-check33-2A-"],
-        ["x5-check33-2A-", "A", "*", "R", "write-6a"],
+        ["x5-check33-2A-", "A", "*", "L", "write-6a-1"],
         ["x5-check33-2A-", "*", "*", "L", "next"],
 
         ["x5-check-2B-", "*", "*", "R", "x5-check1-2B-"],
@@ -12576,7 +12574,7 @@
         ["x5-check30-2B-", "*", "*", "R", "x5-check31-2B-"],
         ["x5-check31-2B-", "*", "*", "R", "x5-check32-2B-"],
         ["x5-check32-2B-", "*", "*", "R", "x5-check33-2B-"],
-        ["x5-check33-2B-", "B", "*", "R", "write-6b"],
+        ["x5-check33-2B-", "B", "*", "L", "write-6b-1"],
         ["x5-check33-2B-", "*", "*", "L", "next"],
 
         ["x5-check-2A", "*", "*", "R", "x5-check1-2A"],
@@ -12604,7 +12602,7 @@
         ["x5-check22-2A", "*", "*", "R", "x5-check23-2A"],
         ["x5-check23-2A", "*", "*", "R", "x5-check24-2A"],
         ["x5-check24-2A", "*", "*", "R", "x5-check25-2A"],
-        ["x5-check25-2A", "A", "*", "R", "write-5a"],
+        ["x5-check25-2A", "A", "*", "L", "write-5a-1"],
         ["x5-check25-2A", "*", "*", "R", "next"],
 
         ["x5-check-2B", "*", "*", "R", "x5-check1-2B"],
@@ -12632,7 +12630,7 @@
         ["x5-check22-2B", "*", "*", "R", "x5-check23-2B"],
         ["x5-check23-2B", "*", "*", "R", "x5-check24-2B"],
         ["x5-check24-2B", "*", "*", "R", "x5-check25-2B"],
-        ["x5-check25-2B", "B", "*", "R", "write-5b"],
+        ["x5-check25-2B", "B", "*", "L", "write-5b-1"],
         ["x5-check25-2B", "*", "*", "R", "next"],
 
         ["start-y", "*", "*", "R", "start-y"],
@@ -12786,7 +12784,7 @@
         ["y3-checkA4", "*", "*", "L", "y3-checkA5"],
         ["y3-checkA5", "*", "*", "L", "y3-checkA6"],
         ["y3-checkA6", "*", "*", "L", "y3-checkA7"],
-        ["y3-checkA7", "0", "*", "L", "write-4a"],
+        ["y3-checkA7", "0", "*", "R", "write-4a-7"],
         ["y3-checkA7", "*", "*", "L", "next"],
 
         ["y3-checkB", "*", "*", "L", "y3-checkB1"],
@@ -12796,7 +12794,7 @@
         ["y3-checkB4", "*", "*", "L", "y3-checkB5"],
         ["y3-checkB5", "*", "*", "L", "y3-checkB6"],
         ["y3-checkB6", "*", "*", "L", "y3-checkB7"],
-        ["y3-checkB7", "0", "*", "L", "write-4b"],
+        ["y3-checkB7", "0", "*", "R", "write-4b-7"],
         ["y3-checkB7", "*", "*", "L", "next"],
 
         ["y3-check-2A", "*", "*", "L", "y3-check1-2A"],
@@ -12806,7 +12804,7 @@
         ["y3-check4-2A", "*", "*", "L", "y3-check5-2A"],
         ["y3-check5-2A", "*", "*", "L", "y3-check6-2A"],
         ["y3-check6-2A", "*", "*", "L", "y3-check7-2A"],
-        ["y3-check7-2A", "A", "*", "L", "write-5a"],
+        ["y3-check7-2A", "A", "*", "R", "write-5a-15"],
         ["y3-check7-2A", "*", "*", "L", "next"],
 
         ["y3-check-2B", "*", "*", "L", "y3-check1-2B"],
@@ -12816,7 +12814,7 @@
         ["y3-check4-2B", "*", "*", "L", "y3-check5-2B"],
         ["y3-check5-2B", "*", "*", "L", "y3-check6-2B"],
         ["y3-check6-2B", "*", "*", "L", "y3-check7-2B"],
-        ["y3-check7-2B", "B", "*", "L", "write-5b"],
+        ["y3-check7-2B", "B", "*", "R", "write-5b-15"],
         ["y3-check7-2B", "*", "*", "L", "next"],
 
         ["y4-checkA", "*", "*", "R", "y4-checkA1"],
@@ -12844,7 +12842,7 @@
         ["y4-checkA22", "*", "*", "R", "y4-checkA23"],
         ["y4-checkA23", "*", "*", "R", "y4-checkA24"],
         ["y4-checkA24", "*", "*", "R", "y4-checkA25"],
-        ["y4-checkA25", "0", "*", "R", "write-7a"],
+        ["y4-checkA25", "0", "*", "R", "write-7a-7"],
         ["y4-checkA25", "*", "*", "R", "next"],
 
         ["y4-checkB", "*", "*", "R", "y4-checkB1"],
@@ -12872,7 +12870,7 @@
         ["y4-checkB22", "*", "*", "R", "y4-checkB23"],
         ["y4-checkB23", "*", "*", "R", "y4-checkB24"],
         ["y4-checkB24", "*", "*", "R", "y4-checkB25"],
-        ["y4-checkB25", "0", "*", "R", "write-7b"],
+        ["y4-checkB25", "0", "*", "R", "write-7b-7"],
         ["y4-checkB25", "*", "*", "R", "next"],
 
         ["y4-check-2A", "*", "*", "R", "y4-check1-2A"],
@@ -12900,7 +12898,7 @@
         ["y4-check22-2A", "*", "*", "R", "y4-check23-2A"],
         ["y4-check23-2A", "*", "*", "R", "y4-check24-2A"],
         ["y4-check24-2A", "*", "*", "R", "y4-check25-2A"],
-        ["y4-check25-2A", "A", "*", "R", "write-6a"],
+        ["y4-check25-2A", "A", "*", "L", "write-6a-1"],
         ["y4-check25-2A", "*", "*", "R", "next"],
 
         ["y4-check-2B", "*", "*", "R", "y4-check1-2B"],
@@ -12928,7 +12926,7 @@
         ["y4-check22-2B", "*", "*", "R", "y4-check23-2B"],
         ["y4-check23-2B", "*", "*", "R", "y4-check24-2B"],
         ["y4-check24-2B", "*", "*", "R", "y4-check25-2B"],
-        ["y4-check25-2B", "B", "*", "R", "write-6b"],
+        ["y4-check25-2B", "B", "*", "L", "write-6b-1"],
         ["y4-check25-2B", "*", "*", "R", "next"],
 
         ["write-1a-15", "*", "*", "R", "write-1a-14"],
