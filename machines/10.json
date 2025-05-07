@@ -1,7 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
-    "tape": "#B######B#B####A#A###AABB#A#AABB#BBABAA#BA",
+    "tape": "#######B######A######A######AB#####BAABBBA",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -224,9 +224,9 @@
         ["a-5BB", "0", "*", "L", "a-check-5BB"],
 
         ["a-6AA", "A", "*", "L", "a-check-6A"],
-        ["a-6AA", "B", "*", "R", "a-check-6AA"],
+        ["a-6AA", "B", "*", "L", "a-check-6AA"],
         ["a-6AA", "0", "*", "L", "a-check-6AA"],
-        ["a-6BB", "A", "*", "R", "a-check-6BB"],
+        ["a-6BB", "A", "*", "L", "a-check-6BB"],
         ["a-6BB", "B", "*", "L", "a-check-6B"],
         ["a-6BB", "0", "*", "L", "a-check-6BB"],
 
@@ -510,9 +510,9 @@
         ["b-5BB", "0", "*", "L", "b-check-5BB"],
 
         ["b-6AA", "A", "*", "L", "b-check-6A"],
-        ["b-6AA", "B", "*", "R", "b-check-6AA"],
+        ["b-6AA", "B", "*", "L", "b-check-6AA"],
         ["b-6AA", "0", "*", "L", "b-check-6AA"],
-        ["b-6BB", "A", "*", "R", "b-check-6BB"],
+        ["b-6BB", "A", "*", "L", "b-check-6BB"],
         ["b-6BB", "B", "*", "L", "b-check-6B"],
         ["b-6BB", "0", "*", "L", "b-check-6BB"],
 
@@ -803,9 +803,9 @@
         ["c-5BB", "0", "*", "L", "c-check-5BB"],
 
         ["c-6AA", "A", "*", "L", "c-check-6A"],
-        ["c-6AA", "B", "*", "R", "c-check-6AA"],
+        ["c-6AA", "B", "*", "L", "c-check-6AA"],
         ["c-6AA", "0", "*", "L", "c-check-6AA"],
-        ["c-6BB", "A", "*", "R", "c-check-6BB"],
+        ["c-6BB", "A", "*", "L", "c-check-6BB"],
         ["c-6BB", "B", "*", "L", "c-check-6B"],
         ["c-6BB", "0", "*", "L", "c-check-6BB"],
 
@@ -1103,9 +1103,9 @@
         ["d-5BB", "0", "*", "L", "d-check-5BB"],
 
         ["d-6AA", "A", "*", "L", "d-check-6A"],
-        ["d-6AA", "B", "*", "R", "d-check-6AA"],
+        ["d-6AA", "B", "*", "L", "d-check-6AA"],
         ["d-6AA", "0", "*", "L", "d-check-6AA"],
-        ["d-6BB", "A", "*", "R", "d-check-6BB"],
+        ["d-6BB", "A", "*", "L", "d-check-6BB"],
         ["d-6BB", "B", "*", "L", "d-check-6B"],
         ["d-6BB", "0", "*", "L", "d-check-6BB"],
 
@@ -1410,9 +1410,9 @@
         ["e-5BB", "0", "*", "L", "e-check-5BB"],
 
         ["e-6AA", "A", "*", "L", "e-check-6A"],
-        ["e-6AA", "B", "*", "R", "e-check-6AA"],
+        ["e-6AA", "B", "*", "L", "e-check-6AA"],
         ["e-6AA", "0", "*", "L", "e-check-6AA"],
-        ["e-6BB", "A", "*", "R", "e-check-6BB"],
+        ["e-6BB", "A", "*", "L", "e-check-6BB"],
         ["e-6BB", "B", "*", "L", "e-check-6B"],
         ["e-6BB", "0", "*", "L", "e-check-6BB"],
 
@@ -1681,9 +1681,9 @@
         ["f-5BB", "0", "*", "L", "f-check-5BB"],
 
         ["f-6AA", "A", "*", "L", "f-check-6A"],
-        ["f-6AA", "B", "*", "R", "f-check-6AA"],
+        ["f-6AA", "B", "*", "L", "f-check-6AA"],
         ["f-6AA", "0", "*", "L", "f-check-6AA"],
-        ["f-6BB", "A", "*", "R", "f-check-6BB"],
+        ["f-6BB", "A", "*", "L", "f-check-6BB"],
         ["f-6BB", "B", "*", "L", "f-check-6B"],
         ["f-6BB", "0", "*", "L", "f-check-6BB"],
 
@@ -3627,7 +3627,7 @@
         ["i4-check-backA-25", "*", "*", "R", "i4-check-backA-26"],
         ["i4-check-backA-26", "*", "*", "R", "i4-check-backA-27"],
         ["i4-check-backA-27", "0", "*", "R", "write-5a"],
-        ["i4-check-backA-27", "*", "*", "L", "i4-go-back"],
+        ["i4-check-backA-27", "*", "*", "L", "i4-go-back-1"],
 
         ["i4-check-backB", "*", "*", "R", "i4-check-backB-1"],
         ["i4-check-backB-1", "*", "*", "R", "i4-check-backB-2"],
@@ -6577,7 +6577,7 @@
         ["m4-check-backA-25", "*", "*", "R", "m4-check-backA-26"],
         ["m4-check-backA-26", "*", "*", "R", "m4-check-backA-27"],
         ["m4-check-backA-27", "0", "*", "R", "write-1a"],
-        ["m4-check-backA-27", "*", "*", "L", "m4-go-back"],
+        ["m4-check-backA-27", "*", "*", "L", "m4-go-back-1"],
 
         ["m4-check-backB", "*", "*", "R", "m4-check-backB-1"],
         ["m4-check-backB-1", "*", "*", "R", "m4-check-backB-2"],
