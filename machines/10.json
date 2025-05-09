@@ -1,7 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
-    "tape": "###############B######AAA####BBAB#B#AABA#B",
+    "tape": "###AA####ABBA###ABBB###BBAB##AAABA#ABBBAAB",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -2798,7 +2798,7 @@
         ["g4-check-backA-25", "*", "*", "R", "g4-check-backA-26"],
         ["g4-check-backA-26", "*", "*", "R", "g4-check-backA-27"],
         ["g4-check-backA-27", "0", "*", "R", "write-7a"],
-        ["g4-check-backA-27", "*", "*", "L", "g4-go-back"],
+        ["g4-check-backA-27", "*", "*", "L", "g4-go-back-1"],
 
         ["g4-check-backB", "*", "*", "R", "g4-check-backB-1"],
         ["g4-check-backB-1", "*", "*", "R", "g4-check-backB-2"],
@@ -3532,7 +3532,7 @@
         ["h4-check-backA-25", "*", "*", "R", "h4-check-backA-26"],
         ["h4-check-backA-26", "*", "*", "R", "h4-check-backA-27"],
         ["h4-check-backA-27", "0", "*", "R", "write-6a"],
-        ["h4-check-backA-27", "*", "*", "L", "h4-go-back"],
+        ["h4-check-backA-27", "*", "*", "L", "h4-go-back-1"],
 
         ["h4-check-backB", "*", "*", "R", "h4-check-backB-1"],
         ["h4-check-backB-1", "*", "*", "R", "h4-check-backB-2"],
@@ -5003,7 +5003,7 @@
         ["j4-check-backA-25", "*", "*", "R", "j4-check-backA-26"],
         ["j4-check-backA-26", "*", "*", "R", "j4-check-backA-27"],
         ["j4-check-backA-27", "0", "*", "R", "write-4a"],
-        ["j4-check-backA-27", "*", "*", "L", "j4-go-back"],
+        ["j4-check-backA-27", "*", "*", "L", "j4-go-back-1"],
 
         ["j4-check-backB", "*", "*", "R", "j4-check-backB-1"],
         ["j4-check-backB-1", "*", "*", "R", "j4-check-backB-2"],
@@ -5740,7 +5740,7 @@
         ["k4-check-backA-25", "*", "*", "R", "k4-check-backA-26"],
         ["k4-check-backA-26", "*", "*", "R", "k4-check-backA-27"],
         ["k4-check-backA-27", "0", "*", "R", "write-3a"],
-        ["k4-check-backA-27", "*", "*", "L", "k4-go-back"],
+        ["k4-check-backA-27", "*", "*", "L", "k4-go-back-1"],
 
         ["k4-check-backB", "*", "*", "R", "k4-check-backB-1"],
         ["k4-check-backB-1", "*", "*", "R", "k4-check-backB-2"],
@@ -9233,7 +9233,7 @@
         ["q5-1B", "B", "*", "L", "q5-2BB"],
         ["q5-1BB", "0", "*", "L", "q5-check-2B"],
         ["q5-1BB", "A", "*", "L", "q5-check-2B"],
-        ["q5-1BB", "B", "*", "L", "q5-check"],
+        ["q5-1BB", "B", "*", "L", "q5-checkB"],
         ["q5-2A", "*", "*", "L", "q5-3A"],
         ["q5-2B", "*", "*", "L", "q5-3B"],
         ["q5-2AA", "*", "*", "L", "q5-3AA"],
