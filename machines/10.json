@@ -1,7 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
-    "tape": "#########BA####AAB####BAAB##BBAAA##ABBABB#",
+    "tape": "BA#####AA#####BAB####ABBB###BAAA###AABBBAB",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -11731,7 +11731,7 @@
         ["v5-1B", "*", "*", "L", "next"],
         ["v5-1B", "B", "*", "L", "v5-2BB"],
         ["v5-1BB", "0", "*", "L", "v5-check-2B"],
-        ["v5-1BB", "A", "*", "L", "v5-check-12-2B"],
+        ["v5-1BB", "A", "*", "L", "v5-check12-2B"],
         ["v5-1BB", "B", "*", "L", "v5-checkB"],
         ["v5-2A", "*", "*", "L", "v5-3A"],
         ["v5-2B", "*", "*", "L", "v5-3B"],
