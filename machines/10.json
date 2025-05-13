@@ -1,7 +1,7 @@
 { 
     "initial": "start",
     "blank": "#",
-    "tape": "BA#####AA#####BAB####ABBB###BAAA###AABBBAB",
+    "tape": "#####B###B#BA###A#BB###BAAA#A#BABA#B#ABAAB",
     "transitions": [
         ["start", "#", "0", "R", "start-1-2"],
         ["start", "*", "*", "R", "start-1-2"],
@@ -1535,7 +1535,7 @@
         
         ["d-check-5A", "*", "*", "L", "d-check-5A-"],
         ["d-check-5A-", "*", "*", "L", "d-check-5A--"],
-        ["d-check-5A--", "0", "*", "R", "d-val-4A"],
+        ["d-check-5A--", "0", "*", "R", "d-val-5A"],
         ["d-check-5A--", "*", "*", "R", "d-check-5A-1"],
         ["d-check-5A-1", "*", "*", "R", "d-check-5A-2"],
         ["d-check-5A-2", "*", "*", "R", "d-check-5A-3"],
@@ -1545,7 +1545,7 @@
 
         ["d-check-5B", "*", "*", "L", "d-check-5B-"],
         ["d-check-5B-", "*", "*", "L", "d-check-5B--"],
-        ["d-check-5B--", "0", "*", "R", "d-val-4B"],
+        ["d-check-5B--", "0", "*", "R", "d-val-5B"],
         ["d-check-5B--", "*", "*", "R", "d-check-5B-1"],
         ["d-check-5B-1", "*", "*", "R", "d-check-5B-2"],
         ["d-check-5B-2", "*", "*", "R", "d-check-5B-3"],
@@ -1635,7 +1635,7 @@
 
         ["d-check-6A", "*", "*", "L", "d-check-6A-"],
         ["d-check-6A-", "*", "*", "L", "d-check-6A--"],
-        ["d-check-6A--", "0", "*", "R", "d-val-4A"],
+        ["d-check-6A--", "0", "*", "R", "d-val-6A"],
         ["d-check-6A--", "*", "*", "R", "d-check-6A-1"],
         ["d-check-6A-1", "*", "*", "R", "d-check-6A-2"],
         ["d-check-6A-2", "*", "*", "R", "d-check-6A-3"],
@@ -1645,7 +1645,7 @@
 
         ["d-check-6B", "*", "*", "L", "d-check-6B-"],
         ["d-check-6B-", "*", "*", "L", "d-check-6B--"],
-        ["d-check-6B--", "0", "*", "R", "d-val-4B"],
+        ["d-check-6B--", "0", "*", "R", "d-val-6B"],
         ["d-check-6B--", "*", "*", "R", "d-check-6B-1"],
         ["d-check-6B-1", "*", "*", "R", "d-check-6B-2"],
         ["d-check-6B-2", "*", "*", "R", "d-check-6B-3"],
@@ -8651,7 +8651,7 @@
         ["p5-1B", "B", "*", "L", "p5-2BB"],
         ["p5-1BB", "0", "*", "L", "p5-check-2B"],
         ["p5-1BB", "A", "*", "L", "p5-check-2B"],
-        ["p5-1BB", "B", "*", "L", "p5-check"],
+        ["p5-1BB", "B", "*", "L", "p5-checkB"],
         ["p5-2A", "*", "*", "L", "p5-3A"],
         ["p5-2B", "*", "*", "L", "p5-3B"],
         ["p5-2AA", "*", "*", "L", "p5-3AA"],
@@ -10524,7 +10524,7 @@
         ["s1-6A", "*", "*", "L", "s2-1A"],
         ["s1-6B", "*", "*", "L", "s2-1B"],
 
-        ["s2-1", "0", "*", "R", "s2-2"],
+        ["s2-1", "0", "*", "L", "s2-2"],
         ["s2-1", "A", "*", "L", "s2-2A"],
         ["s2-1", "B", "*", "L", "s2-2B"],
         ["s2-1A", "0", "*", "L", "s2-2"],
@@ -10609,7 +10609,7 @@
         ["s3-checkA2", "*", "*", "L", "s3-checkA3"],
         ["s3-checkA3", "*", "*", "L", "s3-checkA4"],
         ["s3-checkA4", "*", "*", "L", "s3-checkA5"],
-        ["s3-checkA5", "0", "*", "L", "write-4a"],
+        ["s3-checkA5", "0", "*", "R", "write-4a-7"],
         ["s3-checkA5", "*", "*", "L", "next"],
 
         ["s3-checkB", "*", "*", "L", "s3-checkB1"],
